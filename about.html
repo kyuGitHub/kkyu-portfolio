@@ -3,522 +3,909 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hello, 뀨 — 김현규</title>
+<title>소개 · 김현규 — Fintech PM × AI Agent Operator</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap" />
 <link rel="stylesheet" href="assets/tokens.css" />
+<link rel="stylesheet" href="assets/shared.css" />
 <style>
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  a { text-decoration: none; color: inherit; }
-  img, svg { display: block; }
+/* ============================================================
+   ABOUT — 소개
+   ============================================================ */
 
-  /* ── DS Buttons ── */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    gap: 8px; border: 1px solid transparent; border-radius: var(--r-pill);
-    font-family: inherit; font-weight: 600; cursor: pointer;
-    transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
-    white-space: nowrap; text-decoration: none;
-  }
-  .btn-md { height: 44px; padding: 0 22px; font-size: 14px; }
-  .btn-primary { background: var(--blue-500); color: white; box-shadow: 0 4px 16px rgba(30,64,175,.24); }
-  .btn-primary:hover { background: var(--blue-600); transform: translateY(-1px); }
+/* ── Page intro ── */
+.about-intro { padding: 180px 56px 80px; max-width: 1600px; margin: 0 auto; }
+.about-intro-grid {
+  display: grid; grid-template-columns: 1fr auto; gap: 64px;
+  align-items: end;
+  border-bottom: 1px solid var(--fg);
+  padding-bottom: 56px;
+}
+.about-intro-title {
+  font-size: clamp(56px, 9vw, 156px);
+  font-weight: 900; line-height: 0.88; letter-spacing: -0.06em;
+  margin: 0;
+  font-feature-settings: "ss03";
+}
+.about-intro-title .point { color: var(--point); }
+.about-intro-title .outlined {
+  -webkit-text-stroke: 2.5px var(--fg);
+  color: transparent;
+}
+.about-intro-meta {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 16px;
+  text-align: right;
+}
+.about-intro-meta-num {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.16em; color: var(--fg-subtle);
+}
+.about-intro-meta-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; max-width: 320px; }
 
-  /* ── Gradient Text ── */
-  .grad {
-    background: linear-gradient(135deg, var(--blue-500) 0%, var(--navy-400) 40%, var(--blue-300) 100%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
+/* ── Quick info bar ── */
+.about-info-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  padding: 48px 56px 48px;
+  border-bottom: 1px solid var(--border);
+  max-width: 1600px; margin: 0 auto;
+}
+.info-block { display: flex; flex-direction: column; gap: 8px; }
+.info-block-label {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-subtle);
+}
+.info-block-value { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; }
+.info-block-sub { font-size: 13px; color: var(--fg-muted); }
 
-  /* ── Fixed Top Nav ── */
-  .nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    height: 64px; padding: 0 160px;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(250, 251, 253, 0.92);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--border);
-    transition: box-shadow var(--dur-base);
-  }
-  .nav.scrolled { box-shadow: var(--sh-2); }
-  .nav-logo {
-    display: flex; align-items: center; gap: 12px;
-    font-weight: 800; font-size: 17px; letter-spacing: -0.03em; color: var(--fg);
-  }
-  .nav-center { display: flex; align-items: center; gap: 2px; }
-  .nav-link {
-    padding: 8px 16px; border-radius: var(--r-pill);
-    font-size: 14px; font-weight: 500; color: var(--fg-muted);
-    transition: background var(--dur-fast), color var(--dur-fast);
-  }
-  .nav-link:hover { background: var(--gray-100); color: var(--fg); }
-  .nav-link.active { color: var(--blue-700); font-weight: 700; background: var(--blue-50); }
+/* ── Philosophy block ── */
+.philosophy {
+  padding: 160px 56px;
+  max-width: 1600px; margin: 0 auto;
+}
+.philosophy-grid {
+  display: grid; grid-template-columns: 280px 1fr; gap: 80px;
+  align-items: start;
+}
+.philosophy-meta {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-subtle);
+}
+.philosophy-meta-num {
+  font-size: 96px; font-weight: 900; color: var(--fg);
+  letter-spacing: -0.04em; line-height: 1; margin-bottom: 24px;
+}
+.philosophy-quote {
+  font-size: clamp(28px, 3.6vw, 60px);
+  font-weight: 800; line-height: 1.15; letter-spacing: -0.04em;
+  margin: 0 0 56px;
+  position: relative;
+}
+.philosophy-quote::before {
+  content: "“"; position: absolute;
+  left: -0.4em; top: -0.4em;
+  font-family: Georgia, serif; font-size: 1.6em; color: var(--point);
+  font-weight: 400; line-height: 1; opacity: 0.5;
+}
+.philosophy-quote .point { color: var(--point); }
+.philosophy-quote .strike { text-decoration: line-through; text-decoration-color: var(--gray-300); color: var(--fg-subtle); }
+.philosophy-body {
+  font-size: 17px; line-height: 1.75; color: var(--fg-muted);
+  max-width: 720px;
+}
+.philosophy-body + .philosophy-body { margin-top: 16px; }
+.philosophy-body strong { color: var(--fg); font-weight: 700; }
 
-  /* ── Page Shell ── */
-  .page-wrap {
-    max-width: 1800px;
-    margin: 0 auto;
-    padding: 110px 160px 140px;
-  }
+/* ── Competencies — big numbered ── */
+.compt {
+  padding: 0 56px 160px;
+  max-width: 1600px; margin: 0 auto;
+}
+.compt-list {
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--fg);
+}
+.compt-row {
+  display: grid; grid-template-columns: 120px 1fr 1fr 200px;
+  gap: 56px; align-items: start;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  transition: padding var(--dur-base);
+}
+.compt-row:hover { padding-left: 24px; }
+.compt-row:last-child { border-bottom: 1px solid var(--fg); }
+.compt-num {
+  font-family: var(--font-mono); font-size: 64px; font-weight: 900;
+  letter-spacing: -0.04em; color: var(--fg-subtle);
+  line-height: 1;
+  transition: color var(--dur-base);
+}
+.compt-row:hover .compt-num { color: var(--point); }
+.compt-title {
+  font-size: clamp(28px, 3vw, 48px); font-weight: 900;
+  letter-spacing: -0.035em; line-height: 1.05;
+  margin: 0 0 16px;
+}
+.compt-tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.compt-list-detail { display: flex; flex-direction: column; gap: 10px; }
+.compt-list-detail li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 15px; color: var(--fg-muted); line-height: 1.55;
+  list-style: none;
+  padding-left: 0;
+}
+.compt-list-detail li::before {
+  content: ""; flex-shrink: 0; margin-top: 8px;
+  width: 8px; height: 8px; border-radius: 999px;
+  background: var(--fg);
+}
+.compt-row:hover .compt-list-detail li::before { background: var(--point); }
+.compt-list-detail ul { padding: 0; margin: 0; }
+.compt-side {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--fg-subtle);
+  text-align: right;
+}
 
-  /* ── Eyebrow ── */
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
-    letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue-600); margin-bottom: 12px;
-  }
-  .eyebrow::before { content: ""; width: 20px; height: 1px; background: var(--blue-500); }
+/* ── Skills ── */
+.skills {
+  padding: 160px 56px;
+  background: var(--fg); color: var(--bg);
+}
+.skills-inner { max-width: 1600px; margin: 0 auto; }
+.skills-head { margin-bottom: 80px; max-width: 800px; }
+.skills-head .eyebrow {
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 32px;
+}
+.skills-head .eyebrow::before { background: var(--point); }
+.skills-head-title {
+  font-size: clamp(40px, 5vw, 80px); font-weight: 900;
+  letter-spacing: -0.045em; line-height: 1.0; margin: 0;
+  color: white;
+}
+.skills-head-title .point { color: var(--point); }
+.skills-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.skill-cat {
+  padding: 48px 48px 48px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.skill-cat:nth-child(2n) { padding-left: 48px; padding-right: 0; border-left: 1px solid rgba(255,255,255,0.15); }
+.skill-cat-num {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 20px;
+}
+.skill-cat-num strong { color: var(--point); font-weight: 800; }
+.skill-cat-title {
+  font-size: clamp(22px, 2.4vw, 36px); font-weight: 800;
+  letter-spacing: -0.025em; margin: 0 0 24px;
+  color: white;
+}
+.skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-chip-dark {
+  display: inline-flex; align-items: center;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  font-size: 13px; color: rgba(255,255,255,0.85);
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.skill-chip-dark:hover { background: var(--point); color: white; border-color: var(--point); }
 
-  /* ── Page Hero ── */
-  .page-hero {
-    display: grid; grid-template-columns: 1fr 300px; gap: 56px;
-    align-items: start; padding-bottom: 56px;
-    border-bottom: 1px solid var(--border);
-  }
-  .page-title { margin: 0 0 16px; font-size: clamp(44px, 5vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.0; }
-  .page-title em { font-style: normal; color: var(--blue-600); }
-  .page-lead { margin: 0 0 28px; font-size: 20px; color: var(--fg-muted); line-height: 1.65; }
-  .page-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .page-tag {
-    display: inline-flex; align-items: center;
-    padding: 5px 12px; background: var(--blue-50); border: 1px solid var(--blue-100);
-    border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--blue-700);
-    font-family: var(--font-mono); letter-spacing: 0.04em;
-  }
+/* ── Career timeline ── */
+.career {
+  padding: 160px 56px;
+  max-width: 1600px; margin: 0 auto;
+}
+.career-head { margin-bottom: 80px; }
+.career-title {
+  font-size: clamp(44px, 5.5vw, 96px); font-weight: 900;
+  letter-spacing: -0.05em; line-height: 0.95;
+  margin: 0 0 16px;
+}
+.career-title .outlined {
+  -webkit-text-stroke: 2.5px var(--fg);
+  color: transparent;
+}
+.career-title .point { color: var(--point); }
+.career-lead { font-size: 18px; color: var(--fg-muted); max-width: 640px; line-height: 1.6; }
 
-  /* ── Profile Card ── */
-  .profile-card {
-    background: var(--bg-elev); border: 1px solid var(--border);
-    border-radius: var(--r-xl); padding: 28px; box-shadow: var(--sh-1);
-    display: flex; flex-direction: column; gap: 20px;
-  }
-  .profile-avatar {
-    width: 72px; height: 72px; border-radius: 999px;
-    background: linear-gradient(135deg, var(--blue-500), var(--navy-800));
-    color: white; display: grid; place-items: center;
-    font-weight: 800; font-size: 22px; letter-spacing: -0.02em;
-    margin: 0 auto; box-shadow: var(--sh-brand);
-  }
-  .profile-card-name { text-align: center; }
-  .profile-card-name strong { display: block; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
-  .profile-card-name span { font-size: 13px; color: var(--fg-subtle); margin-top: 2px; display: block; }
-  .profile-links { display: flex; flex-direction: column; gap: 8px; }
-  .profile-link {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--r-md);
-    color: var(--fg-muted); font-size: 13px;
-    transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast);
-  }
-  .profile-link:hover { background: var(--blue-50); border-color: var(--blue-200); color: var(--blue-700); }
-  .profile-link-icon { width: 32px; height: 32px; border-radius: var(--r-sm); background: var(--gray-100); display: grid; place-items: center; flex-shrink: 0; }
-  .profile-link-text { line-height: 1.3; }
-  .profile-link-text strong { display: block; font-size: 13px; font-weight: 600; color: var(--fg); }
-  .profile-link-text span { font-size: 11px; color: var(--fg-subtle); }
+.career-timeline {
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--fg);
+}
+.career-item {
+  display: grid; grid-template-columns: 180px 240px 1fr 60px;
+  gap: 48px; padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--dur-base);
+  align-items: start;
+}
+.career-item:hover { background: var(--gray-50); padding-left: 24px; }
+.career-item:last-child { border-bottom: 1px solid var(--fg); }
+.career-year {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; color: var(--point); margin-bottom: 8px;
+}
+.career-duration { font-family: var(--font-mono); font-size: 11px; color: var(--fg-subtle); }
+.career-current {
+  display: inline-block; margin-top: 8px;
+  padding: 4px 10px; background: var(--point); color: white;
+  border-radius: 99px; font-size: 10px; font-weight: 700;
+  font-family: var(--font-mono); letter-spacing: 0.12em;
+}
+.career-company {
+  font-size: clamp(24px, 2.6vw, 36px); font-weight: 900;
+  letter-spacing: -0.03em; line-height: 1.1;
+  margin: 0 0 12px;
+}
+.career-sub {
+  font-size: 13px; color: var(--fg-subtle);
+  line-height: 1.5;
+}
+.career-role {
+  font-size: 14px; font-weight: 700; color: var(--fg);
+  margin-top: 16px;
+}
+.career-achievements { display: flex; flex-direction: column; gap: 10px; }
+.career-achievement {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 15px; line-height: 1.55; color: var(--fg-muted);
+}
+.career-achievement::before {
+  content: ""; flex-shrink: 0; margin-top: 9px;
+  width: 6px; height: 6px; border-radius: 99px;
+  background: var(--fg);
+}
+.career-achievement strong { color: var(--fg); font-weight: 700; }
+.career-icon-cell {
+  display: grid; place-items: center;
+  align-self: start; margin-top: 4px;
+}
+.career-dot {
+  width: 16px; height: 16px; border-radius: 999px;
+  background: var(--fg);
+}
+.career-dot.current { background: var(--point); box-shadow: 0 0 0 4px rgba(var(--point-glow), 0.18); }
 
-  /* ── Sections ── */
-  .section { padding: 72px 0; border-top: 1px solid var(--border); }
-  .section-title { margin: 0 0 10px; font-size: 36px; font-weight: 800; letter-spacing: -0.03em; }
-  .section-lead { margin: 0 0 32px; font-size: 17px; color: var(--fg-muted); line-height: 1.65; max-width: 640px; }
+/* ── Values ── */
+.values {
+  padding: 160px 56px;
+  max-width: 1600px; margin: 0 auto;
+}
+.values-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-top: 1px solid var(--fg);
+  border-left: 1px solid var(--border);
+}
+.value-card {
+  padding: 48px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: white;
+  position: relative;
+  transition: background var(--dur-base);
+}
+.value-card:hover { background: var(--gray-50); }
+.value-card:last-child { border-right: 1px solid var(--fg); }
+.value-card:first-child { border-left: 1px solid var(--border); }
+.value-card-num {
+  font-family: var(--font-mono); font-size: 64px; font-weight: 900;
+  color: var(--error); line-height: 1;
+  letter-spacing: -0.04em; margin-bottom: 32px;
+}
+.value-card-title {
+  font-size: clamp(22px, 2.4vw, 32px); font-weight: 900;
+  letter-spacing: -0.03em; line-height: 1.1;
+  margin: 0 0 16px;
+  color: var(--fg);
+}
+.value-card-title .quote { font-weight: 800; }
+.value-card-body { font-size: 15px; line-height: 1.65; color: var(--fg-muted); margin: 0; }
 
-  /* ── Competency Cards ── */
-  .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .comp-card {
-    background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-xl);
-    padding: 32px; position: relative; overflow: hidden;
-    transition: box-shadow var(--dur-fast), transform var(--dur-fast);
-  }
-  .comp-card:hover { box-shadow: var(--sh-2); transform: translateY(-2px); }
-  .comp-card-num {
-    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
-    letter-spacing: 0.12em; color: var(--blue-400); margin-bottom: 12px;
-  }
-  .comp-card h3 { margin: 0 0 14px; font-size: 21px; font-weight: 800; letter-spacing: -0.02em; }
-  .comp-card-list { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
-  .comp-card-list li {
-    display: flex; align-items: flex-start; gap: 8px;
-    font-size: 13px; color: var(--fg-muted); line-height: 1.5;
-  }
-  .comp-card-list li::before { content: "✓"; color: var(--blue-500); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .comp-card-bg {
-    position: absolute; bottom: -16px; right: -16px; width: 80px; height: 80px;
-    border-radius: 50%; background: var(--blue-50); opacity: 0.6;
-  }
+/* ── Media / Press ── */
+.media-section {
+  padding: 160px 56px;
+  max-width: 1600px; margin: 0 auto;
+  border-top: 1px solid var(--border);
+}
+.media-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.media-card-big {
+  display: flex; flex-direction: column;
+  padding: 48px;
+  background: white; border: 1px solid var(--border);
+  border-radius: var(--r-2xl);
+  text-decoration: none; color: var(--fg);
+  position: relative; overflow: hidden;
+  transition: border-color var(--dur-base), transform var(--dur-base);
+  min-height: 320px;
+  gap: 24px;
+}
+.media-card-big:hover {
+  border-color: var(--fg);
+  transform: translateY(-4px);
+}
+.media-card-big-source {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--point);
+}
+.media-card-big-title {
+  font-size: clamp(22px, 2.4vw, 32px); font-weight: 800;
+  letter-spacing: -0.025em; line-height: 1.15;
+  margin: 0;
+}
+.media-card-big-quote {
+  margin-top: auto;
+  font-size: 15px; color: var(--fg-muted); line-height: 1.6;
+  font-style: italic;
+  padding-top: 24px; border-top: 1px solid var(--border);
+}
+.media-card-big-arrow {
+  position: absolute; top: 32px; right: 32px;
+  width: 48px; height: 48px; border-radius: 999px;
+  border: 1px solid var(--border);
+  display: grid; place-items: center;
+  color: var(--fg);
+  transition: background var(--dur-base), color var(--dur-base);
+}
+.media-card-big:hover .media-card-big-arrow {
+  background: var(--fg); color: white;
+}
 
-  /* ── Philosophy ── */
-  .philosophy-block {
-    background: linear-gradient(135deg, var(--blue-50), var(--navy-50));
-    border: 1px solid var(--blue-100); border-left: 4px solid var(--blue-500);
-    border-radius: var(--r-xl); padding: 36px 40px;
-  }
-  .philosophy-quote {
-    font-size: 26px; font-weight: 800; line-height: 1.5; letter-spacing: -0.03em;
-    color: var(--fg); margin: 0 0 20px;
-  }
-  .philosophy-quote em { font-style: normal; color: var(--blue-600); }
-  .philosophy-body { font-size: 15px; color: var(--fg-muted); line-height: 1.75; margin: 0; }
+/* ── Pager ── */
+.pager-section { padding: 0 56px 120px; max-width: 1600px; margin: 0 auto; }
+.pager {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  border-top: 1px solid var(--fg); padding-top: 32px;
+}
+.pager-card-big {
+  padding: 40px; border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  display: flex; flex-direction: column; gap: 8px;
+  background: white;
+  text-decoration: none; color: var(--fg);
+  transition: all var(--dur-base);
+}
+.pager-card-big:hover { border-color: var(--fg); transform: translateY(-2px); }
+.pager-card-big.right { text-align: right; align-items: flex-end; }
+.pager-card-big-label {
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-subtle);
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+.pager-card-big-title {
+  font-size: clamp(28px, 3vw, 48px); font-weight: 900;
+  letter-spacing: -0.035em; line-height: 1.0; margin: 0;
+}
 
-  /* ── Skills ── */
-  .skill-category { margin-bottom: 28px; }
-  .skill-cat-label {
-    font-family: var(--font-mono); font-size: 10.5px; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-subtle);
-    margin-bottom: 10px; display: block;
-  }
-  .chip-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skill-chip {
-    display: inline-flex; align-items: center;
-    padding: 6px 14px; background: var(--gray-50); border: 1px solid var(--border);
-    border-radius: var(--r-pill); font-size: 13px; color: var(--fg-muted);
-    transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
-  }
-  .skill-chip:hover { background: var(--blue-50); color: var(--blue-700); border-color: var(--blue-100); }
-
-  /* ── Media ── */
-  .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .media-card {
-    display: flex; gap: 16px; padding: 20px;
-    background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-lg);
-    transition: box-shadow var(--dur-fast), transform var(--dur-fast);
-  }
-  .media-card:hover { box-shadow: var(--sh-2); transform: translateY(-1px); }
-  .media-icon {
-    width: 44px; height: 44px; border-radius: var(--r-md); flex-shrink: 0;
-    background: var(--blue-50); border: 1px solid var(--blue-100);
-    display: grid; place-items: center; color: var(--blue-600);
-  }
-  .media-info { min-width: 0; }
-  .media-info .source { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--blue-500); text-transform: uppercase; margin-bottom: 4px; }
-  .media-info h4 { margin: 0 0 4px; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.35; }
-  .media-info p { margin: 0; font-size: 12px; color: var(--fg-muted); line-height: 1.5; }
-
-  /* ── Boundary Cards ── */
-  .boundary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .boundary-card {
-    padding: 20px; background: var(--bg-elev); border: 1px solid var(--border);
-    border-radius: var(--r-lg); border-top: 3px solid var(--error);
-  }
-  .boundary-num { font-family: var(--font-mono); font-size: 11px; color: var(--fg-subtle); margin-bottom: 8px; }
-  .boundary-card h4 { margin: 0 0 8px; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: var(--error); }
-  .boundary-card p { margin: 0; font-size: 13px; color: var(--fg-muted); line-height: 1.55; }
-
-  /* ── Pager ── */
-  .pager { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .pager-card {
-    display: flex; flex-direction: column; gap: 6px;
-    padding: 24px; background: var(--bg-elev); border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    transition: box-shadow var(--dur-fast), transform var(--dur-fast);
-  }
-  .pager-card:hover { box-shadow: var(--sh-2); transform: translateY(-1px); }
-  .pager-card.right { text-align: right; align-items: flex-end; }
-  .pager-label { font-family: var(--font-mono); font-size: 11px; color: var(--fg-subtle); letter-spacing: 0.1em; text-transform: uppercase; }
-  .pager-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: var(--fg); }
-
-  /* ── Footer ── */
-  .footer {
-    max-width: 1800px; margin: 0 auto;
-    padding: 40px 160px 56px;
-    border-top: 1px solid var(--border);
-    font-size: 13px; color: var(--fg-subtle);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer a { color: var(--blue-600); font-weight: 500; }
-
-  /* ── Scroll Reveal ── */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out); }
-  .reveal.visible { opacity: 1; transform: none; }
+/* responsive */
+@media (max-width: 1100px) {
+  .about-intro, .philosophy, .compt, .skills, .career, .values, .media-section, .pager-section { padding-left: 32px; padding-right: 32px; }
+  .about-intro-grid { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+  .about-intro-meta { align-items: flex-start; text-align: left; }
+  .about-info-bar { grid-template-columns: repeat(2, 1fr); padding: 32px; gap: 32px; }
+  .philosophy-grid { grid-template-columns: 1fr; gap: 32px; }
+  .compt-row { grid-template-columns: 80px 1fr; gap: 24px; }
+  .compt-row > :nth-child(3), .compt-row > :nth-child(4) { grid-column: 1 / -1; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-cat { padding: 32px 0; }
+  .skill-cat:nth-child(2n) { padding-left: 0; border-left: 0; }
+  .career-item { grid-template-columns: 1fr; gap: 16px; }
+  .career-icon-cell { display: none; }
+  .values-grid { grid-template-columns: 1fr; }
+  .media-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .about-info-bar { grid-template-columns: 1fr; }
+  .pager { grid-template-columns: 1fr; }
+}
 </style>
 </head>
-<body>
+<body data-screen-label="02 소개">
 
-<!-- ── TOP NAV ── -->
+<!-- ═══════════════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════════════ -->
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
-    <svg width="26" height="26" viewBox="0 0 36 36" fill="none">
-      <rect x="2" y="2"  width="32" height="4" rx="2" fill="#0a1640"/>
-      <rect x="2" y="8"  width="32" height="4" rx="2" fill="#1a3480"/>
-      <rect x="2" y="14" width="32" height="4" rx="2" fill="#2556c8"/>
-      <rect x="2" y="20" width="32" height="4" rx="2" fill="#3b7af0"/>
-      <rect x="2" y="26" width="32" height="4" rx="2" fill="#60a0f8"/>
-      <rect x="2" y="32" width="32" height="4" rx="2" fill="#93bffc"/>
-    </svg>
-    김현규
+    <span class="nav-mark point"><i></i><i></i><i></i><i></i><i></i></span>
+    KKYU
   </a>
   <div class="nav-center">
-    <a class="nav-link" href="index.html">홈</a>
-    <a class="nav-link active" href="about.html">소개</a>
-    <a class="nav-link" href="career.html">커리어</a>
-    <a class="nav-link" href="index.html#portfolio">포트폴리오</a>
-    <a class="nav-link" href="index.html#agent">Agent AI</a>
+    <a class="nav-link" href="index.html"><span class="nl-num">01</span>메인</a>
+    <a class="nav-link active" href="about.html"><span class="nl-num">02</span>소개</a>
+    <a class="nav-link" href="portfolio.html"><span class="nl-num">03</span>포트폴리오</a>
+    <a class="nav-link" href="agent-ai.html"><span class="nl-num">04</span>Agent AI</a>
   </div>
-  <a class="btn btn-primary btn-md" href="mailto:hukami6472@gmail.com">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 8 9 6 9-6"/></svg>
-    연락하기
-  </a>
+  <div class="nav-right">
+    <div class="nav-status"><span class="dot"></span>AVAILABLE FOR WORK</div>
+    <a class="btn btn-primary btn-sm" href="mailto:hukami6472@gmail.com">
+      Contact
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+    </a>
+  </div>
 </nav>
 
-<div class="page-wrap">
-
-  <!-- Page Hero -->
-  <section class="page-hero reveal">
-    <div>
-      <div class="eyebrow">소개 · About</div>
-      <h1 class="page-title">
-        Hello,<br/>나는 <span class="grad">뀨님</span>입니다.
-      </h1>
-      <p class="page-lead">
-        문제를 정의하고 해결하는 그로스 리더.<br/>
-        핀테크 현장에서 데이터와 실험으로 성장을 설계해온 16년차 마케터/PM입니다.
-      </p>
-      <div class="page-tags">
-        <span class="page-tag">Fintech</span>
-        <span class="page-tag">Growth Marketing</span>
-        <span class="page-tag">MarTech PM</span>
-        <span class="page-tag">AI Adopter</span>
+<!-- ═══════════════════════════════════════════════
+     PAGE INTRO
+     ═══════════════════════════════════════════════ -->
+<section class="about-intro reveal" data-screen-label="02.01 Hello">
+  <div class="about-intro-grid">
+    <h1 class="about-intro-title">
+      Hello,<br/>
+      저는 <span class="point">김현규</span><br/>
+      <span class="outlined">입니다.</span>
+    </h1>
+    <div class="about-intro-meta">
+      <div class="about-intro-meta-num">— K02 / 2026.05</div>
+      <div class="about-intro-meta-tags">
+        <span class="tag solid">FINTECH</span>
+        <span class="tag">GROWTH MARKETING</span>
+        <span class="tag">MARTECH PM</span>
+        <span class="tag point">AI AGENT OPERATOR</span>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Profile card -->
-    <div class="profile-card">
-      <div class="profile-avatar">뀨</div>
-      <div class="profile-card-name">
-        <strong>김현규 (뀨)</strong>
-        <span>페퍼저축은행 디지털뱅킹 차장</span>
-        <span style="margin-top:4px;">경력 16년 · 1985년생</span>
-      </div>
-      <div class="profile-links">
-        <a href="mailto:hukami6472@gmail.com" class="profile-link">
-          <div class="profile-link-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 8 9 6 9-6"/></svg>
-          </div>
-          <div class="profile-link-text">
-            <strong>이메일</strong>
-            <span>hukami6472@gmail.com</span>
-          </div>
-        </a>
-        <a href="https://linkedin.com/in/kkyu64" target="_blank" class="profile-link">
-          <div class="profile-link-icon" style="background:var(--blue-50);">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </div>
-          <div class="profile-link-text">
-            <strong>LinkedIn</strong>
-            <span>/in/kkyu64</span>
-          </div>
-        </a>
-      </div>
+<!-- ═══════════════════════════════════════════════
+     INFO BAR
+     ═══════════════════════════════════════════════ -->
+<section class="about-info-bar">
+  <div class="info-block">
+    <div class="info-block-label">— NAME / 이름</div>
+    <div class="info-block-value">김현규 (뀨)</div>
+    <div class="info-block-sub">1985년생 · 17년차</div>
+  </div>
+  <div class="info-block">
+    <div class="info-block-label">— ROLE / 현재 포지션</div>
+    <div class="info-block-value">페퍼저축은행 디지털뱅킹 팀장</div>
+    <div class="info-block-sub">대출비교서비스 · 디지털기획 총괄</div>
+  </div>
+  <div class="info-block">
+    <div class="info-block-label">— EMAIL / 이메일</div>
+    <div class="info-block-value">hukami6472@gmail.com</div>
+    <div class="info-block-sub"><a href="mailto:hukami6472@gmail.com" style="color: var(--point); font-weight: 600;">메일 보내기 →</a></div>
+  </div>
+  <div class="info-block">
+    <div class="info-block-label">— SOCIAL / 외부</div>
+    <div class="info-block-value">/in/kkyu64</div>
+    <div class="info-block-sub"><a href="https://linkedin.com/in/kkyu64" target="_blank" style="color: var(--point); font-weight: 600;">LinkedIn ↗</a></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PHILOSOPHY
+     ═══════════════════════════════════════════════ -->
+<section class="philosophy" data-screen-label="02.02 Philosophy">
+  <div class="philosophy-grid">
+    <div class="reveal">
+      <div class="philosophy-meta-num">01.</div>
+      <div class="philosophy-meta">— PHILOSOPHY<br/>일하는 철학</div>
     </div>
-  </section>
-
-  <!-- Philosophy -->
-  <section class="section reveal">
-    <div class="eyebrow">Philosophy</div>
-    <h2 class="section-title">업무 철학</h2>
-    <div class="philosophy-block">
-      <p class="philosophy-quote">
-        "마케팅은 단순한 광고가 아니라,<br/>
-        <em>사업자의 문제를 해결하는 성장 구조를 설계하는 일</em>입니다."
+    <div class="reveal d1">
+      <h2 class="philosophy-quote">마케팅은 단순한 광고가 아니라,
+고객의 문제를 해결하는
+성장 구조를 설계하는 일입니다.</h2>
+      <p class="philosophy-body">
+        <strong>"문제를 명확히 정의하면 절반은 해결된 것이다"</strong> — 이 철학을 바탕으로
+        사용자 행동 데이터를 정량화하고, CAC·ROAS 중심으로 채널을 최적화하며,
+        가설 → 실험 → 분석 → 고도화의 그로스 사이클을 실제 사업 성과로 연결합니다.
       </p>
       <p class="philosophy-body">
-        문제를 명확히 정의하면 절반은 해결된 것이다 — 이 철학을 바탕으로 사용자 행동 데이터를 정량화하고,
-        CAC·ROAS 중심으로 채널을 최적화하며, 가설 → 실험 → 분석 → 고도화의 그로스 사이클을
-        실제 사업 성과로 연결합니다.
-      </p>
-      <p class="philosophy-body" style="margin-top:12px;">
-        특히 B2B 핀테크 환경에서는 사업자가 서비스를 발견하고 도입하며 지속적으로 활용하게 하는
-        전체 여정의 구조화가 핵심이라고 믿습니다.
+        특히 핀테크 환경에서는 사업자가 서비스를 발견하고 도입하며 지속적으로 활용하게 하는
+        <strong>전체 여정의 구조화</strong>가 핵심이라고 믿습니다. 광고가 아니라 구조를 짭니다.
       </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Core Competencies -->
-  <section class="section reveal">
-    <div class="eyebrow">Competencies</div>
-    <h2 class="section-title">핵심 역량</h2>
-    <div class="comp-grid">
-      <div class="comp-card">
-        <div class="comp-card-num">01 — STRATEGY</div>
-        <h3>마케팅 전략 리딩</h3>
-        <ul class="comp-card-list">
-          <li>차세대 모바일뱅킹 PM (60억)</li>
-          <li>조직 스케일링 2→40명</li>
-          <li>MarTech 도입 PM (100%)</li>
-          <li>Amplitude Taxonomy 설계<br/>(432 Event · 241 Property)</li>
-        </ul>
-        <div class="comp-card-bg"></div>
-      </div>
-      <div class="comp-card">
-        <div class="comp-card-num">02 — GROWTH</div>
-        <h3>마케팅 그로스</h3>
-        <ul class="comp-card-list">
-          <li>핀테크 제휴 (Toss·카카오·네이버)</li>
-          <li>월 실적 1,500억 대출비교서비스</li>
-          <li>인하우스 광고팀 운영</li>
-          <li>Paid Media 월 5억 운영</li>
-          <li>MAU 20만 / 자산 1.7조 확보</li>
-          <li>퍼널 최적화 / CXM / 개인화</li>
-        </ul>
-        <div class="comp-card-bg"></div>
-      </div>
-      <div class="comp-card">
-        <div class="comp-card-num">03 — AI</div>
-        <h3>AI 활용 &amp; 생산성</h3>
-        <ul class="comp-card-list">
-          <li>Claude로 업무 자동화 구현</li>
-          <li>Genspark 회의록/문서 생성</li>
-          <li>사내 AI 교육 및 생산성 개선 리더</li>
-          <li>멀티 에이전트 시스템 구축</li>
-          <li>Notion / Figma 등 환경 최적화</li>
-        </ul>
-        <div class="comp-card-bg"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="section reveal">
-    <div class="eyebrow">Skills &amp; Tools</div>
-    <h2 class="section-title">스킬 &amp; 도구</h2>
-
-    <div class="skill-category">
-      <span class="skill-cat-label">MarTech · Analytics</span>
-      <div class="chip-wrap">
-        <span class="skill-chip">AppsFlyer</span>
-        <span class="skill-chip">Amplitude</span>
-        <span class="skill-chip">Tableau</span>
-        <span class="skill-chip">Google Analytics</span>
-        <span class="skill-chip">Data Taxonomy</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <span class="skill-cat-label">Paid Media · Marketing</span>
-      <div class="chip-wrap">
-        <span class="skill-chip">Google Ads</span>
-        <span class="skill-chip">Facebook Ads</span>
-        <span class="skill-chip">검색광고</span>
-        <span class="skill-chip">SRN Media</span>
-        <span class="skill-chip">바이럴 · SNS</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <span class="skill-cat-label">기획 · 관리</span>
-      <div class="chip-wrap">
-        <span class="skill-chip">PM / PMO</span>
-        <span class="skill-chip">전략기획</span>
-        <span class="skill-chip">서비스기획</span>
-        <span class="skill-chip">사업기획</span>
-        <span class="skill-chip">KPI 관리</span>
-        <span class="skill-chip">RFP</span>
-        <span class="skill-chip">조직관리</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <span class="skill-cat-label">Design</span>
-      <div class="chip-wrap">
-        <span class="skill-chip">Figma</span>
-        <span class="skill-chip">Adobe Photoshop</span>
-        <span class="skill-chip">Adobe XD</span>
-        <span class="skill-chip">After Effects</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <span class="skill-cat-label">AI</span>
-      <div class="chip-wrap">
-        <span class="skill-chip">Claude</span>
-        <span class="skill-chip">Genspark</span>
-        <span class="skill-chip">Perplexity</span>
-        <span class="skill-chip">Notion AI</span>
-        <span class="skill-chip">OpenClaw</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Boundaries (What I don't tolerate) -->
-  <section class="section reveal">
-    <div class="eyebrow">Values</div>
-    <h2 class="section-title">못 견디는 것 세 가지</h2>
-    <p class="section-lead">이 세 가지는 내 정체성과 정면으로 충돌합니다.</p>
-    <div class="boundary-grid">
-      <div class="boundary-card">
-        <div class="boundary-num">01</div>
-        <h4>"내 일 아니에요"</h4>
-        <p>능력 밖이라며, 내 일이 아니라며 빠지는 태도. 문제를 정의하는 사람은 경계를 핑계로 삼지 않습니다.</p>
-      </div>
-      <div class="boundary-card">
-        <div class="boundary-num">02</div>
-        <h4>맥락 없는 단정</h4>
-        <p>전후 맥락도 파악하지 않은 채 상대방을 잘못했다고 단정짓는 태도. 데이터 없는 판단은 판단이 아닙니다.</p>
-      </div>
-      <div class="boundary-card">
-        <div class="boundary-num">03</div>
-        <h4>R&R 핑계</h4>
-        <p>역할 분담을 핑계로 문제 해결을 회피하는 태도. 사업 성과는 R&R의 경계 위에 있지 않습니다.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- External Media -->
-  <section class="section reveal">
-    <div class="eyebrow">Press &amp; Media</div>
-    <h2 class="section-title">외부 매체 소개</h2>
-    <div class="media-grid">
-      <a href="https://cshub.ab180.co/ko/case-studies/ui-ux" target="_blank" class="media-card">
-        <div class="media-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<!-- ═══════════════════════════════════════════════
+     COMPETENCIES
+     ═══════════════════════════════════════════════ -->
+<section class="compt" data-screen-label="02.03 Competencies">
+  <div class="reveal" style="margin-bottom: 56px;">
+    <div class="eyebrow point" style="margin-bottom: 24px;">— 02 / CORE COMPETENCIES</div>
+    <h2 class="title">핵심 역량 3가지</h2>
+  </div>
+  <div class="compt-list">
+    <div class="compt-row reveal">
+      <div class="compt-num">01</div>
+      <div>
+        <h3 class="compt-title">디지털뱅킹<br/>제품관리 PM</h3>
+        <div class="compt-tag-row">
+          <span class="tag">STRATEGY</span>
+          <span class="tag">PM</span>
+          <span class="tag">MARTECH</span>
         </div>
-        <div class="media-info">
-          <div class="source">AB180 CS Hub</div>
-          <h4>Amplitude로 UI/UX 및 전환율 개선</h4>
-          <p>Active 사용률 30%→60%, 기능 탐색 2배 증가 사례</p>
-        </div>
-      </a>
-      <a href="https://zdnet.co.kr/view/?no=20201026151142" target="_blank" class="media-card">
-        <div class="media-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div class="media-info">
-          <div class="source">ZDNet Korea</div>
-          <h4>성공적인 마케팅, '고객여정'을 명확히</h4>
-          <p>"다양한 실험, 빠른 진행, 데이터로 피드백 집중"</p>
-        </div>
-      </a>
+      </div>
+      <ul class="compt-list-detail">
+        <li>차세대 모바일뱅킹 PM · 60억 규모 프로젝트 총괄</li>
+        <li>조직 스케일링 2명 → 40명+ 확대</li>
+        <li>MarTech 도입 PM · 망분리정책 돌파 사내 첫 도입</li>
+        <li>Amplitude Taxonomy 설계 (432 Event · 241 Property)</li>
+      </ul>
+      <div class="compt-side">— SBI·NH·PEPPER<br/>14Y EXP</div>
     </div>
-  </section>
 
-  <!-- Pager -->
-  <nav class="pager reveal">
-    <a href="index.html" class="pager-card">
-      <span class="pager-label">← 이전</span>
-      <span class="pager-title">홈</span>
+    <div class="compt-row reveal">
+      <div class="compt-num">02</div>
+      <div>
+        <h3 class="compt-title">그로스<br/>비즈니스</h3>
+        <div class="compt-tag-row">
+          <span class="tag">GROWTH</span>
+          <span class="tag">PAID MEDIA</span>
+          <span class="tag">CXM</span>
+        </div>
+      </div>
+      <ul class="compt-list-detail">
+        <li>핀테크 제휴 10건+ · Toss·카카오페이·카카오뱅크·네이버</li>
+        <li>월 실적 1,500억 대출비교서비스 운영</li>
+        <li>인하우스 광고팀 운영 · Paid Media 월 5억</li>
+        <li>MAU 20만 / 자산 1.7조 확보 · 퍼널 · CXM · 개인화</li>
+      </ul>
+      <div class="compt-side">— FINTECH<br/>SCALE 150×</div>
+    </div>
+
+    <div class="compt-row reveal">
+      <div class="compt-num">03</div>
+      <div>
+        <h3 class="compt-title">AI 활용 ×<br/>생산성</h3>
+        <div class="compt-tag-row">
+          <span class="tag point">AI</span>
+          <span class="tag">MULTI-AGENT</span>
+          <span class="tag">AUTOMATION</span>
+        </div>
+      </div>
+      <ul class="compt-list-detail">
+        <li>Claude 기반 업무 자동화 · 멀티 에이전트 무리 구축</li>
+        <li>OpenClaw 런타임으로 4발자국 무리 운영</li>
+        <li>사내 AI 교육 · 생산성 개선 리더 ("아이스" 스터디 12명)</li>
+        <li>Notion / Figma / Slack 환경 통합 자동화</li>
+      </ul>
+      <div class="compt-side">— 2026<br/>4 AGENTS LIVE</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MARQUEE
+     ═══════════════════════════════════════════════ -->
+<div class="marquee point">
+  <div class="marquee-track">
+    <span>STRATEGY&nbsp;<i class="star"></i>&nbsp;GROWTH&nbsp;<i class="star"></i>&nbsp;PRODUCT&nbsp;<i class="star"></i>&nbsp;DATA&nbsp;<i class="star"></i>&nbsp;AI AGENT&nbsp;<i class="star"></i>&nbsp;DESIGN&nbsp;<i class="star"></i>&nbsp;</span>
+    <span>STRATEGY&nbsp;<i class="star"></i>&nbsp;GROWTH&nbsp;<i class="star"></i>&nbsp;PRODUCT&nbsp;<i class="star"></i>&nbsp;DATA&nbsp;<i class="star"></i>&nbsp;AI AGENT&nbsp;<i class="star"></i>&nbsp;DESIGN&nbsp;<i class="star"></i>&nbsp;</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SKILLS — black panel
+     ═══════════════════════════════════════════════ -->
+<section class="skills reveal" data-screen-label="02.04 Skills">
+  <div class="skills-inner">
+    <div class="skills-head">
+      <div class="eyebrow">— 03 / SKILLS &amp; TOOLS</div>
+      <h2 class="skills-head-title">
+        손에 익은 <span class="point">도구들</span>
+      </h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <div class="skill-cat-num">— <strong>01</strong> · MARTECH · ANALYTICS</div>
+        <h3 class="skill-cat-title">데이터로<br/>전략과 구조를 설계합니다.</h3>
+        <div class="skill-chips">
+          <span class="skill-chip-dark">AppsFlyer</span>
+          <span class="skill-chip-dark">Amplitude</span>
+          <span class="skill-chip-dark">Tableau</span>
+          <span class="skill-chip-dark">Google Analytics</span>
+          <span class="skill-chip-dark">Data Taxonomy</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="skill-cat-num">— <strong>02</strong> · PAID MEDIA · MARKETING</div>
+        <h3 class="skill-cat-title">Paid Media<br/>인하우스로 운영합니다.(연간 60억 집행)</h3>
+        <div class="skill-chips">
+          <span class="skill-chip-dark">Google Ads</span>
+          <span class="skill-chip-dark">Facebook Ads</span>
+          <span class="skill-chip-dark">검색광고</span>
+          <span class="skill-chip-dark">SRN Media</span>
+          <span class="skill-chip-dark">바이럴 · SNS</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="skill-cat-num">— <strong>03</strong> · PRODUCT · MANAGEMENT</div>
+        <h3 class="skill-cat-title">디지털+핀테크<br/>금융 제품은 정교합니다.</h3>
+        <div class="skill-chips">
+          <span class="skill-chip-dark">PM / PMO</span>
+          <span class="skill-chip-dark">전략기획</span>
+          <span class="skill-chip-dark">서비스기획</span>
+          <span class="skill-chip-dark">사업기획</span>
+          <span class="skill-chip-dark">KPI 관리</span>
+          <span class="skill-chip-dark">RFP</span>
+          <span class="skill-chip-dark">조직관리</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="skill-cat-num">— <strong>04</strong> · AI · DESIGN</div>
+        <h3 class="skill-cat-title">AI 에이전트와<br/>함께 만듭니다</h3>
+        <div class="skill-chips">
+          <span class="skill-chip-dark">Claude</span>
+          <span class="skill-chip-dark">OpenClaw</span>
+          <span class="skill-chip-dark">Genspark</span>
+          <span class="skill-chip-dark">Perplexity</span>
+          <span class="skill-chip-dark">Notion AI</span>
+          <span class="skill-chip-dark">Figma</span>
+          <span class="skill-chip-dark">Photoshop</span>
+          <span class="skill-chip-dark">After Effects</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CAREER TIMELINE
+     ═══════════════════════════════════════════════ -->
+<section class="career reveal" data-screen-label="02.05 Career">
+  <div class="career-head">
+    <div class="eyebrow point" style="margin-bottom: 24px;">— 04 / CAREER TIMELINE</div>
+    <h1 class="career-title">
+      <span class="point">17년</span>의<br/>
+      <span class="outlined">여정.</span>
+    </h1>
+    <p class="career-lead">
+      디자인으로 시작해 마케팅·PM·AI로 확장해온 커리어 타임라인.
+      금융 디지털채널의 맨 앞에서 성장 구조를 설계해왔습니다.
+    </p>
+  </div>
+
+  <div class="career-timeline">
+    <div class="career-item">
+      <div>
+        <div class="career-year">2018.08 — 현재</div>
+        <div class="career-duration">7년 이상</div>
+        <div class="career-current">재직 중</div>
+      </div>
+      <div>
+        <h3 class="career-company">페퍼저축은행</h3>
+        <div class="career-sub">호주계 Pepper Group 산하<br/>자산 3.6조 · 직원 500명</div>
+        <div class="career-role">디지털뱅킹 차장/팀장<br/>그로스 마케팅 리더</div>
+      </div>
+      <div class="career-achievements">
+        <div class="career-achievement">
+          <span><strong>모바일 APP 풀뱅킹</strong> 기획부터 출시까지 총괄. 출시 1년 수신 5천억·여신 1.2조·MAU 20만 달성.</span>
+        </div>
+        <div class="career-achievement">
+          <span><strong>Paid Media 월 5억</strong> 최적화로 신용대출 월 실적 10억 → 1,500억 (150배).</span>
+        </div>
+        <div class="career-achievement">
+          <span><strong>Amplitude 도입</strong>으로 Active 사용률 30% → 60%, 기능 탐색 2배 (AB180 CS Hub 소개).</span>
+        </div>
+        <div class="career-achievement">
+          <span>Toss · 카카오페이 · 카카오뱅크 · 네이버 등 <strong>핀테크 제휴 10건+</strong> 성사.</span>
+        </div>
+      </div>
+      <div class="career-icon-cell">
+        <span class="career-dot current"></span>
+      </div>
+    </div>
+
+    <div class="career-item">
+      <div>
+        <div class="career-year">2013.07 — 2018.08</div>
+        <div class="career-duration">5년 2개월</div>
+      </div>
+      <div>
+        <h3 class="career-company">NH농협캐피탈</h3>
+        <div class="career-sub">NH금융지주 자회사<br/>자산 11조 · 직원 300명</div>
+        <div class="career-role">다이렉트금융팀 파트장<br/>신용대출·자동차금융 디지털채널</div>
+      </div>
+      <div class="career-achievements">
+        <div class="career-achievement">
+          <span><strong>신용대출 · 자동차금융 디지털 채널 신규사업</strong> 구축, 월 실적 150억 안정화.</span>
+        </div>
+        <div class="career-achievement">
+          <span>대출신청 → 온라인 약정 <strong>End-to-End 프로세스 구축</strong>으로 콜센터 리소스 40% 절감.</span>
+        </div>
+        <div class="career-achievement">
+          <span><strong>SK엔카 · 다나와 · 첫차</strong> 등 플랫폼 제휴 10건+ 성사.</span>
+        </div>
+        <div class="career-achievement">
+          <span>여신 <strong>1.7조 성장</strong> 주도, 월 250억 동시 운영 달성.</span>
+        </div>
+      </div>
+      <div class="career-icon-cell">
+        <span class="career-dot"></span>
+      </div>
+    </div>
+
+    <div class="career-item">
+      <div>
+        <div class="career-year">2007.07 — 2010.08</div>
+        <div class="career-duration">3년 2개월</div>
+      </div>
+      <div>
+        <h3 class="career-company">SBI저축은행</h3>
+        <div class="career-sub">국내 대표 저축은행<br/>자산 12조 · 직원 650명</div>
+        <div class="career-role">알프스사업부 팀원<br/>웹 PM · 디지털 · 퍼포먼스 마케팅</div>
+      </div>
+      <div class="career-achievements">
+        <div class="career-achievement">
+          <span><strong>4개 홈페이지 통합 구축</strong> PM 총괄, 유지보수 비용 효율화.</span>
+        </div>
+        <div class="career-achievement">
+          <span>TV광고 · 검색광고 등 <strong>멀티채널 퍼포먼스</strong> 마케팅 운영.</span>
+        </div>
+        <div class="career-achievement">
+          <span>블로그 포털 메인 선정 2회.</span>
+        </div>
+        <div class="career-achievement">
+          <span>웹 PM <strong>단독 수행</strong>: 기획·개발·웹마스터 End-to-End.</span>
+        </div>
+      </div>
+      <div class="career-icon-cell">
+        <span class="career-dot"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     VALUES — 못 견디는 것 3가지
+     ═══════════════════════════════════════════════ -->
+<section class="values" data-screen-label="02.06 Values">
+  <div class="reveal" style="margin-bottom: 56px; max-width: 760px;">
+    <div class="eyebrow point" style="margin-bottom: 24px;">— 05 / VALUES &amp; BOUNDARIES</div>
+    <h2 class="title">못 견디는 것<br/>세 가지</h2>
+    <p class="lead" style="margin-top: 24px;">이 세 가지는 내 정체성과 정면으로 충돌합니다.</p>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-card reveal d1">
+      <div class="value-card-num">01.</div>
+      <h3 class="value-card-title">
+        <span class="quote">"내 일</span><br/>
+        <span class="quote">아니에요"</span>
+      </h3>
+      <p class="value-card-body">
+        능력 밖이라며, 내 일이 아니라며 빠지는 태도.
+        문제를 정의하는 사람은 경계를 핑계로 삼지 않습니다.
+      </p>
+    </div>
+    <div class="value-card reveal d2">
+      <div class="value-card-num">02.</div>
+      <h3 class="value-card-title">
+        맥락 없는<br/>
+        단정.
+      </h3>
+      <p class="value-card-body">
+        전후 맥락도 파악하지 않은 채 상대방을 잘못했다고 단정짓는 태도.
+        데이터 없는 판단은 판단이 아닙니다.
+      </p>
+    </div>
+    <div class="value-card reveal d3">
+      <div class="value-card-num">03.</div>
+      <h3 class="value-card-title">
+        R&amp;R<br/>
+        핑계.
+      </h3>
+      <p class="value-card-body">
+        역할 분담을 핑계로 문제 해결을 회피하는 태도.
+        사업 성과는 R&amp;R의 경계 위에 있지 않습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MEDIA / PRESS
+     ═══════════════════════════════════════════════ -->
+<section class="media-section reveal" data-screen-label="02.07 Press">
+  <div style="margin-bottom: 56px;">
+    <div class="eyebrow point" style="margin-bottom: 24px;">— 06 / PRESS &amp; MEDIA</div>
+    <h2 class="title">외부 매체 소개</h2>
+  </div>
+  <div class="media-grid">
+    <a href="https://cshub.ab180.co/ko/case-studies/ui-ux" target="_blank" class="media-card-big">
+      <div class="media-card-big-source">
+        <span class="star" style="width:8px; height:8px; background:var(--point); clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);"></span>
+        AB180 CS HUB
+      </div>
+      <h3 class="media-card-big-title">Amplitude로<br/>UI/UX 및 전환율 개선</h3>
+      <div class="media-card-big-arrow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+      </div>
+      <p class="media-card-big-quote">
+        "Active 사용률 30% → 60%, 기능 탐색 2배 증가 사례."
+      </p>
     </a>
-    <a href="career.html" class="pager-card right">
-      <span class="pager-label">다음 →</span>
-      <span class="pager-title">Journey / 16년의 여정</span>
+    <a href="https://zdnet.co.kr/view/?no=20201026151142" target="_blank" class="media-card-big">
+      <div class="media-card-big-source">
+        <span class="star" style="width:8px; height:8px; background:var(--point); clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);"></span>
+        ZDNET KOREA
+      </div>
+      <h3 class="media-card-big-title">성공적인 마케팅,<br/>'고객여정'을 명확히</h3>
+      <div class="media-card-big-arrow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+      </div>
+      <p class="media-card-big-quote">
+        "다양한 실험, 빠른 진행, 데이터로 피드백 집중."
+      </p>
     </a>
-  </nav>
+  </div>
+</section>
 
-</div><!-- /page-wrap -->
+<!-- ═══════════════════════════════════════════════
+     PAGER
+     ═══════════════════════════════════════════════ -->
+<section class="pager-section">
+  <div class="pager">
+    <a href="index.html" class="pager-card-big">
+      <span class="pager-card-big-label">← 01 / 이전</span>
+      <h3 class="pager-card-big-title">메인</h3>
+    </a>
+    <a href="portfolio.html" class="pager-card-big right">
+      <span class="pager-card-big-label">03 / 다음 →</span>
+      <h3 class="pager-card-big-title">포트폴리오</h3>
+    </a>
+  </div>
+</section>
 
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════ -->
 <footer class="footer">
-  <span>© 2025 김현규</span>
-  <span><a href="mailto:hukami6472@gmail.com">hukami6472@gmail.com</a> · <a href="https://linkedin.com/in/kkyu64" target="_blank">LinkedIn ↗</a></span>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="nav-mark point" style="flex-direction: row; gap: 4px;">
+          <i style="width:10px; height:32px;"></i><i style="width:10px; height:32px;"></i><i style="width:10px; height:32px;"></i><i style="width:10px; height:32px;"></i><i style="width:10px; height:32px;"></i>
+        </span>
+        <p class="footer-cta">Let's <span class="ink-point">build</span><br/>something solid.</p>
+        <p class="footer-tagline">
+          핀테크 16년, AI Agent 4발자국.<br/>
+          새로운 협업 제안과 커피챗 모두 환영합니다.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h6>— Pages</h6>
+        <a href="index.html">메인 →</a>
+        <a href="about.html">소개 →</a>
+        <a href="portfolio.html">포트폴리오 →</a>
+        <a href="agent-ai.html">Agent AI →</a>
+      </div>
+      <div class="footer-col">
+        <h6>— Contact</h6>
+        <a href="mailto:hukami6472@gmail.com">hukami6472@gmail.com</a>
+        <a href="https://linkedin.com/in/kkyu64" target="_blank">LinkedIn ↗</a>
+        <a href="https://diary-puce-nine.vercel.app/" target="_blank">Agent Diary ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-mark" style="font-size: 90px">KKYU</div>
+      <div class="footer-bottom-meta">
+        <div>© 2026 김현규 · KIM HYUNKYU</div>
+        <div>PORTFOLIO V4 · 2026.05</div>
+        <div>SEOUL · KR</div>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Nav scroll shadow
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 8);
-  }, { passive: true });
-</script>
+<script src="assets/shared.js"></script>
 </body>
 </html>
