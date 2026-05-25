@@ -1,0 +1,405 @@
+/* ============================================================
+   KKYU Design System — Tokens
+   ============================================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css');
+
+:root {
+  /* ---------- Brand Blue Scale (rooted at #1e40af) ---------- */
+  --blue-50:  #eef2fc;
+  --blue-100: #dbe3f7;
+  --blue-200: #b7c5ee;
+  --blue-300: #8ca3e0;
+  --blue-400: #5b7ad0;
+  --blue-500: #1e40af;   /* ★ Brand Primary */
+  --blue-600: #1a3897;
+  --blue-700: #152f7c;
+  --blue-800: #102461;
+  --blue-900: #0a1840;
+
+  /* ---------- Deep Navy Accent (from reference image) ---------- */
+  --navy-50:  #eff4ff;
+  --navy-100: #d6e2ff;
+  --navy-200: #aac3ff;
+  --navy-300: #7ba3ff;
+  --navy-400: #4b82ff;
+  --navy-500: #2563eb;
+  --navy-600: #1d4ed8;
+  --navy-700: #1e40af;
+  --navy-800: #1e3a8a;
+  --navy-900: #0a1f4d;
+
+  /* ---------- Neutrals ---------- */
+  --gray-0:   #ffffff;
+  --gray-50:  #f7f8fa;
+  --gray-100: #eef0f4;
+  --gray-200: #dde1e8;
+  --gray-300: #c2c8d3;
+  --gray-400: #9ba3b3;
+  --gray-500: #6b7484;
+  --gray-600: #4a5260;
+  --gray-700: #2f3641;
+  --gray-800: #1a1f28;
+  --gray-900: #0c0f15;
+
+  /* ---------- Semantic ---------- */
+  --success: #10b67a;
+  --warning: #f5a623;
+  --error:   #e5484d;
+  --info:    var(--blue-500);
+
+  /* ---------- Surface ---------- */
+  --bg:        #fafbfd;
+  --bg-elev:   #ffffff;
+  --bg-tint:   #eff5f9;
+  --border:    #e6e9ef;
+  --border-strong: #d2d7e0;
+  --fg:        #0c0f15;
+  --fg-muted:  #4a5260;
+  --fg-subtle: #6b7484;
+
+  /* ---------- Type ---------- */
+  --font-sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* Type scale (rem) */
+  --t-display-1: 72px;
+  --t-display-2: 56px;
+  --t-h1: 44px;
+  --t-h2: 32px;
+  --t-h3: 24px;
+  --t-h4: 20px;
+  --t-h5: 18px;
+  --t-body-lg: 17px;
+  --t-body:    15px;
+  --t-body-sm: 14px;
+  --t-caption: 13px;
+  --t-micro:   11px;
+
+  /* ---------- Spacing (4pt grid) ---------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 32px;
+  --s-8: 40px;
+  --s-9: 48px;
+  --s-10: 64px;
+  --s-11: 80px;
+  --s-12: 120px;
+
+  /* ---------- Radius ---------- */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-2xl: 32px;
+  --r-pill: 999px;
+
+  /* ---------- Shadow ---------- */
+  --sh-1: 0 1px 2px rgba(12, 15, 21, 0.05), 0 1px 1px rgba(12, 15, 21, 0.04);
+  --sh-2: 0 2px 6px rgba(12, 15, 21, 0.06), 0 1px 2px rgba(12, 15, 21, 0.04);
+  --sh-3: 0 8px 24px rgba(12, 15, 21, 0.08), 0 2px 4px rgba(12, 15, 21, 0.04);
+  --sh-4: 0 24px 48px rgba(12, 15, 21, 0.10), 0 4px 8px rgba(12, 15, 21, 0.05);
+  --sh-brand: 0 12px 32px rgba(30, 64, 175, 0.28);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 360ms;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+img, svg { display: block; max-width: 100%; }
+
+::selection { background: var(--blue-500); color: white; }
+
+/* ============================================================
+   Layout — App Shell
+   ============================================================ */
+
+.app {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--bg-elev);
+  border-right: 1px solid var(--border);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--fg);
+}
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+.brand-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.brand-name strong {
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+}
+.brand-name span {
+  font-size: 11px;
+  color: var(--fg-subtle);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-section h6 {
+  margin: 0 0 10px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  color: var(--fg-muted);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.nav-item:hover { background: var(--gray-50); color: var(--fg); }
+.nav-item.active {
+  background: var(--blue-50);
+  color: var(--blue-700);
+  font-weight: 600;
+}
+.nav-item .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--gray-300);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.nav-item.active .dot { background: var(--blue-500); }
+.nav-item:hover .dot { background: var(--blue-300); }
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--fg-subtle);
+  line-height: 1.6;
+}
+
+/* ---------- Main ---------- */
+.main {
+  min-width: 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  background: rgba(250, 251, 253, 0.85);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--fg-subtle);
+}
+.crumbs strong { color: var(--fg); font-weight: 600; }
+.crumbs .sep { color: var(--gray-300); }
+
+.top-actions { display: flex; align-items: center; gap: 8px; }
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  background: var(--gray-50);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-muted);
+}
+
+.content {
+  padding: 64px 48px 120px;
+  max-width: 1180px;
+}
+
+/* ============================================================
+   Headers / Sections
+   ============================================================ */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+  margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--blue-500);
+}
+
+.page-title {
+  margin: 0 0 16px;
+  font-size: var(--t-h1);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.page-lead {
+  margin: 0 0 48px;
+  font-size: var(--t-body-lg);
+  color: var(--fg-muted);
+  max-width: 720px;
+  line-height: 1.6;
+}
+
+.section {
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
+}
+.section:first-of-type { border-top: 0; padding-top: 24px; }
+.section-head {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  margin-bottom: 32px;
+}
+.section-head .meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+}
+.section-head h2 {
+  margin: 0 0 8px;
+  font-size: var(--t-h2);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+.section-head p {
+  margin: 0;
+  font-size: var(--t-body-lg);
+  color: var(--fg-muted);
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+/* ============================================================
+   Cards / Surfaces
+   ============================================================ */
+
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+}
+
+.code {
+  display: block;
+  padding: 12px 14px;
+  background: var(--gray-900);
+  color: #d6e2ff;
+  border-radius: var(--r-sm);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-x: auto;
+}
+.code .tk-key { color: #8ca3e0; }
+.code .tk-val { color: #ffd29b; }
+.code .tk-com { color: #6b7484; }
+
+/* ============================================================
+   Stacked Pills Mark (the brand motif)
+   ============================================================ */
+
+.stack-mark {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stack-mark .pill {
+  height: 4px;
+  border-radius: 999px;
+  width: 100%;
+}
+.stack-mark.lg .pill { height: 14px; gap: 4px; }
