@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hello, 뀨 — 김현규</title>
+<link rel="stylesheet" href="assets/tokens.css" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { text-decoration: none; color: inherit; }
+  img, svg { display: block; }
+
+  /* ── DS Buttons ── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px; border: 1px solid transparent; border-radius: var(--r-pill);
+    font-family: inherit; font-weight: 600; cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    white-space: nowrap; text-decoration: none;
+  }
+  .btn-md { height: 44px; padding: 0 22px; font-size: 14px; }
+  .btn-primary { background: var(--blue-500); color: white; box-shadow: 0 4px 16px rgba(30,64,175,.24); }
+  .btn-primary:hover { background: var(--blue-600); transform: translateY(-1px); }
+
+  /* ── Gradient Text ── */
+  .grad {
+    background: linear-gradient(135deg, var(--blue-500) 0%, var(--navy-400) 40%, var(--blue-300) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  /* ── Fixed Top Nav ── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    height: 64px; padding: 0 160px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250, 251, 253, 0.92);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow var(--dur-base);
+  }
+  .nav.scrolled { box-shadow: var(--sh-2); }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    font-weight: 800; font-size: 17px; letter-spacing: -0.03em; color: var(--fg);
+  }
+  .nav-center { display: flex; align-items: center; gap: 2px; }
+  .nav-link {
+    padding: 8px 16px; border-radius: var(--r-pill);
+    font-size: 14px; font-weight: 500; color: var(--fg-muted);
+    transition: background var(--dur-fast), color var(--dur-fast);
+  }
+  .nav-link:hover { background: var(--gray-100); color: var(--fg); }
+  .nav-link.active { color: var(--blue-700); font-weight: 700; background: var(--blue-50); }
+
+  /* ── Page Shell ── */
+  .page-wrap {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 110px 160px 140px;
+  }
+
+  /* ── Eyebrow ── */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue-600); margin-bottom: 12px;
+  }
+  .eyebrow::before { content: ""; width: 20px; height: 1px; background: var(--blue-500); }
+
+  /* ── Page Hero ── */
+  .page-hero {
+    display: grid; grid-template-columns: 1fr 300px; gap: 56px;
+    align-items: start; padding-bottom: 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-title { margin: 0 0 16px; font-size: clamp(44px, 5vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.0; }
+  .page-title em { font-style: normal; color: var(--blue-600); }
+  .page-lead { margin: 0 0 28px; font-size: 20px; color: var(--fg-muted); line-height: 1.65; }
+  .page-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .page-tag {
+    display: inline-flex; align-items: center;
+    padding: 5px 12px; background: var(--blue-50); border: 1px solid var(--blue-100);
+    border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--blue-700);
+    font-family: var(--font-mono); letter-spacing: 0.04em;
+  }
+
+  /* ── Profile Card ── */
+  .profile-card {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: var(--r-xl); padding: 28px; box-shadow: var(--sh-1);
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .profile-avatar {
+    width: 72px; height: 72px; border-radius: 999px;
+    background: linear-gradient(135deg, var(--blue-500), var(--navy-800));
+    color: white; display: grid; place-items: center;
+    font-weight: 800; font-size: 22px; letter-spacing: -0.02em;
+    margin: 0 auto; box-shadow: var(--sh-brand);
+  }
+  .profile-card-name { text-align: center; }
+  .profile-card-name strong { display: block; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+  .profile-card-name span { font-size: 13px; color: var(--fg-subtle); margin-top: 2px; display: block; }
+  .profile-links { display: flex; flex-direction: column; gap: 8px; }
+  .profile-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--r-md);
+    color: var(--fg-muted); font-size: 13px;
+    transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast);
+  }
+  .profile-link:hover { background: var(--blue-50); border-color: var(--blue-200); color: var(--blue-700); }
+  .profile-link-icon { width: 32px; height: 32px; border-radius: var(--r-sm); background: var(--gray-100); display: grid; place-items: center; flex-shrink: 0; }
+  .profile-link-text { line-height: 1.3; }
+  .profile-link-text strong { display: block; font-size: 13px; font-weight: 600; color: var(--fg); }
+  .profile-link-text span { font-size: 11px; color: var(--fg-subtle); }
+
+  /* ── Sections ── */
+  .section { padding: 72px 0; border-top: 1px solid var(--border); }
+  .section-title { margin: 0 0 10px; font-size: 36px; font-weight: 800; letter-spacing: -0.03em; }
+  .section-lead { margin: 0 0 32px; font-size: 17px; color: var(--fg-muted); line-height: 1.65; max-width: 640px; }
+
+  /* ── Competency Cards ── */
+  .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .comp-card {
+    background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-xl);
+    padding: 32px; position: relative; overflow: hidden;
+    transition: box-shadow var(--dur-fast), transform var(--dur-fast);
+  }
+  .comp-card:hover { box-shadow: var(--sh-2); transform: translateY(-2px); }
+  .comp-card-num {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; color: var(--blue-400); margin-bottom: 12px;
+  }
+  .comp-card h3 { margin: 0 0 14px; font-size: 21px; font-weight: 800; letter-spacing: -0.02em; }
+  .comp-card-list { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .comp-card-list li {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; color: var(--fg-muted); line-height: 1.5;
+  }
+  .comp-card-list li::before { content: "✓"; color: var(--blue-500); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .comp-card-bg {
+    position: absolute; bottom: -16px; right: -16px; width: 80px; height: 80px;
+    border-radius: 50%; background: var(--blue-50); opacity: 0.6;
+  }
+
+  /* ── Philosophy ── */
+  .philosophy-block {
+    background: linear-gradient(135deg, var(--blue-50), var(--navy-50));
+    border: 1px solid var(--blue-100); border-left: 4px solid var(--blue-500);
+    border-radius: var(--r-xl); padding: 36px 40px;
+  }
+  .philosophy-quote {
+    font-size: 26px; font-weight: 800; line-height: 1.5; letter-spacing: -0.03em;
+    color: var(--fg); margin: 0 0 20px;
+  }
+  .philosophy-quote em { font-style: normal; color: var(--blue-600); }
+  .philosophy-body { font-size: 15px; color: var(--fg-muted); line-height: 1.75; margin: 0; }
+
+  /* ── Skills ── */
+  .skill-category { margin-bottom: 28px; }
+  .skill-cat-label {
+    font-family: var(--font-mono); font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-subtle);
+    margin-bottom: 10px; display: block;
+  }
+  .chip-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-chip {
+    display: inline-flex; align-items: center;
+    padding: 6px 14px; background: var(--gray-50); border: 1px solid var(--border);
+    border-radius: var(--r-pill); font-size: 13px; color: var(--fg-muted);
+    transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+  }
+  .skill-chip:hover { background: var(--blue-50); color: var(--blue-700); border-color: var(--blue-100); }
+
+  /* ── Media ── */
+  .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .media-card {
+    display: flex; gap: 16px; padding: 20px;
+    background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-lg);
+    transition: box-shadow var(--dur-fast), transform var(--dur-fast);
+  }
+  .media-card:hover { box-shadow: var(--sh-2); transform: translateY(-1px); }
+  .media-icon {
+    width: 44px; height: 44px; border-radius: var(--r-md); flex-shrink: 0;
+    background: var(--blue-50); border: 1px solid var(--blue-100);
+    display: grid; place-items: center; color: var(--blue-600);
+  }
+  .media-info { min-width: 0; }
+  .media-info .source { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--blue-500); text-transform: uppercase; margin-bottom: 4px; }
+  .media-info h4 { margin: 0 0 4px; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.35; }
+  .media-info p { margin: 0; font-size: 12px; color: var(--fg-muted); line-height: 1.5; }
+
+  /* ── Boundary Cards ── */
+  .boundary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .boundary-card {
+    padding: 20px; background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: var(--r-lg); border-top: 3px solid var(--error);
+  }
+  .boundary-num { font-family: var(--font-mono); font-size: 11px; color: var(--fg-subtle); margin-bottom: 8px; }
+  .boundary-card h4 { margin: 0 0 8px; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: var(--error); }
+  .boundary-card p { margin: 0; font-size: 13px; color: var(--fg-muted); line-height: 1.55; }
+
+  /* ── Pager ── */
+  .pager { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pager-card {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 24px; background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    transition: box-shadow var(--dur-fast), transform var(--dur-fast);
+  }
+  .pager-card:hover { box-shadow: var(--sh-2); transform: translateY(-1px); }
+  .pager-card.right { text-align: right; align-items: flex-end; }
+  .pager-label { font-family: var(--font-mono); font-size: 11px; color: var(--fg-subtle); letter-spacing: 0.1em; text-transform: uppercase; }
+  .pager-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: var(--fg); }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 1800px; margin: 0 auto;
+    padding: 40px 160px 56px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--fg-subtle);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer a { color: var(--blue-600); font-weight: 500; }
+
+  /* ── Scroll Reveal ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ── TOP NAV ── -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 36 36" fill="none">
+      <rect x="2" y="2"  width="32" height="4" rx="2" fill="#0a1640"/>
+      <rect x="2" y="8"  width="32" height="4" rx="2" fill="#1a3480"/>
+      <rect x="2" y="14" width="32" height="4" rx="2" fill="#2556c8"/>
+      <rect x="2" y="20" width="32" height="4" rx="2" fill="#3b7af0"/>
+      <rect x="2" y="26" width="32" height="4" rx="2" fill="#60a0f8"/>
+      <rect x="2" y="32" width="32" height="4" rx="2" fill="#93bffc"/>
+    </svg>
+    김현규
+  </a>
+  <div class="nav-center">
+    <a class="nav-link" href="index.html">홈</a>
+    <a class="nav-link active" href="about.html">소개</a>
+    <a class="nav-link" href="career.html">커리어</a>
+    <a class="nav-link" href="index.html#portfolio">포트폴리오</a>
+    <a class="nav-link" href="index.html#agent">Agent AI</a>
+  </div>
+  <a class="btn btn-primary btn-md" href="mailto:hukami6472@gmail.com">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 8 9 6 9-6"/></svg>
+    연락하기
+  </a>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- Page Hero -->
+  <section class="page-hero reveal">
+    <div>
+      <div class="eyebrow">소개 · About</div>
+      <h1 class="page-title">
+        Hello,<br/>나는 <span class="grad">뀨님</span>입니다.
+      </h1>
+      <p class="page-lead">
+        문제를 정의하고 해결하는 그로스 리더.<br/>
+        핀테크 현장에서 데이터와 실험으로 성장을 설계해온 16년차 마케터/PM입니다.
+      </p>
+      <div class="page-tags">
+        <span class="page-tag">Fintech</span>
+        <span class="page-tag">Growth Marketing</span>
+        <span class="page-tag">MarTech PM</span>
+        <span class="page-tag">AI Adopter</span>
+      </div>
+    </div>
+
+    <!-- Profile card -->
+    <div class="profile-card">
+      <div class="profile-avatar">뀨</div>
+      <div class="profile-card-name">
+        <strong>김현규 (뀨)</strong>
+        <span>페퍼저축은행 디지털뱅킹 차장</span>
+        <span style="margin-top:4px;">경력 16년 · 1985년생</span>
+      </div>
+      <div class="profile-links">
+        <a href="mailto:hukami6472@gmail.com" class="profile-link">
+          <div class="profile-link-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 8 9 6 9-6"/></svg>
+          </div>
+          <div class="profile-link-text">
+            <strong>이메일</strong>
+            <span>hukami6472@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/kkyu64" target="_blank" class="profile-link">
+          <div class="profile-link-icon" style="background:var(--blue-50);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="profile-link-text">
+            <strong>LinkedIn</strong>
+            <span>/in/kkyu64</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="section reveal">
+    <div class="eyebrow">Philosophy</div>
+    <h2 class="section-title">업무 철학</h2>
+    <div class="philosophy-block">
+      <p class="philosophy-quote">
+        "마케팅은 단순한 광고가 아니라,<br/>
+        <em>사업자의 문제를 해결하는 성장 구조를 설계하는 일</em>입니다."
+      </p>
+      <p class="philosophy-body">
+        문제를 명확히 정의하면 절반은 해결된 것이다 — 이 철학을 바탕으로 사용자 행동 데이터를 정량화하고,
+        CAC·ROAS 중심으로 채널을 최적화하며, 가설 → 실험 → 분석 → 고도화의 그로스 사이클을
+        실제 사업 성과로 연결합니다.
+      </p>
+      <p class="philosophy-body" style="margin-top:12px;">
+        특히 B2B 핀테크 환경에서는 사업자가 서비스를 발견하고 도입하며 지속적으로 활용하게 하는
+        전체 여정의 구조화가 핵심이라고 믿습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Core Competencies -->
+  <section class="section reveal">
+    <div class="eyebrow">Competencies</div>
+    <h2 class="section-title">핵심 역량</h2>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-card-num">01 — STRATEGY</div>
+        <h3>마케팅 전략 리딩</h3>
+        <ul class="comp-card-list">
+          <li>차세대 모바일뱅킹 PM (60억)</li>
+          <li>조직 스케일링 2→40명</li>
+          <li>MarTech 도입 PM (100%)</li>
+          <li>Amplitude Taxonomy 설계<br/>(432 Event · 241 Property)</li>
+        </ul>
+        <div class="comp-card-bg"></div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-card-num">02 — GROWTH</div>
+        <h3>마케팅 그로스</h3>
+        <ul class="comp-card-list">
+          <li>핀테크 제휴 (Toss·카카오·네이버)</li>
+          <li>월 실적 1,500억 대출비교서비스</li>
+          <li>인하우스 광고팀 운영</li>
+          <li>Paid Media 월 5억 운영</li>
+          <li>MAU 20만 / 자산 1.7조 확보</li>
+          <li>퍼널 최적화 / CXM / 개인화</li>
+        </ul>
+        <div class="comp-card-bg"></div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-card-num">03 — AI</div>
+        <h3>AI 활용 &amp; 생산성</h3>
+        <ul class="comp-card-list">
+          <li>Claude로 업무 자동화 구현</li>
+          <li>Genspark 회의록/문서 생성</li>
+          <li>사내 AI 교육 및 생산성 개선 리더</li>
+          <li>멀티 에이전트 시스템 구축</li>
+          <li>Notion / Figma 등 환경 최적화</li>
+        </ul>
+        <div class="comp-card-bg"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section reveal">
+    <div class="eyebrow">Skills &amp; Tools</div>
+    <h2 class="section-title">스킬 &amp; 도구</h2>
+
+    <div class="skill-category">
+      <span class="skill-cat-label">MarTech · Analytics</span>
+      <div class="chip-wrap">
+        <span class="skill-chip">AppsFlyer</span>
+        <span class="skill-chip">Amplitude</span>
+        <span class="skill-chip">Tableau</span>
+        <span class="skill-chip">Google Analytics</span>
+        <span class="skill-chip">Data Taxonomy</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <span class="skill-cat-label">Paid Media · Marketing</span>
+      <div class="chip-wrap">
+        <span class="skill-chip">Google Ads</span>
+        <span class="skill-chip">Facebook Ads</span>
+        <span class="skill-chip">검색광고</span>
+        <span class="skill-chip">SRN Media</span>
+        <span class="skill-chip">바이럴 · SNS</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <span class="skill-cat-label">기획 · 관리</span>
+      <div class="chip-wrap">
+        <span class="skill-chip">PM / PMO</span>
+        <span class="skill-chip">전략기획</span>
+        <span class="skill-chip">서비스기획</span>
+        <span class="skill-chip">사업기획</span>
+        <span class="skill-chip">KPI 관리</span>
+        <span class="skill-chip">RFP</span>
+        <span class="skill-chip">조직관리</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <span class="skill-cat-label">Design</span>
+      <div class="chip-wrap">
+        <span class="skill-chip">Figma</span>
+        <span class="skill-chip">Adobe Photoshop</span>
+        <span class="skill-chip">Adobe XD</span>
+        <span class="skill-chip">After Effects</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <span class="skill-cat-label">AI</span>
+      <div class="chip-wrap">
+        <span class="skill-chip">Claude</span>
+        <span class="skill-chip">Genspark</span>
+        <span class="skill-chip">Perplexity</span>
+        <span class="skill-chip">Notion AI</span>
+        <span class="skill-chip">OpenClaw</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Boundaries (What I don't tolerate) -->
+  <section class="section reveal">
+    <div class="eyebrow">Values</div>
+    <h2 class="section-title">못 견디는 것 세 가지</h2>
+    <p class="section-lead">이 세 가지는 내 정체성과 정면으로 충돌합니다.</p>
+    <div class="boundary-grid">
+      <div class="boundary-card">
+        <div class="boundary-num">01</div>
+        <h4>"내 일 아니에요"</h4>
+        <p>능력 밖이라며, 내 일이 아니라며 빠지는 태도. 문제를 정의하는 사람은 경계를 핑계로 삼지 않습니다.</p>
+      </div>
+      <div class="boundary-card">
+        <div class="boundary-num">02</div>
+        <h4>맥락 없는 단정</h4>
+        <p>전후 맥락도 파악하지 않은 채 상대방을 잘못했다고 단정짓는 태도. 데이터 없는 판단은 판단이 아닙니다.</p>
+      </div>
+      <div class="boundary-card">
+        <div class="boundary-num">03</div>
+        <h4>R&R 핑계</h4>
+        <p>역할 분담을 핑계로 문제 해결을 회피하는 태도. 사업 성과는 R&R의 경계 위에 있지 않습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- External Media -->
+  <section class="section reveal">
+    <div class="eyebrow">Press &amp; Media</div>
+    <h2 class="section-title">외부 매체 소개</h2>
+    <div class="media-grid">
+      <a href="https://cshub.ab180.co/ko/case-studies/ui-ux" target="_blank" class="media-card">
+        <div class="media-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="media-info">
+          <div class="source">AB180 CS Hub</div>
+          <h4>Amplitude로 UI/UX 및 전환율 개선</h4>
+          <p>Active 사용률 30%→60%, 기능 탐색 2배 증가 사례</p>
+        </div>
+      </a>
+      <a href="https://zdnet.co.kr/view/?no=20201026151142" target="_blank" class="media-card">
+        <div class="media-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="media-info">
+          <div class="source">ZDNet Korea</div>
+          <h4>성공적인 마케팅, '고객여정'을 명확히</h4>
+          <p>"다양한 실험, 빠른 진행, 데이터로 피드백 집중"</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Pager -->
+  <nav class="pager reveal">
+    <a href="index.html" class="pager-card">
+      <span class="pager-label">← 이전</span>
+      <span class="pager-title">홈</span>
+    </a>
+    <a href="career.html" class="pager-card right">
+      <span class="pager-label">다음 →</span>
+      <span class="pager-title">Journey / 16년의 여정</span>
+    </a>
+  </nav>
+
+</div><!-- /page-wrap -->
+
+<footer class="footer">
+  <span>© 2025 김현규</span>
+  <span><a href="mailto:hukami6472@gmail.com">hukami6472@gmail.com</a> · <a href="https://linkedin.com/in/kkyu64" target="_blank">LinkedIn ↗</a></span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav scroll shadow
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
+</script>
+</body>
+</html>

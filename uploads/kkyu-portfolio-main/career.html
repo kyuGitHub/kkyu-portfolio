@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Journey / 16년의 여정 — 김현규</title>
+<link rel="stylesheet" href="assets/tokens.css" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { text-decoration: none; color: inherit; }
+  img, svg { display: block; }
+
+  /* ── DS Buttons ── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px; border: 1px solid transparent; border-radius: var(--r-pill);
+    font-family: inherit; font-weight: 600; cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    white-space: nowrap; text-decoration: none;
+  }
+  .btn-md { height: 44px; padding: 0 22px; font-size: 14px; }
+  .btn-primary { background: var(--blue-500); color: white; box-shadow: 0 4px 16px rgba(30,64,175,.24); }
+  .btn-primary:hover { background: var(--blue-600); transform: translateY(-1px); }
+
+  /* ── Gradient Text ── */
+  .grad {
+    background: linear-gradient(135deg, var(--blue-500) 0%, var(--navy-400) 40%, var(--blue-300) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  /* ── Fixed Top Nav ── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    height: 64px; padding: 0 160px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250, 251, 253, 0.92);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow var(--dur-base);
+  }
+  .nav.scrolled { box-shadow: var(--sh-2); }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    font-weight: 800; font-size: 17px; letter-spacing: -0.03em; color: var(--fg);
+  }
+  .nav-center { display: flex; align-items: center; gap: 2px; }
+  .nav-link {
+    padding: 8px 16px; border-radius: var(--r-pill);
+    font-size: 14px; font-weight: 500; color: var(--fg-muted);
+    transition: background var(--dur-fast), color var(--dur-fast);
+  }
+  .nav-link:hover { background: var(--gray-100); color: var(--fg); }
+  .nav-link.active { color: var(--blue-700); font-weight: 700; background: var(--blue-50); }
+
+  /* ── Page Shell ── */
+  .page-wrap {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 110px 160px 140px;
+  }
+
+  /* ── Eyebrow ── */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue-600); margin-bottom: 12px;
+  }
+  .eyebrow::before { content: ""; width: 20px; height: 1px; background: var(--blue-500); }
+
+  /* ── Page Hero ── */
+  .page-hero {
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-title { margin: 0 0 16px; font-size: clamp(48px, 6vw, 96px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.0; }
+  .page-lead { margin: 0; font-size: 20px; color: var(--fg-muted); line-height: 1.65; max-width: 640px; }
+
+  /* ── Sections ── */
+  .section { padding: 64px 0; border-top: 1px solid var(--border); }
+  .section-title { margin: 0 0 40px; font-size: 32px; font-weight: 800; letter-spacing: -0.03em; }
+
+  /* ── Stats Band ── */
+  .stats-band {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: var(--r-lg); overflow: hidden; margin-bottom: 24px;
+  }
+  .stat-cell {
+    padding: 20px 16px; text-align: center; border-right: 1px solid var(--border);
+  }
+  .stat-cell:last-child { border-right: 0; }
+  .stat-cell-num { font-size: 28px; font-weight: 800; letter-spacing: -0.04em; color: var(--blue-600); line-height: 1; margin-bottom: 4px; }
+  .stat-cell-unit { font-size: 16px; font-weight: 700; }
+  .stat-cell-label { font-size: 11px; color: var(--fg-subtle); font-family: var(--font-mono); letter-spacing: 0.04em; }
+
+  /* ── Timeline ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .timeline::before {
+    content: ""; position: absolute; left: 15px; top: 8px; bottom: 8px;
+    width: 2px; background: linear-gradient(to bottom, var(--blue-500), var(--blue-100));
+  }
+  .timeline-item { display: grid; grid-template-columns: 48px 1fr; gap: 24px; position: relative; }
+  .timeline-item + .timeline-item { margin-top: 32px; }
+  .timeline-dot {
+    width: 32px; height: 32px; border-radius: 999px; flex-shrink: 0;
+    background: white; border: 2.5px solid var(--blue-500);
+    display: grid; place-items: center; position: relative; z-index: 1;
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .timeline-dot.current { background: var(--blue-500); }
+  .timeline-dot svg { color: var(--blue-600); }
+  .timeline-dot.current svg { color: white; }
+
+  .timeline-card {
+    background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-lg);
+    padding: 24px 28px; margin-bottom: 8px;
+    transition: box-shadow var(--dur-fast);
+  }
+  .timeline-card:hover { box-shadow: var(--sh-2); }
+  .timeline-card.current { border-color: var(--blue-200); border-left: 3px solid var(--blue-500); }
+
+  .tc-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+  .tc-company-name { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: var(--fg); margin-bottom: 2px; }
+  .tc-company-sub { font-size: 13px; color: var(--fg-subtle); }
+  .tc-meta { text-align: right; flex-shrink: 0; }
+  .tc-period { font-family: var(--font-mono); font-size: 12px; color: var(--blue-600); font-weight: 600; }
+  .tc-duration { font-size: 11px; color: var(--fg-subtle); margin-top: 2px; }
+  .tc-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 999px; font-size: 11px; font-weight: 600; color: var(--blue-700); font-family: var(--font-mono); margin-top: 4px; }
+  .tc-badge.current-badge { background: var(--blue-500); color: white; border-color: var(--blue-500); }
+
+  .tc-role { font-size: 14px; font-weight: 600; color: var(--fg-muted); margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+
+  .tc-achievements { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+  .tc-achieve {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 10px 12px; background: var(--gray-50); border-radius: var(--r-sm);
+    font-size: 13px; color: var(--fg-muted); line-height: 1.5;
+  }
+  .tc-achieve::before { content: "✦"; color: var(--blue-400); font-size: 10px; margin-top: 2px; flex-shrink: 0; }
+
+  .tc-phases { display: flex; flex-direction: column; gap: 12px; }
+  .tc-phase { padding: 14px 16px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-md); }
+  .tc-phase-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .tc-phase-period { font-family: var(--font-mono); font-size: 10.5px; color: var(--blue-500); font-weight: 600; }
+  .tc-phase-title { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+  .tc-phase-body { font-size: 13px; color: var(--fg-muted); line-height: 1.6; margin: 0; }
+
+  /* ── Meta Grid (Education etc.) ── */
+  .meta-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .meta-card {
+    background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-lg);
+    padding: 20px;
+  }
+  .meta-card-label { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-500); margin-bottom: 12px; }
+  .meta-entry { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .meta-entry:last-child { border-bottom: 0; padding-bottom: 0; }
+  .meta-entry-title { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 2px; }
+  .meta-entry-sub { font-size: 12px; color: var(--fg-subtle); line-height: 1.5; }
+  .meta-entry-date { font-family: var(--font-mono); font-size: 11px; color: var(--blue-500); margin-top: 4px; }
+
+  /* ── Pager ── */
+  .pager { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pager-card {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 24px; background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    transition: box-shadow var(--dur-fast), transform var(--dur-fast);
+  }
+  .pager-card:hover { box-shadow: var(--sh-2); transform: translateY(-1px); }
+  .pager-card.right { text-align: right; align-items: flex-end; }
+  .pager-label { font-family: var(--font-mono); font-size: 11px; color: var(--fg-subtle); letter-spacing: 0.1em; text-transform: uppercase; }
+  .pager-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: var(--fg); }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 1800px; margin: 0 auto;
+    padding: 40px 160px 56px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--fg-subtle);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer a { color: var(--blue-600); font-weight: 500; }
+
+  /* ── Scroll Reveal ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ── TOP NAV ── -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 36 36" fill="none">
+      <rect x="2" y="2"  width="32" height="4" rx="2" fill="#0a1640"/>
+      <rect x="2" y="8"  width="32" height="4" rx="2" fill="#1a3480"/>
+      <rect x="2" y="14" width="32" height="4" rx="2" fill="#2556c8"/>
+      <rect x="2" y="20" width="32" height="4" rx="2" fill="#3b7af0"/>
+      <rect x="2" y="26" width="32" height="4" rx="2" fill="#60a0f8"/>
+      <rect x="2" y="32" width="32" height="4" rx="2" fill="#93bffc"/>
+    </svg>
+    김현규
+  </a>
+  <div class="nav-center">
+    <a class="nav-link" href="index.html">홈</a>
+    <a class="nav-link" href="about.html">소개</a>
+    <a class="nav-link active" href="career.html">커리어</a>
+    <a class="nav-link" href="index.html#portfolio">포트폴리오</a>
+    <a class="nav-link" href="index.html#agent">Agent AI</a>
+  </div>
+  <a class="btn btn-primary btn-md" href="mailto:hukami6472@gmail.com">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 8 9 6 9-6"/></svg>
+    연락하기
+  </a>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- Page Hero -->
+  <section class="page-hero reveal">
+    <div class="eyebrow">Career · 경력</div>
+    <h1 class="page-title"><span class="grad">16년</span>의 여정</h1>
+    <p class="page-lead">
+      디자인으로 시작해 마케팅·PM·AI로 확장해온 커리어 타임라인.<br/>
+      금융 디지털채널의 맨 앞에서 성장 구조를 설계해왔습니다.
+    </p>
+  </section>
+
+  <!-- Stats Band -->
+  <section class="section reveal" style="padding-top:32px;">
+    <div class="stats-band">
+      <div class="stat-cell">
+        <div class="stat-cell-num">16<span class="stat-cell-unit" style="font-size:18px;">년</span></div>
+        <div class="stat-cell-label">TOTAL CAREER</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell-num">3</div>
+        <div class="stat-cell-label">COMPANIES</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell-num">1,500<span class="stat-cell-unit" style="font-size:16px;">억</span></div>
+        <div class="stat-cell-label">월 최대 실적</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell-num">20<span class="stat-cell-unit" style="font-size:16px;">만</span></div>
+        <div class="stat-cell-label">MAU 달성</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section reveal">
+    <div class="eyebrow">Timeline</div>
+    <h2 class="section-title">경력사항</h2>
+
+    <div class="timeline">
+
+      <!-- 페퍼저축은행 -->
+      <div class="timeline-item">
+        <div class="timeline-dot current">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <div>
+          <div class="timeline-card current">
+            <div class="tc-header">
+              <div>
+                <div class="tc-company-name">페퍼저축은행</div>
+                <div class="tc-company-sub">호주계 Pepper Group 산하 · 자산 3.6조 · 직원 500명</div>
+              </div>
+              <div class="tc-meta">
+                <div class="tc-period">2018.08 — 현재</div>
+                <div class="tc-duration">7년 이상</div>
+                <div class="tc-badge current-badge">재직 중</div>
+              </div>
+            </div>
+            <div class="tc-role">디지털뱅킹 차장/팀장 · 그로스 마케팅 리더</div>
+
+            <div class="tc-achievements">
+              <div class="tc-achieve">모바일 APP 풀뱅킹 기획~출시 총괄. 출시 1년 수신 5천억·여신 1.2조·MAU 20만</div>
+              <div class="tc-achieve">Paid Media 최적화(월 5억)로 월 신용대출 10억 → 1,500억 달성 (150배)</div>
+              <div class="tc-achieve">Amplitude 활용 Active 사용률 30%→60%, 기능탐색 2배 (AB180 CS Hub 소개)</div>
+              <div class="tc-achieve">Appsflyer·Amplitude·Tableau 전사 도입 전략 제안 및 내재화 리드</div>
+            </div>
+
+            <div class="tc-phases">
+              <div class="tc-phase">
+                <div class="tc-phase-header">
+                  <span class="tc-phase-period">2018.08 — 2019.10</span>
+                  <span class="tc-phase-title">직접광고 운영팀 신설·리더</span>
+                </div>
+                <p class="tc-phase-body">마케팅팀 신규 조직 셋팅 리드 → 월 신용대출 10억 → 150억 성장 (15배). 대출비교서비스 초창기 주도 → 현재 핵심사업 자리매김</p>
+              </div>
+              <div class="tc-phase">
+                <div class="tc-phase-header">
+                  <span class="tc-phase-period">2019.10 — 2021.03</span>
+                  <span class="tc-phase-title">차세대 모바일뱅킹 APP PM</span>
+                </div>
+                <p class="tc-phase-body">FULL Banking(회원가입·계좌·이체·오픈뱅킹) 기획~런칭 총괄. 초기 2명 → 30명+ 프로젝트 조직 확대. 출시 1년 수신 5천억·여신 1.2조·MAU 20만 달성</p>
+              </div>
+              <div class="tc-phase">
+                <div class="tc-phase-header">
+                  <span class="tc-phase-period">2021.03 — 2024.12</span>
+                  <span class="tc-phase-title">CXM 팀 신설·그로스 리더</span>
+                </div>
+                <p class="tc-phase-body">Growth Stack(Appsflyer·Amplitude·Tableau·Figma) 전사 도입·교육, 데이터 문화 정착. 망분리정책 돌파 → 사내 첫 도입으로 프로세스 확립 및 규정화</p>
+              </div>
+              <div class="tc-phase">
+                <div class="tc-phase-header">
+                  <span class="tc-phase-period">2025.01 — 현재</span>
+                  <span class="tc-phase-title">대출비교서비스 및 디지털기획 총괄</span>
+                </div>
+                <p class="tc-phase-body">Toss·카카오페이·카카오뱅크·네이버 등 핀테크 제휴(신용, 주택담보, 자동차담보 3상품). 영업실적·내부통제·트래픽 모니터링·전산고도화 리딩</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NH농협캐피탈 -->
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div>
+          <div class="timeline-card">
+            <div class="tc-header">
+              <div>
+                <div class="tc-company-name">엔에이치농협캐피탈</div>
+                <div class="tc-company-sub">NH금융지주 자회사 · 자산 11조 · 직원 300명</div>
+              </div>
+              <div class="tc-meta">
+                <div class="tc-period">2013.07 — 2018.08</div>
+                <div class="tc-duration">5년 2개월</div>
+                <div class="tc-badge">다이렉트금융팀 파트장</div>
+              </div>
+            </div>
+            <div class="tc-role">사원/파트장 · 신용대출·자동차금융 디지털채널</div>
+
+            <div class="tc-achievements">
+              <div class="tc-achieve">신용대출 및 자동차금융 디지털 채널 신규사업 구축, 월 실적 150억원 안정화</div>
+              <div class="tc-achieve">대출신청~온라인 약정 End-to-End 프로세스 구축 → 콜센터 리소스 40% 절감</div>
+              <div class="tc-achieve">SK엔카, 다나와, 첫차 등 플랫폼 제휴 10건 이상 성사</div>
+              <div class="tc-achieve">여신 1.7조원 성장 주도, 월 250억 동시 운영 달성</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SBI저축은행 -->
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div>
+          <div class="timeline-card">
+            <div class="tc-header">
+              <div>
+                <div class="tc-company-name">에스비아이저축은행</div>
+                <div class="tc-company-sub">국내 대표 저축은행 · 자산 12조 · 직원 650명</div>
+              </div>
+              <div class="tc-meta">
+                <div class="tc-period">2007.07 — 2010.08</div>
+                <div class="tc-duration">3년 2개월</div>
+                <div class="tc-badge">알프스사업부 팀원</div>
+              </div>
+            </div>
+            <div class="tc-role">웹 PM · 디지털 마케팅 · 퍼포먼스 마케팅</div>
+
+            <div class="tc-achievements">
+              <div class="tc-achieve">4개 홈페이지 통합 구축 PM 총괄, 유지보수 비용 효율화</div>
+              <div class="tc-achieve">TV광고, 검색광고 등 멀티채널 퍼포먼스 마케팅 운영</div>
+              <div class="tc-achieve">블로그 포털 메인 선정 2회</div>
+              <div class="tc-achieve">웹 PM 단독 수행: 기획·개발·웹마스터 End-to-End</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Education / Cert / Activity -->
+  <section class="section reveal">
+    <div class="eyebrow">Background</div>
+    <h2 class="section-title">학력 · 자격 · 활동</h2>
+    <div class="meta-grid">
+      <div class="meta-card">
+        <div class="meta-card-label">Education</div>
+        <div class="meta-entry">
+          <div class="meta-entry-title">한양사이버대학교</div>
+          <div class="meta-entry-sub">뉴미디어디자인 전공 · 학점 3.6/4.5</div>
+          <div class="meta-entry-date">2009 — 2014 졸업</div>
+        </div>
+        <div class="meta-entry">
+          <div class="meta-entry-title">봉의고등학교</div>
+          <div class="meta-entry-sub">정보통신과 (전문계)</div>
+          <div class="meta-entry-date">2000 — 2003</div>
+        </div>
+      </div>
+
+      <div class="meta-card">
+        <div class="meta-card-label">Certification &amp; Award</div>
+        <div class="meta-entry">
+          <div class="meta-entry-title">검색광고마케터 1급</div>
+          <div class="meta-entry-sub">한국정보통신진흥협회 · 최종합격</div>
+          <div class="meta-entry-date">2017.09</div>
+        </div>
+        <div class="meta-entry">
+          <div class="meta-entry-title">전국기능경기대회 — 디자인 부문</div>
+          <div class="meta-entry-sub">고용노동부 · 수상</div>
+          <div class="meta-entry-date">2003.04</div>
+        </div>
+        <div class="meta-entry">
+          <div class="meta-entry-title">워드프로세서 2급</div>
+          <div class="meta-entry-sub">대한상공회의소</div>
+          <div class="meta-entry-date">2001.12</div>
+        </div>
+      </div>
+
+      <div class="meta-card">
+        <div class="meta-card-label">Activities</div>
+        <div class="meta-entry">
+          <div class="meta-entry-title">태블로 부트캠프</div>
+          <div class="meta-entry-sub">세일즈포스 · 2, 3분기 수료</div>
+          <div class="meta-entry-date">2025.07 — 2025.08</div>
+        </div>
+        <div class="meta-entry">
+          <div class="meta-entry-title">사내 스터디 "아이스" 운영</div>
+          <div class="meta-entry-sub">Tableau·AI 교육·북클럽 (~12명)</div>
+          <div class="meta-entry-date">2025.01 — 현재</div>
+        </div>
+        <div class="meta-entry">
+          <div class="meta-entry-title">모바일히어로즈</div>
+          <div class="meta-entry-sub">국내 대표 모바일서비스 마케터 모임</div>
+          <div class="meta-entry-date">2020 — 2023</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pager -->
+  <nav class="pager reveal">
+    <a href="about.html" class="pager-card">
+      <span class="pager-label">← 이전</span>
+      <span class="pager-title">Hello, 뀨</span>
+    </a>
+    <a href="index.html#portfolio" class="pager-card right">
+      <span class="pager-label">다음 →</span>
+      <span class="pager-title">AI Transformation</span>
+    </a>
+  </nav>
+
+</div><!-- /page-wrap -->
+
+<footer class="footer">
+  <span>© 2025 김현규</span>
+  <span><a href="mailto:hukami6472@gmail.com">hukami6472@gmail.com</a> · <a href="https://linkedin.com/in/kkyu64" target="_blank">LinkedIn ↗</a></span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav scroll shadow
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
+</script>
+</body>
+</html>
