@@ -26,27 +26,17 @@ git push origin main
 # 5) Vercel 배포 — 아래 둘 중 하나
 ```
 
-## Vercel 배포 — 두 가지 모드
+## Vercel 배포 — 자동 모드
 
-### 모드 A: 자동 (권장, *셋업 필요*)
+Vercel ↔ GitHub Integration *연결 완료* (2026-06-04). `git push origin main` 한 방으로 운영에 자동 반영된다.
 
-Vercel ↔ GitHub Integration이 연결돼 있으면 → `git push` 한 방으로 자동 배포된다.
+- Vercel 프로젝트: `kkyu-portfolio` (`prj_GVzFtUBxr33i75gi1HJ2xQndyg8W`)
+- 연결된 repo: `kyuGitHub/kkyu-portfolio` (branch: `main`)
+- 검증: 빈 커밋 push → 18초 만에 신규 deployment 생성 확인
 
-**셋업 방법 (한 번만):**
+**비상시 수동 배포:** `vercel --prod` (CLI 직접 트리거)
 
-1. https://vercel.com/dashboard/integrations 에서 GitHub 앱 설치
-2. 프로젝트 `kkyu-portfolio` Settings → Git → "Connect Git Repository" → `kyuGitHub/kkyu-portfolio` 선택
-3. 또는 셋업 후 CLI로: `vercel git connect https://github.com/kyuGitHub/kkyu-portfolio.git`
-
-### 모드 B: 수동 (현재 상태)
-
-GitHub Integration 없으면 push 후 직접 배포:
-
-```bash
-vercel --prod --yes
-```
-
-⚠️ **수동 모드의 함정:** push했는데 vercel 배포를 까먹으면 *GitHub과 Vercel이 어긋남*. 다른 PC에서 같은 일 반복하면 *분기 사고* 발생 (이 repo가 한 번 겪은 적 있음 — `kkyu-portfolio` vs `kkyu-portfolio-repo` 중복 프로젝트 생긴 원인).
+⚠️ **수동 배포 함정:** auto-deploy 있으니 수동 배포는 *피해라*. CLI로 직접 배포한 게 GitHub에 없는 변경분이면 다음 push에서 vercel이 덮어쓰며 *분기 사고*. 과거 이 repo에서 발생함 — 중복 프로젝트 `kkyu-portfolio-repo`가 그 흔적 (2026-06-04 삭제 완료).
 
 ---
 
@@ -68,7 +58,6 @@ git log --oneline HEAD..origin/main # pull 안 한 거 있나?
 | 프로젝트 | ID | 용도 |
 |---|---|---|
 | `kkyu-portfolio` | `prj_GVzFtUBxr33i75gi1HJ2xQndyg8W` | **운영 (이 폴더)** |
-| `kkyu-portfolio-repo` | `prj_OmqrHXCaDbiAphPqcI0tDZVc91tu` | 중복 — 삭제 예정 |
 | `kkyu-ds` | (별개) | Design System (별도 repo) |
 
 `.vercel/project.json`이 `kkyu-portfolio`를 가리키는지 확인하고 작업할 것.
