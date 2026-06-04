@@ -280,6 +280,19 @@
   align-self: center;
   text-align: center;
 }
+.aa-profile-photo {
+  width: clamp(140px, 18vw, 260px);
+  height: clamp(140px, 18vw, 260px);
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+  align-self: center;
+  border: 4px solid var(--profile-color);
+  background: white;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
 .aa-profile-card-bottom {
   display: flex; flex-direction: column; gap: 12px;
   margin-top: auto;
@@ -696,7 +709,7 @@
         <div class="aa-profile-num">— #001 / MANAGER</div>
         <div class="aa-profile-color"><i></i> PINK · 핑크</div>
       </div>
-      <div class="aa-profile-emoji">🐕</div>
+      <img class="aa-profile-photo" src="assets/agents/bobbi.jpg" alt="뽀삐 프로필" loading="lazy" />
       <div class="aa-profile-card-bottom">
         <div class="aa-profile-tag">— 하얀 시바견 · WHITE SHIBA</div>
         <div class="aa-profile-card-id">
@@ -759,7 +772,7 @@
         <div class="aa-profile-num">— #002 / RESEARCHER</div>
         <div class="aa-profile-color"><i></i> CHARCOAL · 차콜</div>
       </div>
-      <div class="aa-profile-emoji">🐺</div>
+      <img class="aa-profile-photo" src="assets/agents/neukggu.jpg" alt="늑뀨 프로필" loading="lazy" />
       <div class="aa-profile-card-bottom">
         <div class="aa-profile-tag">— 한국 늑대 · KOREAN WOLF</div>
         <div class="aa-profile-card-id">
@@ -822,7 +835,7 @@
         <div class="aa-profile-num">— #003 / BUILDER</div>
         <div class="aa-profile-color"><i></i> MUSTARD · 머스타드</div>
       </div>
-      <div class="aa-profile-emoji">🐕</div>
+      <img class="aa-profile-photo" src="assets/agents/nuleongi.jpg" alt="누렁이 프로필" loading="lazy" />
       <div class="aa-profile-card-bottom">
         <div class="aa-profile-tag">— 시고르자브종 · KOREAN YARD DOG</div>
         <div class="aa-profile-card-id">
@@ -885,7 +898,7 @@
         <div class="aa-profile-num">— #004 / DESIGNER</div>
         <div class="aa-profile-color"><i></i> LAVENDER · 라벤더</div>
       </div>
-      <div class="aa-profile-emoji">🐈</div>
+      <img class="aa-profile-photo" src="assets/agents/kkukku.jpg" alt="꾸꾸 프로필" loading="lazy" />
       <div class="aa-profile-card-bottom">
         <div class="aa-profile-tag">— 먼치킨 개냥이 · MUNCHKIN</div>
         <div class="aa-profile-card-id">
