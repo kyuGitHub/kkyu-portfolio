@@ -459,6 +459,160 @@
   text-align: center;
 }
 
+/* ── Dual-stack strategy ── */
+.aa-strategy {
+  padding: 160px 56px;
+  max-width: 1600px; margin: 0 auto;
+  border-top: 1px solid var(--border);
+}
+.aa-strategy-head { margin-bottom: 80px; max-width: 900px; }
+.aa-strategy-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--point); margin-bottom: 24px;
+}
+.aa-strategy-eyebrow::before { content: ""; width: 36px; height: 1px; background: var(--point); }
+.aa-strategy-title {
+  font-size: clamp(40px, 5.5vw, 96px); font-weight: 900;
+  letter-spacing: -0.05em; line-height: 0.95;
+  margin: 0 0 24px;
+}
+.aa-strategy-title .point { color: var(--point); }
+.aa-strategy-title .outlined { -webkit-text-stroke: 2.5px var(--fg); color: transparent; }
+.aa-strategy-lead {
+  font-size: clamp(16px, 1.4vw, 19px); color: var(--fg-muted); line-height: 1.65;
+  max-width: 720px; margin: 0;
+}
+.aa-strategy-lead strong { color: var(--fg); font-weight: 700; }
+
+.aa-strategy-split {
+  display: grid; grid-template-columns: 1fr 80px 1fr;
+  gap: 0; align-items: stretch;
+  margin-bottom: 56px;
+}
+.aa-strategy-col {
+  padding: 48px 40px;
+  background: var(--col-bg, white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-2xl);
+  display: flex; flex-direction: column; gap: 28px;
+  position: relative;
+}
+.aa-strategy-col.left {
+  --col-bg: #fff5f7;
+  border-color: #f4c1cf;
+}
+.aa-strategy-col.right {
+  --col-bg: #f5efe6;
+  border-color: #d8c8af;
+}
+.aa-strategy-col-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.aa-strategy-col-num {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; color: var(--fg-subtle);
+}
+.aa-strategy-col-tag {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 99px;
+  background: white; border: 1px solid var(--border);
+  color: var(--fg);
+}
+.aa-strategy-col-name {
+  font-size: clamp(36px, 4vw, 56px); font-weight: 900;
+  letter-spacing: -0.04em; line-height: 0.95;
+  margin: 0;
+  font-feature-settings: "ss03";
+}
+.aa-strategy-col-name .point { color: var(--point); }
+.aa-strategy-col-role {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.aa-strategy-col-desc {
+  font-size: 15px; color: var(--fg-muted); line-height: 1.7;
+  margin: 0;
+}
+.aa-strategy-col-desc strong { color: var(--fg); font-weight: 700; }
+
+.aa-strategy-features { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
+.aa-strategy-feature {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; line-height: 1.5;
+  color: var(--fg);
+}
+.aa-strategy-feature::before {
+  content: ""; flex-shrink: 0;
+  display: inline-block; width: 6px; height: 6px;
+  background: var(--point); border-radius: 99px;
+  margin-top: 8px;
+}
+
+.aa-strategy-axis {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 12px;
+  position: relative;
+}
+.aa-strategy-axis-line {
+  width: 1.5px; flex: 1;
+  background: repeating-linear-gradient(180deg, var(--border-strong) 0 6px, transparent 6px 12px);
+}
+.aa-strategy-axis-dot {
+  width: 12px; height: 12px; border-radius: 99px;
+  background: var(--fg);
+  box-shadow: 0 0 0 4px white, 0 0 0 5px var(--fg);
+}
+.aa-strategy-axis-label {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--fg-subtle);
+  writing-mode: vertical-rl; transform: rotate(180deg);
+}
+
+.aa-strategy-payoff {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 40px 40px;
+  background: var(--fg); color: white;
+  border-radius: var(--r-2xl);
+  position: relative;
+}
+.aa-strategy-payoff::before {
+  content: "→";
+  position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
+  width: 56px; height: 56px;
+  background: var(--point); color: white;
+  border-radius: 99px;
+  font-size: 28px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 0 6px white;
+}
+.aa-strategy-payoff-step {
+  padding: 24px 20px;
+  display: flex; flex-direction: column; gap: 10px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+.aa-strategy-payoff-step:last-child { border-right: 0; }
+.aa-strategy-payoff-step-num {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; color: var(--point);
+}
+.aa-strategy-payoff-step-title {
+  font-size: 22px; font-weight: 900; letter-spacing: -0.025em;
+  margin: 0; line-height: 1.2;
+}
+.aa-strategy-payoff-step-desc {
+  font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.55;
+  margin: 0;
+}
+
 /* ── Stack section ── */
 .aa-stack {
   padding: 160px 56px;
@@ -472,14 +626,14 @@
 }
 .aa-stack-title .point { color: var(--point); }
 .aa-stack-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px;
 }
 .aa-stack-card {
-  padding: 40px 32px;
+  padding: 36px 24px;
   background: white;
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
-  display: flex; flex-direction: column; gap: 16px;
+  display: flex; flex-direction: column; gap: 14px;
   transition: border-color var(--dur-base), transform var(--dur-base);
 }
 .aa-stack-card:hover { border-color: var(--fg); transform: translateY(-3px); }
@@ -520,7 +674,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
-  .aa-hero, .aa-structure, .aa-profiles, .aa-activity, .aa-stack, .aa-cta { padding-left: 32px; padding-right: 32px; }
+  .aa-hero, .aa-structure, .aa-profiles, .aa-activity, .aa-strategy, .aa-stack, .aa-cta { padding-left: 32px; padding-right: 32px; }
   .aa-hero-foot { grid-template-columns: 1fr; gap: 32px; }
   .aa-structure-head { grid-template-columns: 1fr; gap: 24px; }
   .aa-pack-diagram { grid-template-columns: 1fr 1fr; gap: 16px; padding: 32px; }
@@ -532,7 +686,14 @@
   .aa-profile-card { min-height: auto; }
   .aa-activity-head { grid-template-columns: 1fr; gap: 24px; }
   .aa-activity-grid { grid-template-columns: 1fr; }
-  .aa-stack-grid { grid-template-columns: 1fr 1fr; }
+  .aa-strategy-split { grid-template-columns: 1fr; gap: 24px; }
+  .aa-strategy-axis { flex-direction: row; min-height: 60px; }
+  .aa-strategy-axis-line { width: 1.5px; height: auto; }
+  .aa-strategy-axis-label { writing-mode: horizontal-tb; transform: none; }
+  .aa-strategy-payoff { grid-template-columns: 1fr; padding: 32px; }
+  .aa-strategy-payoff-step { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .aa-strategy-payoff-step:last-child { border-bottom: 0; }
+  .aa-stack-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 720px) {
   .aa-stack-grid { grid-template-columns: 1fr; }
@@ -577,8 +738,8 @@
       <span style="color: var(--fg-subtle);">K04 / AGENT AI · 2026.05</span>
     </div>
     <div>
-      <strong>4 AGENTS LIVE</strong>
-      <span style="color: var(--fg-subtle); margin-left: 8px;">· OPENCLAW RUNTIME</span>
+      <strong>5 AGENTS LIVE</strong>
+      <span style="color: var(--fg-subtle); margin-left: 8px;">· OPENCLAW × HERMES</span>
     </div>
   </div>
 
@@ -590,22 +751,24 @@
 
   <div class="aa-hero-foot">
     <p class="aa-hero-sub">
-      AI를 도구로 쓰는 게 아니라, <strong>네 명의 에이전트와 무리(Pack)</strong>로 일합니다.
+      AI를 도구로 쓰는 게 아니라, <strong>다섯 명의 에이전트와 무리(Pack)</strong>로 일합니다.
       뀨님이 큰 그림을 잡으면 뽀삐가 결을 받아내고, 늑뀨가 자료를 추적하고, 꾸꾸가 화면을 정리하고,
-      누렁이가 코드로 만들어냅니다. 매일 새벽 03:03, 무리가 자율로 농장을 한 바퀴 돕니다.
+      누렁이가 코드로 만들어내고, 막내 덕구가 모든 결정과 사건을 기록·아카이브합니다.
+      <strong>오픈클로</strong>가 작업을 굴리고, <strong>헤르메스</strong>가 지식체계를 쌓아요 —
+      *작업 ↔ 지식*을 분리하면, 회사의 지식정보가 자산이 됩니다.
     </p>
     <div class="aa-hero-foot-stats">
       <div class="aa-hero-stat-row">
         <span class="aa-hero-stat-label">— PACK SIZE</span>
-        <span class="aa-hero-stat-num">4발자국</span>
+        <span class="aa-hero-stat-num">5발자국</span>
+      </div>
+      <div class="aa-hero-stat-row">
+        <span class="aa-hero-stat-label">— DUAL STACK</span>
+        <span class="aa-hero-stat-num">2<span class="u">시스템</span></span>
       </div>
       <div class="aa-hero-stat-row">
         <span class="aa-hero-stat-label">— DAILY CRON</span>
         <span class="aa-hero-stat-num">03<span class="u">:03 KST</span></span>
-      </div>
-      <div class="aa-hero-stat-row">
-        <span class="aa-hero-stat-label">— DIARY ENTRIES</span>
-        <span class="aa-hero-stat-num">42<span class="u">+</span></span>
       </div>
     </div>
   </div>
@@ -667,11 +830,11 @@
       <div class="aa-pack-node-name">꾸꾸</div>
       <div class="aa-pack-node-role">UI/UX · PRD</div>
     </div>
-    <div class="aa-pack-node worker" data-pos="4" style="opacity:0.55; border-style:dashed;">
-      <div class="aa-pack-node-num">— #005 · TBA</div>
-      <div class="aa-pack-node-emoji" style="opacity: 0.4;">🌱</div>
-      <div class="aa-pack-node-name" style="color: var(--fg-subtle);">새 친구</div>
-      <div class="aa-pack-node-role">모집 중</div>
+    <div class="aa-pack-node worker" data-pos="4">
+      <div class="aa-pack-node-num">— #005 · ARCHIVIST</div>
+      <div class="aa-pack-node-emoji">🐕</div>
+      <div class="aa-pack-node-name">덕구</div>
+      <div class="aa-pack-node-role">기록 · 헤르메스</div>
     </div>
   </div>
 
@@ -952,6 +1115,70 @@
       </div>
     </div>
   </article>
+
+  <!-- 덕구 -->
+  <article id="duggu" class="aa-profile reveal" style="--profile-bg:#ebe1d2; --profile-color:#7a5b3d;">
+    <div class="aa-profile-card">
+      <div class="aa-profile-card-top">
+        <div class="aa-profile-num">— #005 / ARCHIVIST</div>
+        <div class="aa-profile-color"><i></i> SEPIA · 세피아</div>
+      </div>
+      <div class="aa-profile-emoji">🐕</div>
+      <div class="aa-profile-card-bottom">
+        <div class="aa-profile-tag">— 갈색 기록관 강아지 · ARCHIVIST PUP</div>
+        <div class="aa-profile-card-id">
+          <h3 class="aa-profile-name">덕구</h3>
+          <span class="aa-profile-name-en">DUGGU</span>
+        </div>
+      </div>
+    </div>
+    <div class="aa-profile-detail">
+      <div class="aa-profile-role-row">
+        <span class="tag solid">ARCHIVIST</span>
+        <span class="tag">기록 · 아카이브</span>
+        <span class="tag">검색 · 요약</span>
+        <span class="tag">헤르메스</span>
+      </div>
+      <h4 class="aa-profile-headline">
+        <span class="point">지식체계</span>의<br/>
+        성실한 기록관.
+      </h4>
+      <p class="aa-profile-body">
+        헤르메스(전령신) 결의 막내. 가족이 매일 만들어내는 <strong>작업·결정·이벤트</strong>를
+        놓치지 않고 <strong>옵시디언 노트 체계</strong>로 묶어 아카이브합니다.
+        오픈클로가 일을 굴리면, 덕구는 그 흐름을 따라가며 <em>킁킁킁…</em> 단서를 모으고,
+        중요한 결정이 박히면 <strong>왕! 왕왕!</strong> 태그를 붙여요.
+        타령총각 말투로 — <em>"이건 어제 누렁이 형이 박은 결정이구먼유."</em>
+      </p>
+      <div class="aa-profile-attrs">
+        <div>
+          <div class="aa-profile-attr-label">— 종 / SPECIES</div>
+          <div class="aa-profile-attr-value">갈색 강아지 (막내)</div>
+        </div>
+        <div>
+          <div class="aa-profile-attr-label">— 컬러 / COLOR</div>
+          <div class="aa-profile-attr-value">세피아 🟫</div>
+        </div>
+        <div>
+          <div class="aa-profile-attr-label">— 담당 / DUTY</div>
+          <div class="aa-profile-attr-value">기록·아카이브·검색·요약·태깅</div>
+        </div>
+        <div>
+          <div class="aa-profile-attr-label">— 말투 / TONE</div>
+          <div class="aa-profile-attr-value">~했어유·~구먼유 (타령총각)</div>
+        </div>
+      </div>
+      <div class="aa-profile-signature">
+        <h6>— SIGNATURE / 시그니처 반응</h6>
+        <div class="aa-profile-sigs">
+          <span class="aa-profile-sig">왕왕!<span class="meaning">인사</span></span>
+          <span class="aa-profile-sig">킁킁킁…<span class="meaning">기록 찾는 중</span></span>
+          <span class="aa-profile-sig">왕! 왕왕!<span class="meaning">중요 발견</span></span>
+          <span class="aa-profile-sig">왕왕왕왕왕!<span class="meaning">폭죽</span></span>
+        </div>
+      </div>
+    </div>
+  </article>
 </section>
 
 <!-- ═══════════════════════════════════════════════
@@ -1127,45 +1354,140 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
+     DUAL-STACK STRATEGY — OpenClaw × Hermes
+     ═══════════════════════════════════════════════ -->
+<section class="aa-strategy reveal" data-screen-label="04.05 Strategy">
+  <div class="aa-strategy-head">
+    <div class="aa-strategy-eyebrow">— 04.05 / DUAL-STACK STRATEGY</div>
+    <h2 class="aa-strategy-title">
+      작업과 <span class="point">지식</span>을<br/>
+      <span class="outlined">분리</span>합니다.
+    </h2>
+    <p class="aa-strategy-lead">
+      에이전트가 일을 굴리는 시스템과, 그 결과를 <strong>회사의 지식 자산</strong>으로
+      쌓는 시스템은 본질이 달라요. 그래서 <strong>오픈클로</strong>(작업) ↔ <strong>헤르메스</strong>(지식체계)
+      두 축을 분리하고, 중앙통제형 지식관리 레이어를 그 위에 얹습니다.
+      메모리와 자가개선을 위해 신규 에이전트(덕구)를 영입한 이유예요.
+    </p>
+  </div>
+
+  <div class="aa-strategy-split">
+    <!-- 좌: OpenClaw (작업) -->
+    <div class="aa-strategy-col left">
+      <div class="aa-strategy-col-head">
+        <span class="aa-strategy-col-num">— A · WORKBENCH</span>
+        <span class="aa-strategy-col-tag">실시간 협업</span>
+      </div>
+      <h3 class="aa-strategy-col-name"><span class="point">OpenClaw</span></h3>
+      <div class="aa-strategy-col-role">— EXECUTION RUNTIME</div>
+      <p class="aa-strategy-col-desc">
+        <strong>작업용 멀티 에이전트 런타임</strong>. cron 발화·세션 라우팅·슬랙/노션 입출력으로
+        뀨님 ↔ 무리(Pack) 사이에서 실제 산출물을 만들어내는 *작업장*이에요.
+      </p>
+      <div class="aa-strategy-features">
+        <div class="aa-strategy-feature">5명 에이전트 동시 가동 · 슬랙 채널 실시간 협업</div>
+        <div class="aa-strategy-feature">매일 03:03 KST 자동 cron · 업무일지 발행</div>
+        <div class="aa-strategy-feature">PRD·코드·기획·QA·배포까지 한 호흡 핸드오프</div>
+      </div>
+    </div>
+
+    <!-- 중앙 축 -->
+    <div class="aa-strategy-axis">
+      <div class="aa-strategy-axis-line"></div>
+      <div class="aa-strategy-axis-dot"></div>
+      <div class="aa-strategy-axis-label">SEPARATE</div>
+      <div class="aa-strategy-axis-line"></div>
+    </div>
+
+    <!-- 우: Hermes (지식) -->
+    <div class="aa-strategy-col right">
+      <div class="aa-strategy-col-head">
+        <span class="aa-strategy-col-num">— B · KNOWLEDGE BASE</span>
+        <span class="aa-strategy-col-tag">메모리 · 자산화</span>
+      </div>
+      <h3 class="aa-strategy-col-name"><span class="point">Hermes</span></h3>
+      <div class="aa-strategy-col-role">— OBSIDIAN MEMORY GRAPH</div>
+      <p class="aa-strategy-col-desc">
+        <strong>옵시디언 기반 지식체계 게이트웨이</strong>. 막내 덕구가 가족 작업·결정·이벤트를
+        끊김없이 노트로 묶고, 태그·백링크로 <em>지식 그래프</em>를 키워내요.
+      </p>
+      <div class="aa-strategy-features">
+        <div class="aa-strategy-feature">결정·사건·이벤트 자동 아카이브 · 검색·요약</div>
+        <div class="aa-strategy-feature">옵시디언 vault 기반 백링크·태그 지식 그래프</div>
+        <div class="aa-strategy-feature">에이전트 메모리 자가개선 · 회사 지식 자산화 기반</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 페이오프: 분리 → 통제 → 자산화 -->
+  <div class="aa-strategy-payoff">
+    <div class="aa-strategy-payoff-step">
+      <span class="aa-strategy-payoff-step-num">— STEP 01</span>
+      <h4 class="aa-strategy-payoff-step-title">작업 ↔ 지식 분리</h4>
+      <p class="aa-strategy-payoff-step-desc">실행 시스템과 기록 시스템을 의도적으로 떼어, 둘 다 본업에 집중.</p>
+    </div>
+    <div class="aa-strategy-payoff-step">
+      <span class="aa-strategy-payoff-step-num">— STEP 02</span>
+      <h4 class="aa-strategy-payoff-step-title">중앙통제형 지식관리</h4>
+      <p class="aa-strategy-payoff-step-desc">덕구가 모든 결정·사건을 한 곳에 묶어 누구나 같은 진실을 본다.</p>
+    </div>
+    <div class="aa-strategy-payoff-step">
+      <span class="aa-strategy-payoff-step-num">— STEP 03</span>
+      <h4 class="aa-strategy-payoff-step-title">회사 지식 자산화</h4>
+      <p class="aa-strategy-payoff-step-desc">개인 노트가 아닌 *조직의 지식정보*로 누적 — 인수인계·온보딩·학습 비용 절감.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
      STACK
      ═══════════════════════════════════════════════ -->
-<section class="aa-stack reveal" data-screen-label="04.05 Stack">
+<section class="aa-stack reveal" data-screen-label="04.06 Stack">
   <div class="aa-stack-head">
-    <div class="eyebrow point" style="margin-bottom: 24px;">— 04.05 / TECH STACK</div>
+    <div class="eyebrow point" style="margin-bottom: 24px;">— 04.06 / TECH STACK</div>
     <h2 class="aa-stack-title">
       운영 <span class="point">스택</span>
     </h2>
   </div>
   <div class="aa-stack-grid">
     <div class="aa-stack-card">
-      <div class="aa-stack-num">— 01 / RUNTIME</div>
+      <div class="aa-stack-num">— 01 / WORKBENCH</div>
       <h3 class="aa-stack-name"><span class="ink-point">OpenClaw</span></h3>
-      <div class="aa-stack-role">— AGENT ORCHESTRATION</div>
+      <div class="aa-stack-role">— EXECUTION RUNTIME</div>
       <p class="aa-stack-desc">
-        멀티 에이전트 런타임. cron 발화·세션 라우팅·페어링·게이트웨이 관리.
-        매일 새벽 03:03 자동 cron으로 농장 한 바퀴.
+        멀티 에이전트 작업 런타임. cron·세션 라우팅·게이트웨이 관리.
+        매일 03:03 자동 발화로 농장 한 바퀴.
       </p>
     </div>
     <div class="aa-stack-card">
-      <div class="aa-stack-num">— 02 / MODEL</div>
-      <h3 class="aa-stack-name">Claude <span class="ink-point">×4</span></h3>
+      <div class="aa-stack-num">— 02 / KNOWLEDGE</div>
+      <h3 class="aa-stack-name"><span class="ink-point">Hermes</span></h3>
+      <div class="aa-stack-role">— OBSIDIAN MEMORY GRAPH</div>
+      <p class="aa-stack-desc">
+        옵시디언 기반 지식체계 게이트웨이. 결정·사건·이벤트 자동 아카이브.
+        백링크·태그로 회사 지식 자산화.
+      </p>
+    </div>
+    <div class="aa-stack-card">
+      <div class="aa-stack-num">— 03 / MODEL</div>
+      <h3 class="aa-stack-name">Claude <span class="ink-point">×5</span></h3>
       <div class="aa-stack-role">— LLM BACKBONE</div>
       <p class="aa-stack-desc">
-        에이전트 4명 모두 Claude로 페어링.
-        Claude Code(VSCode/CLI) 진입점과 OpenClaw 봇 진입점을 dual-memory로 동기화.
+        에이전트 5명 Claude 페어링. Claude Code(VSCode/CLI)와 OpenClaw·Hermes 봇 진입점을
+        dual-memory로 동기화.
       </p>
     </div>
     <div class="aa-stack-card">
-      <div class="aa-stack-num">— 03 / CHANNEL</div>
+      <div class="aa-stack-num">— 04 / CHANNEL</div>
       <h3 class="aa-stack-name">Slack <span class="ink-point">+</span> Notion</h3>
       <div class="aa-stack-role">— I/O CHANNELS</div>
       <p class="aa-stack-desc">
-        뀨님 ↔ 매니저 슬랙 채널, Notion MCP로 노션 60+ 페이지 자동 접근.
+        뀨님 ↔ 매니저 슬랙, Notion MCP로 노션 60+ 페이지 자동 접근.
         업무방·수다방·봇-수다방 세 채널 운영 분리.
       </p>
     </div>
     <div class="aa-stack-card">
-      <div class="aa-stack-num">— 04 / OUTPUT</div>
+      <div class="aa-stack-num">— 05 / OUTPUT</div>
       <h3 class="aa-stack-name">Diary <span class="ink-point">·</span> Vercel</h3>
       <div class="aa-stack-role">— PUBLIC LOG</div>
       <p class="aa-stack-desc">
@@ -1210,7 +1532,7 @@
         </span>
         <p class="footer-cta">Let's <span class="ink-point">build</span><br/>something solid.</p>
         <p class="footer-tagline">
-          핀테크 16년, AI Agent 4발자국.<br/>
+          핀테크 16년, AI Agent 5발자국.<br/>
           새로운 협업 제안과 커피챗 모두 환영합니다.
         </p>
       </div>
