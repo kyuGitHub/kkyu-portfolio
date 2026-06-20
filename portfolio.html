@@ -725,6 +725,12 @@
 .case.in .vis-comply-cell:nth-child(1) { transition-delay: 0.05s; }
 .case.in .vis-comply-cell:nth-child(2) { transition-delay: 0.18s; }
 .case.in .vis-comply-cell:nth-child(3) { transition-delay: 0.31s; }
+.case.in .vis-comply-cell:nth-child(4) { transition-delay: 0.44s; }
+
+/* Compliance grid — 2-col modifier (for 4-axis matrices like case07) */
+.vis-comply--2col .vis-comply-grid {
+  grid-template-columns: 1fr 1fr;
+}
 
 @keyframes visPulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(16, 182, 122, 0.55); }
@@ -829,11 +835,11 @@
           <div class="pf-intro-stat-label">— TOTAL CASES</div>
         </div>
         <div>
-          <div class="pf-intro-stat-num">6<span class="u">실제</span></div>
+          <div class="pf-intro-stat-num">7<span class="u">실제</span></div>
           <div class="pf-intro-stat-label">— REAL WORK</div>
         </div>
         <div>
-          <div class="pf-intro-stat-num">2<span class="u">AI</span></div>
+          <div class="pf-intro-stat-num">1<span class="u">AI</span></div>
           <div class="pf-intro-stat-label">— AGENT SCENARIO</div>
         </div>
       </div>
@@ -1392,6 +1398,121 @@
       </div>
     </article>
 
+    <!-- ─── Case 07 — REAL / In-House Marketing Team ─── -->
+    <article class="case reveal" data-kind="real">
+      <div class="case-meta">
+        <div class="case-meta-top">
+          <div class="case-num-row">
+            <div class="case-num">— CASE 07 / PEPPER · 인하우스 마케팅</div>
+            <span class="case-kind real"><span class="dot"></span>REAL WORK</span>
+          </div>
+          <h2 class="case-title">
+            팀 하나가<br/>
+            <span class="point">본부</span>가 된<br/>
+            시간.
+          </h2>
+          <p class="case-body">
+            인하우스 마케팅팀을 처음부터 만들고, 자동화 매체로 4~5억 광고비를 굴렸다.
+            그 결과 <strong>광고비가 오프라인 판매 수수료보다 저렴해진 구조</strong>를 입증했고,
+            팀은 <strong>디지털뱅킹사업본부</strong>로 격상되었다.
+          </p>
+          <ul class="case-bullets">
+            <li><strong>인하우스 마케팅팀 직접 구축</strong> — 팀원·솔루션·미디어믹스 처음부터 설계</li>
+            <li><strong>자동화 미디어믹스</strong> · SRN+머신러닝 기반 매체로 최적 비용 소진 구조</li>
+            <li><strong>광고비 2~2.5%</strong> (vs 오프라인 판매 수수료 3.5%) — 채널 자체가 더 저렴·효율</li>
+            <li>마케팅팀 → <strong>디지털뱅킹사업본부 신설</strong> 격상 · 풀뱅킹 사업 확장 계기</li>
+          </ul>
+        </div>
+        <div class="case-meta-bottom">
+          <div class="case-tags">
+            <span class="tag point">IN-HOUSE</span>
+            <span class="tag">AUTOMATION</span>
+            <span class="tag">ORG SCALE-UP</span>
+          </div>
+          <div class="case-stats">
+            <div>
+              <div class="case-stat-num">2.5<span class="u">%</span></div>
+              <div class="case-stat-label">— AD COST RATIO</div>
+            </div>
+            <div>
+              <div class="case-stat-num">4<span class="u">+</span></div>
+              <div class="case-stat-label">— AUTO CHANNELS</div>
+            </div>
+            <div>
+              <div class="case-stat-num">1<span class="u">본부</span></div>
+              <div class="case-stat-label">— SCALE-UP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="case-visual vis-comply vis-comply--2col">
+        <div class="vis-comply-head">
+          <div>
+            <span class="vis-comply-eyebrow">— IN-HOUSE MARKETING DNA</span>
+            <h4>4축으로 본 인하우스 마케팅팀 운영</h4>
+          </div>
+          <span class="vis-comply-badge"><span class="dot"></span>SCALED · 본부</span>
+        </div>
+        <div class="vis-comply-grid">
+          <div class="vis-comply-cell">
+            <div class="cell-head">
+              <span class="cell-num">— 01 / TEAM BUILD</span>
+              <span class="cell-tag">조직 구축</span>
+            </div>
+            <div class="cell-name">인하우스 마케팅팀 직접 구축</div>
+            <div class="cell-role">팀원·솔루션·미디어믹스 처음부터 설계</div>
+            <div class="vis-comply-chips">
+              <span class="vis-comply-chip">팀 구성</span>
+              <span class="vis-comply-chip">마케팅 솔루션</span>
+              <span class="vis-comply-chip">미디어믹스</span>
+            </div>
+          </div>
+          <div class="vis-comply-cell">
+            <div class="cell-head">
+              <span class="cell-num">— 02 / AUTOMATION</span>
+              <span class="cell-tag">운영 구조</span>
+            </div>
+            <div class="cell-name">자동화 미디어믹스 운영</div>
+            <div class="cell-role">SRN + 머신러닝 매체로 최적 비용 소진</div>
+            <div class="vis-comply-chips">
+              <span class="vis-comply-chip">구글 UAC</span>
+              <span class="vis-comply-chip">페이스북</span>
+              <span class="vis-comply-chip">카카오모먼트</span>
+            </div>
+          </div>
+          <div class="vis-comply-cell">
+            <div class="cell-head">
+              <span class="cell-num">— 03 / EFFICIENCY</span>
+              <span class="cell-tag">재무 임팩트</span>
+            </div>
+            <div class="cell-name">광고비 &lt; 오프라인 수수료</div>
+            <div class="cell-role">광고비 2~2.5% vs 오프라인 수수료 3.5%</div>
+            <div class="vis-comply-chips">
+              <span class="vis-comply-chip">광고비 4~5억/월</span>
+              <span class="vis-comply-chip">신용대출 판매</span>
+              <span class="vis-comply-chip">채널 단가 우위</span>
+            </div>
+          </div>
+          <div class="vis-comply-cell">
+            <div class="cell-head">
+              <span class="cell-num">— 04 / SCALE-UP</span>
+              <span class="cell-tag">조직 임팩트</span>
+            </div>
+            <div class="cell-name">디지털뱅킹사업본부 신설</div>
+            <div class="cell-role">마케팅팀 → 본부 격상 · 디지털 사업 확장 계기</div>
+            <div class="vis-comply-chips">
+              <span class="vis-comply-chip">풀뱅킹 제품제작</span>
+              <span class="vis-comply-chip">디지털 사업 확장</span>
+              <span class="vis-comply-chip">팀원 육성</span>
+            </div>
+          </div>
+        </div>
+        <div class="vis-comply-foot">
+          <span class="comply-flow">TEAM → AUTOMATION → EFFICIENCY → DIVISION</span>
+        </div>
+      </div>
+    </article>
+
     <!-- ─── SECTION DIVIDER ─── -->
     <div style="display:flex; align-items:center; gap:24px; padding: 40px 0;">
       <div style="flex:1; height:1px; background: var(--fg);"></div>
@@ -1400,99 +1521,6 @@
       </div>
       <div style="flex:1; height:1px; background: var(--fg);"></div>
     </div>
-
-    <!-- ─── Case 07 — SCENARIO / AI 고객응대 ─── -->
-    <article class="case reveal" data-kind="scenario">
-      <div class="case-meta">
-        <div class="case-meta-top">
-          <div class="case-num-row">
-            <div class="case-num">— CASE 07 / AI · SUPPORT AGENT</div>
-            <span class="case-kind scenario"><span class="dot"></span>AI SCENARIO</span>
-          </div>
-          <h2 class="case-title">
-            <span class="strike">상담사</span>가 아니라<br/>
-            <span class="point">팀</span>이 응대합니다.
-          </h2>
-          <p class="case-body">
-            FAQ 챗봇 한 단계 너머. 사용자 1명에 <strong>전담 에이전트 1명 + 백오피스 에이전트 3명</strong>이
-            팀으로 붙어 약정·서류·민원·복잡한 케이스까지 한 자리에서 처리합니다.
-          </p>
-          <ul class="case-bullets">
-            <li><strong>1:N 에이전트 팀</strong> 응대 — 상담·검색·서류·승인</li>
-            <li>금융 도메인 RAG · 실시간 규정 변경 반영</li>
-            <li>승인 한도 초과 시 <strong>휴먼 에스컬레이션</strong> 자동 트리거</li>
-            <li>대화 로그 → 감사 추적 → CXM 인사이트로 자동 재활용</li>
-          </ul>
-        </div>
-        <div class="case-meta-bottom">
-          <div class="case-tags">
-            <span class="tag point">AI AGENT</span>
-            <span class="tag">SUPPORT</span>
-            <span class="tag">CXM</span>
-          </div>
-          <div class="case-stats">
-            <div>
-              <div class="case-stat-num">24<span class="u">/7</span></div>
-              <div class="case-stat-label">— COVERAGE</div>
-            </div>
-            <div>
-              <div class="case-stat-num">3<span class="u">초</span></div>
-              <div class="case-stat-label">— FIRST RESPONSE</div>
-            </div>
-            <div>
-              <div class="case-stat-num">85<span class="u">%</span></div>
-              <div class="case-stat-label">— SELF-SOLVED (목표)</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="case-visual vis-audit" style="background: white;">
-        <div class="vis-audit-head">
-          <h4>고객 · 에이전트 동시 대화</h4>
-          <span class="badge" style="background: var(--point);">3 ACTIVE</span>
-        </div>
-        <div class="vis-audit-row" style="background: var(--point-soft);">
-          <div class="vis-audit-icon" style="background: var(--point); color: white;">
-            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800;">L1</span>
-          </div>
-          <div class="vis-audit-text">
-            대화 응대 — 사용자 의도 파악 중
-            <span class="meta">user · 신용대출 한도 문의 · KR</span>
-          </div>
-          <div class="vis-audit-time">LIVE</div>
-        </div>
-        <div class="vis-audit-row">
-          <div class="vis-audit-icon" style="background: var(--fg); color: white;">
-            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800;">L2</span>
-          </div>
-          <div class="vis-audit-text">
-            한도 시뮬레이션 호출
-            <span class="meta">internal API · 0.4s · 1,800만원</span>
-          </div>
-          <div class="vis-audit-time">+0.4s</div>
-        </div>
-        <div class="vis-audit-row">
-          <div class="vis-audit-icon" style="background: var(--fg); color: white;">
-            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800;">L3</span>
-          </div>
-          <div class="vis-audit-text">
-            관련 규정 RAG 검색
-            <span class="meta">금감원 가이드 · 2026.03 개정 반영</span>
-          </div>
-          <div class="vis-audit-time">+0.7s</div>
-        </div>
-        <div class="vis-audit-row">
-          <div class="vis-audit-icon ok">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="vis-audit-text">
-            응답 생성 완료
-            <span class="meta">L1 에이전트가 사용자에게 답변 전달</span>
-          </div>
-          <div class="vis-audit-time">2.8s</div>
-        </div>
-      </div>
-    </article>
 
     <!-- ─── Case 08 — SCENARIO / 내부 컴플라이언스 자동화 ─── -->
     <article class="case flip reveal" data-kind="scenario">
