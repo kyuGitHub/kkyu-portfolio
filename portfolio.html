@@ -296,10 +296,10 @@
   letter-spacing: 0.08em;
 }
 .vis-chart-num {
-  position: absolute; top: 32px; right: 32px;
   font-size: clamp(48px, 5vw, 88px); font-weight: 900;
   letter-spacing: -0.04em; color: var(--fg); line-height: 1;
   font-feature-settings: "ss03";
+  text-align: right;
 }
 .vis-chart-num .u { font-size: 0.4em; color: var(--point); }
 
@@ -980,8 +980,8 @@
             <span><i class="alt"></i>FORECAST</span>
           </div>
         </div>
-        <div class="vis-chart-graph" style="position: relative;">
-          <div class="vis-chart-num">20<span class="u">만</span></div>
+        <div class="vis-chart-num">20<span class="u">만</span></div>
+        <div class="vis-chart-graph">
           <div class="vis-chart-bar" style="height: 10%;"></div>
           <div class="vis-chart-bar" style="height: 16%;"></div>
           <div class="vis-chart-bar" style="height: 22%;"></div>
