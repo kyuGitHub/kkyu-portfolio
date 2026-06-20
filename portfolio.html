@@ -386,72 +386,243 @@
 }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* Visual variant 5 — agent network diagram */
-.vis-agents {
-  background: linear-gradient(180deg, #fafbfd 0%, white 100%);
-  border: 1px solid var(--border);
-  padding: 48px;
-  position: relative;
-  align-items: center; justify-content: center;
+/* ── Shared cell tokens for vis-stack / vis-pack ── */
+.vis-stack .cell-head,
+.vis-pack .cell-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 14px;
 }
-.vis-agents-svg { width: 100%; max-width: 420px; }
-.vis-agents-svg circle { transition: r 0.4s var(--ease-out); }
-.vis-agents-svg .center { fill: var(--fg); }
-.vis-agents-svg .node { fill: white; stroke: var(--fg); stroke-width: 2; }
-.vis-agents-svg .node.point { stroke: var(--point); }
-.vis-agents-svg .link {
-  stroke: var(--border-strong); stroke-width: 1; stroke-dasharray: 4 4;
-  animation: dash 30s linear infinite;
+.vis-stack .cell-num,
+.vis-pack .cell-num {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; color: var(--fg-subtle);
 }
-@keyframes dash { to { stroke-dashoffset: -200; } }
-.vis-agents-svg text {
-  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
-  text-anchor: middle; fill: var(--fg);
+.vis-stack .cell-tag,
+.vis-pack .cell-tag {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 999px;
+  background: var(--gray-100); color: var(--fg-subtle);
 }
-.vis-agents-svg text.center { fill: white; }
-.vis-agents-svg text.label {
-  font-family: var(--font-sans); font-size: 10px; fill: var(--fg-subtle);
+.vis-stack .cell-name,
+.vis-pack .cell-name {
+  font-size: 18px; font-weight: 800; letter-spacing: -0.02em;
+  color: var(--fg); line-height: 1.15;
+}
+.vis-stack .cell-role,
+.vis-pack .cell-role {
+  margin-top: 4px;
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--fg-subtle); letter-spacing: 0.04em;
 }
 
-/* Visual variant 6 — list/audit visual */
-.vis-audit {
-  background: white;
+/* Visual variant 5 — agent pack (structured card hub-and-spoke) */
+.vis-pack {
+  background: linear-gradient(180deg, #fafbfd 0%, white 100%);
   border: 1px solid var(--border);
-  padding: 40px;
+  padding: 36px;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
+  justify-content: space-between;
 }
-.vis-audit-head {
-  display: flex; justify-content: space-between; align-items: center;
-  padding-bottom: 20px; border-bottom: 1px solid var(--border);
-  margin-bottom: 8px;
+.vis-pack-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding-bottom: 18px; border-bottom: 1px solid var(--border);
 }
-.vis-audit-head h4 { margin: 0; font-size: 14px; font-weight: 800; letter-spacing: -0.02em; }
-.vis-audit-head .badge {
+.vis-pack-eyebrow {
+  display: block;
   font-family: var(--font-mono); font-size: 10px; font-weight: 700;
-  padding: 4px 10px; border-radius: 999px;
-  background: var(--success); color: white;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--point); margin-bottom: 6px;
+}
+.vis-pack-head h4 { margin: 0; font-size: 16px; font-weight: 800; letter-spacing: -0.02em; }
+.vis-pack-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  padding: 5px 10px; border-radius: 999px;
+  background: var(--gray-100); color: var(--fg);
   letter-spacing: 0.1em;
 }
-.vis-audit-row {
-  display: grid; grid-template-columns: 32px 1fr auto;
-  gap: 14px; align-items: center;
-  padding: 14px 16px; background: var(--gray-50);
+.vis-pack-badge .dot {
+  width: 6px; height: 6px; border-radius: 999px;
+  background: var(--success);
+  animation: visPulse 1.8s ease-in-out infinite;
+}
+.vis-pack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 12px;
+  flex: 1;
+}
+.vis-pack-cell {
+  background: white; border: 1px solid var(--border);
   border-radius: var(--r-md);
-  font-size: 13px;
-  transition: background var(--dur-fast);
+  padding: 16px;
+  display: flex; flex-direction: column;
+  opacity: 0; transform: translateY(12px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out),
+    border-color var(--dur-base),
+    box-shadow var(--dur-base);
 }
-.vis-audit-row:hover { background: var(--point-soft); }
-.vis-audit-icon {
-  width: 32px; height: 32px; border-radius: 999px;
-  display: grid; place-items: center;
+.vis-pack-cell.point { border-color: var(--point); }
+.vis-pack-cell.point .cell-tag { background: var(--point-soft); color: var(--point); }
+.vis-pack-cell:hover {
+  border-color: var(--fg);
+  box-shadow: 0 6px 22px -10px rgba(0,0,0,0.14);
+  transform: translateY(-2px);
+}
+.vis-pack-hub {
+  background: var(--fg); color: white;
+  border-radius: var(--r-md);
+  padding: 16px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 4px;
+  position: relative;
+  opacity: 0; transform: scale(0.92);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.vis-pack-hub::after {
+  content: ""; position: absolute; inset: -4px;
+  border-radius: calc(var(--r-md) + 4px);
+  border: 1px solid var(--point);
+  opacity: 0;
+  animation: hubPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.vis-pack-hub .hub-label {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.2em; color: rgba(255,255,255,0.55);
+}
+.vis-pack-hub strong {
+  font-size: 22px; font-weight: 900; letter-spacing: -0.02em;
+  font-feature-settings: "ss03";
+}
+.vis-pack-hub .hub-meta {
+  font-family: var(--font-mono); font-size: 10px;
+  color: rgba(255,255,255,0.7); letter-spacing: 0.08em;
+}
+.vis-pack-foot {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--fg-subtle); letter-spacing: 0.16em; text-transform: uppercase;
+  text-align: center;
+  padding-top: 12px; border-top: 1px solid var(--border);
+}
+.vis-pack-foot .pack-flow {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--fg-subtle) 0%, var(--point) 50%, var(--fg-subtle) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flowShift 6s linear infinite;
+}
+
+/* Visual variant 6 — data stack (structured card grid) */
+.vis-stack {
   background: white;
+  border: 1px solid var(--border);
+  padding: 36px;
+  flex-direction: column;
+  gap: 24px;
 }
-.vis-audit-icon.ok { background: var(--success); color: white; }
-.vis-audit-icon.warn { background: var(--warning); color: white; }
-.vis-audit-text { color: var(--fg); font-weight: 600; }
-.vis-audit-text .meta { display: block; color: var(--fg-subtle); font-size: 11px; font-weight: 400; margin-top: 2px; font-family: var(--font-mono); }
-.vis-audit-time { font-family: var(--font-mono); font-size: 11px; color: var(--fg-subtle); }
+.vis-stack-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding-bottom: 18px; border-bottom: 1px solid var(--border);
+}
+.vis-stack-eyebrow {
+  display: block;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--point); margin-bottom: 6px;
+}
+.vis-stack-head h4 { margin: 0; font-size: 16px; font-weight: 800; letter-spacing: -0.02em; }
+.vis-stack-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  padding: 5px 10px; border-radius: 999px;
+  background: var(--fg); color: white;
+  letter-spacing: 0.1em;
+}
+.vis-stack-badge .dot {
+  width: 6px; height: 6px; border-radius: 999px;
+  background: var(--success);
+  animation: visPulse 1.8s ease-in-out infinite;
+}
+.vis-stack-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  flex: 1;
+}
+.vis-stack-cell {
+  background: var(--gray-50);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 18px 18px 16px;
+  display: flex; flex-direction: column;
+  position: relative;
+  opacity: 0; transform: translateY(12px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out),
+    background var(--dur-base),
+    border-color var(--dur-base);
+}
+.vis-stack-cell::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; border-radius: 3px 0 0 3px;
+  background: var(--success);
+}
+.vis-stack-cell[data-status="scout"]::before { background: var(--warning); }
+.vis-stack-cell[data-status="scout"] .cell-tag {
+  background: rgba(245, 166, 35, 0.12); color: var(--warning);
+}
+.vis-stack-cell[data-status="live"] .cell-tag {
+  background: rgba(16, 182, 122, 0.12); color: var(--success);
+}
+.vis-stack-cell:hover {
+  background: white;
+  border-color: var(--fg);
+  transform: translateY(-2px);
+}
+.vis-stack-cell .cell-meta {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--fg-subtle); letter-spacing: 0.04em;
+}
+
+/* ── Reveal motion (driven by .case.in) ── */
+.case.in .vis-stack-cell,
+.case.in .vis-pack-cell,
+.case.in .vis-pack-hub {
+  opacity: 1; transform: translateY(0);
+}
+.case.in .vis-pack-hub { transform: scale(1); }
+.case.in .vis-stack-cell:nth-child(1) { transition-delay: 0.05s; }
+.case.in .vis-stack-cell:nth-child(2) { transition-delay: 0.15s; }
+.case.in .vis-stack-cell:nth-child(3) { transition-delay: 0.25s; }
+.case.in .vis-stack-cell:nth-child(4) { transition-delay: 0.35s; }
+.case.in .vis-pack-cell:nth-child(1) { transition-delay: 0.05s; }
+.case.in .vis-pack-cell:nth-child(2) { transition-delay: 0.12s; }
+.case.in .vis-pack-cell:nth-child(3) { transition-delay: 0.19s; }
+.case.in .vis-pack-hub { transition-delay: 0.30s; }
+.case.in .vis-pack-cell:nth-child(5) { transition-delay: 0.40s; }
+.case.in .vis-pack-cell:nth-child(6) { transition-delay: 0.48s; }
+
+@keyframes visPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 182, 122, 0.55); }
+  50%      { box-shadow: 0 0 0 6px rgba(16, 182, 122, 0); }
+}
+@keyframes hubPulse {
+  0%   { opacity: 0.6; transform: scale(0.96); }
+  70%  { opacity: 0;   transform: scale(1.06); }
+  100% { opacity: 0;   transform: scale(1.06); }
+}
+@keyframes flowShift {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
 
 /* ── CTA Strip ── */
 .pf-cta {
@@ -483,10 +654,14 @@
   .case, .case.flip { grid-template-columns: 1fr; gap: 32px; direction: ltr; }
   .case-visual { min-height: 380px; }
   .case-stats { grid-template-columns: repeat(3, 1fr); }
+  .vis-pack-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .vis-pack-hub { order: -1; grid-column: 1 / -1; padding: 18px; }
 }
 @media (max-width: 720px) {
   .pf-intro-stats { grid-template-columns: 1fr; }
   .case-stats { grid-template-columns: 1fr; }
+  .vis-stack-grid { grid-template-columns: 1fr; }
+  .vis-pack-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -842,50 +1017,51 @@
           </div>
         </div>
       </div>
-      <div class="case-visual vis-audit">
-        <div class="vis-audit-head">
-          <h4>Digital Finance · Data Stack</h4>
-          <span class="badge">LIVE</span>
+      <div class="case-visual vis-stack">
+        <div class="vis-stack-head">
+          <div>
+            <span class="vis-stack-eyebrow">— DIGITAL FINANCE</span>
+            <h4>Data Stack 운영 현황</h4>
+          </div>
+          <span class="vis-stack-badge"><span class="dot"></span>LIVE 2026</span>
         </div>
-        <div class="vis-audit-row">
-          <div class="vis-audit-icon ok">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="vis-stack-grid">
+          <div class="vis-stack-cell" data-status="live">
+            <div class="cell-head">
+              <span class="cell-num">#01</span>
+              <span class="cell-tag">DEPLOY</span>
+            </div>
+            <div class="cell-name">AppsFlyer</div>
+            <div class="cell-role">광고 어트리뷰션</div>
+            <div class="cell-meta">캠페인 · 채널 ROAS 단일 진실</div>
           </div>
-          <div class="vis-audit-text">
-            AppsFlyer — 광고 어트리뷰션 운영 중
-            <span class="meta">캠페인 · 채널 ROAS 단일 진실</span>
+          <div class="vis-stack-cell" data-status="live">
+            <div class="cell-head">
+              <span class="cell-num">#02</span>
+              <span class="cell-tag">OPERATE</span>
+            </div>
+            <div class="cell-name">Amplitude</div>
+            <div class="cell-role">행동 분석</div>
+            <div class="cell-meta">432 Event · 241 Property</div>
           </div>
-          <div class="vis-audit-time">DEPLOY</div>
-        </div>
-        <div class="vis-audit-row">
-          <div class="vis-audit-icon ok">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="vis-stack-cell" data-status="live">
+            <div class="cell-head">
+              <span class="cell-num">#03</span>
+              <span class="cell-tag">OPERATE</span>
+            </div>
+            <div class="cell-name">Tableau</div>
+            <div class="cell-role">전사 BI</div>
+            <div class="cell-meta">사업·마케팅·CS 통합</div>
           </div>
-          <div class="vis-audit-text">
-            Amplitude — 행동분석 운영 중
-            <span class="meta">432 Event · 241 Property · 자체 Taxonomy</span>
+          <div class="vis-stack-cell" data-status="scout">
+            <div class="cell-head">
+              <span class="cell-num">#04</span>
+              <span class="cell-tag">SCOUT</span>
+            </div>
+            <div class="cell-name">차세대</div>
+            <div class="cell-role">CDP · AI 분석</div>
+            <div class="cell-meta">망분리 환경 PoC 중</div>
           </div>
-          <div class="vis-audit-time">OPERATE</div>
-        </div>
-        <div class="vis-audit-row">
-          <div class="vis-audit-icon ok">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="vis-audit-text">
-            Tableau — 전사 BI 리포트 운영 중
-            <span class="meta">사업·마케팅·CS 대시보드 통합</span>
-          </div>
-          <div class="vis-audit-time">OPERATE</div>
-        </div>
-        <div class="vis-audit-row">
-          <div class="vis-audit-icon warn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
-          <div class="vis-audit-text">
-            차세대 — CDP · AI 분석 솔루션 검토 중
-            <span class="meta">금융 망분리 환경 PoC 진행</span>
-          </div>
-          <div class="vis-audit-time">SCOUT</div>
         </div>
       </div>
     </article>
@@ -937,40 +1113,64 @@
           </div>
         </div>
       </div>
-      <div class="case-visual vis-agents">
-        <svg class="vis-agents-svg" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
-          <!-- Links -->
-          <line class="link" x1="210" y1="210" x2="210" y2="80" />
-          <line class="link" x1="210" y1="210" x2="80" y2="160" />
-          <line class="link" x1="210" y1="210" x2="340" y2="160" />
-          <line class="link" x1="210" y1="210" x2="120" y2="320" />
-          <line class="link" x1="210" y1="210" x2="300" y2="320" />
-          <!-- Nodes -->
-          <circle class="node" cx="210" cy="80" r="34" />
-          <text x="210" y="76" class="label" style="fill: var(--fg-subtle);">#01</text>
-          <text x="210" y="92" style="font-size: 12px;">회의록</text>
-
-          <circle class="node" cx="80" cy="160" r="34" />
-          <text x="80" y="156" class="label" style="fill: var(--fg-subtle);">#02</text>
-          <text x="80" y="172" style="font-size: 12px;">문서기획</text>
-
-          <circle class="node" cx="340" cy="160" r="34" />
-          <text x="340" y="156" class="label" style="fill: var(--fg-subtle);">#03</text>
-          <text x="340" y="172" style="font-size: 12px;">법률검토</text>
-
-          <circle class="node point" cx="120" cy="320" r="34" />
-          <text x="120" y="316" class="label" style="fill: var(--point);">#04</text>
-          <text x="120" y="332" style="font-size: 12px;">제품제작</text>
-
-          <circle class="node point" cx="300" cy="320" r="34" />
-          <text x="300" y="316" class="label" style="fill: var(--point);">#05</text>
-          <text x="300" y="332" style="font-size: 12px;">지식아카이브</text>
-
-          <!-- Center -->
-          <circle class="center" cx="210" cy="210" r="44" />
-          <text x="210" y="204" class="center" style="font-size: 10px; fill: rgba(255,255,255,0.55);">HERMES</text>
-          <text x="210" y="220" class="center" style="font-size: 12px;">지식 자산화</text>
-        </svg>
+      <div class="case-visual vis-pack">
+        <div class="vis-pack-head">
+          <div>
+            <span class="vis-pack-eyebrow">— 5-AGENT PACK</span>
+            <h4>OpenClaw × Hermes</h4>
+          </div>
+          <span class="vis-pack-badge"><span class="dot"></span>03:03 KST · DAILY</span>
+        </div>
+        <div class="vis-pack-grid">
+          <div class="vis-pack-cell">
+            <div class="cell-head">
+              <span class="cell-num">#01</span>
+              <span class="cell-tag">CATCH</span>
+            </div>
+            <div class="cell-name">회의록</div>
+            <div class="cell-role">Meeting Catcher</div>
+          </div>
+          <div class="vis-pack-cell">
+            <div class="cell-head">
+              <span class="cell-num">#02</span>
+              <span class="cell-tag">DRAFT</span>
+            </div>
+            <div class="cell-name">문서기획</div>
+            <div class="cell-role">Doc · Planning</div>
+          </div>
+          <div class="vis-pack-cell">
+            <div class="cell-head">
+              <span class="cell-num">#03</span>
+              <span class="cell-tag">REVIEW</span>
+            </div>
+            <div class="cell-name">법률검토</div>
+            <div class="cell-role">Compliance Scan</div>
+          </div>
+          <div class="vis-pack-hub">
+            <span class="hub-label">HUB</span>
+            <strong>HERMES</strong>
+            <span class="hub-meta">지식 자산화</span>
+          </div>
+          <div class="vis-pack-cell point">
+            <div class="cell-head">
+              <span class="cell-num">#04</span>
+              <span class="cell-tag">BUILD</span>
+            </div>
+            <div class="cell-name">제품제작</div>
+            <div class="cell-role">Build · Ship</div>
+          </div>
+          <div class="vis-pack-cell point">
+            <div class="cell-head">
+              <span class="cell-num">#05</span>
+              <span class="cell-tag">ARCHIVE</span>
+            </div>
+            <div class="cell-name">지식 아카이브</div>
+            <div class="cell-role">Obsidian · Notion</div>
+          </div>
+        </div>
+        <div class="vis-pack-foot">
+          <span class="pack-flow">CATCH → DRAFT → REVIEW → BUILD → ARCHIVE</span>
+        </div>
       </div>
     </article>
 
