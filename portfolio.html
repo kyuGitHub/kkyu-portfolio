@@ -592,10 +592,123 @@
   color: var(--fg-subtle); letter-spacing: 0.04em;
 }
 
+/* Visual variant 7 — compliance matrix (vertical stack + chips) */
+.vis-comply {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 36px;
+  flex-direction: column;
+  gap: 24px;
+}
+.vis-comply-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding-bottom: 18px; border-bottom: 1px solid var(--border);
+}
+.vis-comply-eyebrow {
+  display: block;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--point); margin-bottom: 6px;
+}
+.vis-comply-head h4 { margin: 0; font-size: 16px; font-weight: 800; letter-spacing: -0.02em; }
+.vis-comply-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  padding: 5px 10px; border-radius: 999px;
+  background: var(--fg); color: white;
+  letter-spacing: 0.1em;
+}
+.vis-comply-badge .dot {
+  width: 6px; height: 6px; border-radius: 999px;
+  background: var(--success);
+  animation: visPulse 1.8s ease-in-out infinite;
+}
+.vis-comply-grid {
+  display: grid; grid-template-columns: 1fr; gap: 12px;
+  flex: 1;
+}
+.vis-comply-cell {
+  background: var(--gray-50);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 18px;
+  position: relative;
+  opacity: 0; transform: translateY(12px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out),
+    background var(--dur-base),
+    border-color var(--dur-base);
+}
+.vis-comply-cell::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; border-radius: 3px 0 0 3px;
+  background: var(--point);
+}
+.vis-comply-cell:hover {
+  background: white;
+  border-color: var(--fg);
+  transform: translateY(-2px);
+}
+.vis-comply-cell .cell-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 8px;
+}
+.vis-comply-cell .cell-num {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; color: var(--fg-subtle);
+}
+.vis-comply-cell .cell-tag {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 999px;
+  background: var(--point-soft); color: var(--point);
+}
+.vis-comply-cell .cell-name {
+  font-size: 16px; font-weight: 800; letter-spacing: -0.02em;
+  color: var(--fg); line-height: 1.2;
+}
+.vis-comply-cell .cell-role {
+  margin-top: 4px;
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--fg-subtle); letter-spacing: 0.04em;
+}
+.vis-comply-chips {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.vis-comply-chip {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  padding: 4px 10px; border-radius: 999px;
+  background: white; border: 1px solid var(--border);
+  color: var(--fg-subtle);
+  letter-spacing: 0.02em;
+  transition: border-color var(--dur-base), color var(--dur-base);
+}
+.vis-comply-cell:hover .vis-comply-chip {
+  border-color: var(--fg); color: var(--fg);
+}
+.vis-comply-foot {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--fg-subtle); letter-spacing: 0.16em; text-transform: uppercase;
+  text-align: center;
+  padding-top: 12px; border-top: 1px solid var(--border);
+}
+.vis-comply-foot .comply-flow {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--fg-subtle) 0%, var(--point) 50%, var(--fg-subtle) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flowShift 6s linear infinite;
+}
+
 /* ── Reveal motion (driven by .case.in) ── */
 .case.in .vis-stack-cell,
 .case.in .vis-pack-cell,
-.case.in .vis-pack-hub {
+.case.in .vis-pack-hub,
+.case.in .vis-comply-cell {
   opacity: 1; transform: translateY(0);
 }
 .case.in .vis-pack-hub { transform: scale(1); }
@@ -609,6 +722,9 @@
 .case.in .vis-pack-hub { transition-delay: 0.30s; }
 .case.in .vis-pack-cell:nth-child(5) { transition-delay: 0.40s; }
 .case.in .vis-pack-cell:nth-child(6) { transition-delay: 0.48s; }
+.case.in .vis-comply-cell:nth-child(1) { transition-delay: 0.05s; }
+.case.in .vis-comply-cell:nth-child(2) { transition-delay: 0.18s; }
+.case.in .vis-comply-cell:nth-child(3) { transition-delay: 0.31s; }
 
 @keyframes visPulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(16, 182, 122, 0.55); }
@@ -713,11 +829,11 @@
           <div class="pf-intro-stat-label">— TOTAL CASES</div>
         </div>
         <div>
-          <div class="pf-intro-stat-num">5<span class="u">실제</span></div>
+          <div class="pf-intro-stat-num">6<span class="u">실제</span></div>
           <div class="pf-intro-stat-label">— REAL WORK</div>
         </div>
         <div>
-          <div class="pf-intro-stat-num">3<span class="u">AI</span></div>
+          <div class="pf-intro-stat-num">2<span class="u">AI</span></div>
           <div class="pf-intro-stat-label">— AGENT SCENARIO</div>
         </div>
       </div>
@@ -1174,6 +1290,108 @@
       </div>
     </article>
 
+    <!-- ─── Case 06 — REAL / Compliance Framework ─── -->
+    <article class="case flip reveal" data-kind="real">
+      <div class="case-meta">
+        <div class="case-meta-top">
+          <div class="case-num-row">
+            <div class="case-num">— CASE 06 / PEPPER · 2018–2024</div>
+            <span class="case-kind real"><span class="dot"></span>REAL WORK</span>
+          </div>
+          <h2 class="case-title">
+            보이지 않는<br/>
+            <span class="point">신뢰</span>를<br/>
+            설계한 시간.
+          </h2>
+          <p class="case-body">
+            6년간 디지털 정책팀을 운영하며 비대면 금융 제품의 <strong>컴플라이언스 골격</strong>을 직접 설계했다.
+            정책 가이드라인 운영부터 법규 기반 사업 구축, 내부통제 실행까지 — 사고 개연성을 최소화하는 일선의 일.
+          </p>
+          <ul class="case-bullets">
+            <li><strong>3대 디지털 가이드라인</strong> 운영 · 비대면실명확인 / 온라인설명의무 / 다크패턴</li>
+            <li><strong>3대 금융법령</strong> 기반 사업 구축·모니터링 · 전자금융감독 / 개인정보 / 금융실명</li>
+            <li><strong>내부통제 4축</strong> 실행 — 감사 · 소송 · 민원 · 점검 일선 대응</li>
+            <li>내부통제 활동으로 <strong>사고 발생 개연성 최소화</strong></li>
+          </ul>
+        </div>
+        <div class="case-meta-bottom">
+          <div class="case-tags">
+            <span class="tag point">COMPLIANCE</span>
+            <span class="tag">GOVERNANCE</span>
+            <span class="tag">INTERNAL CONTROL</span>
+          </div>
+          <div class="case-stats">
+            <div>
+              <div class="case-stat-num">6<span class="u">년</span></div>
+              <div class="case-stat-label">— OPERATION</div>
+            </div>
+            <div>
+              <div class="case-stat-num">3<span class="u">대</span></div>
+              <div class="case-stat-label">— GUIDELINES</div>
+            </div>
+            <div>
+              <div class="case-stat-num">4<span class="u">축</span></div>
+              <div class="case-stat-label">— CONTROL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="case-visual vis-comply">
+        <div class="vis-comply-head">
+          <div>
+            <span class="vis-comply-eyebrow">— COMPLIANCE MATRIX</span>
+            <h4>비대면 금융 제품의 3축 통제 구조</h4>
+          </div>
+          <span class="vis-comply-badge"><span class="dot"></span>ACTIVE · 6Y</span>
+        </div>
+        <div class="vis-comply-grid">
+          <div class="vis-comply-cell">
+            <div class="cell-head">
+              <span class="cell-num">— 01 / POLICY</span>
+              <span class="cell-tag">정책 운영</span>
+            </div>
+            <div class="cell-name">디지털 정책팀 운영</div>
+            <div class="cell-role">비대면 디지털 제품 금융당국 규정 준수</div>
+            <div class="vis-comply-chips">
+              <span class="vis-comply-chip">비대면실명확인</span>
+              <span class="vis-comply-chip">온라인설명의무</span>
+              <span class="vis-comply-chip">다크패턴 가이드라인</span>
+            </div>
+          </div>
+          <div class="vis-comply-cell">
+            <div class="cell-head">
+              <span class="cell-num">— 02 / REGULATION</span>
+              <span class="cell-tag">법규 기반</span>
+            </div>
+            <div class="cell-name">법령 기반 사업 구축·운영</div>
+            <div class="cell-role">3대 금융법령 위에 사업 구조 설계·모니터링</div>
+            <div class="vis-comply-chips">
+              <span class="vis-comply-chip">전자금융감독규정</span>
+              <span class="vis-comply-chip">개인정보보호법</span>
+              <span class="vis-comply-chip">금융실명법</span>
+            </div>
+          </div>
+          <div class="vis-comply-cell">
+            <div class="cell-head">
+              <span class="cell-num">— 03 / CONTROL</span>
+              <span class="cell-tag">내부통제</span>
+            </div>
+            <div class="cell-name">컴플라이언스 일선 대응</div>
+            <div class="cell-role">감사·소송·민원·점검 4축 동시 운영</div>
+            <div class="vis-comply-chips">
+              <span class="vis-comply-chip">감사</span>
+              <span class="vis-comply-chip">소송</span>
+              <span class="vis-comply-chip">민원</span>
+              <span class="vis-comply-chip">점검업무</span>
+            </div>
+          </div>
+        </div>
+        <div class="vis-comply-foot">
+          <span class="comply-flow">POLICY → REGULATION → CONTROL → AUDIT</span>
+        </div>
+      </div>
+    </article>
+
     <!-- ─── SECTION DIVIDER ─── -->
     <div style="display:flex; align-items:center; gap:24px; padding: 40px 0;">
       <div style="flex:1; height:1px; background: var(--fg);"></div>
@@ -1182,74 +1400,6 @@
       </div>
       <div style="flex:1; height:1px; background: var(--fg);"></div>
     </div>
-
-    <!-- ─── Case 06 — SCENARIO / 대출비교 오케스트레이터 ─── -->
-    <article class="case flip reveal" data-kind="scenario">
-      <div class="case-meta">
-        <div class="case-meta-top">
-          <div class="case-num-row">
-            <div class="case-num">— CASE 06 / AI · LOAN ORCHESTRATOR</div>
-            <span class="case-kind scenario"><span class="dot"></span>AI SCENARIO</span>
-          </div>
-          <h2 class="case-title">
-            대출비교의<br/>
-            <span class="point">결정권</span>을<br/>
-            사용자에게.
-          </h2>
-          <p class="case-body">
-            사용자의 자연어 요구("이번 달 안에, 금리 6%대, 자동차담보로")를 받아 <strong>AI 오케스트레이터</strong>가
-            10개 이상 금융사 API를 병렬 호출, 조건 매칭·시뮬레이션·서류 자동 작성까지 한 번에.
-          </p>
-          <ul class="case-bullets">
-            <li><strong>자연어 → 구조화된 대출 쿼리</strong>로 변환</li>
-            <li>병렬 호출로 10초 내 비교 → 추천 3건 + 거절 사유 4건</li>
-            <li>약정·서류 자동 채움 · 동의서 흐름까지 핸드오프</li>
-            <li>모든 비교 결과 감사용 로그 자동 보관</li>
-          </ul>
-        </div>
-        <div class="case-meta-bottom">
-          <div class="case-tags">
-            <span class="tag point">AI AGENT</span>
-            <span class="tag">ORCHESTRATION</span>
-            <span class="tag">LOAN COMPARE</span>
-          </div>
-          <div class="case-stats">
-            <div>
-              <div class="case-stat-num">10<span class="u">초</span></div>
-              <div class="case-stat-label">— RESPONSE</div>
-            </div>
-            <div>
-              <div class="case-stat-num">10<span class="u">+</span></div>
-              <div class="case-stat-label">— PARTNER APIS</div>
-            </div>
-            <div>
-              <div class="case-stat-num">100<span class="u">%</span></div>
-              <div class="case-stat-label">— AUDIT LOG</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="case-visual vis-terminal">
-        <div class="vis-terminal-head">
-          <div class="vis-terminal-dots"><i></i><i></i><i></i></div>
-          <span>LOAN-AGENT · live</span>
-        </div>
-        <div class="vis-terminal-body">
-          <div class="vis-terminal-line"><span class="prompt">›</span> <span class="dim">user:</span> 이번 달 안에, 금리 6%대로, 자동차담보로 받을 수 있나요?</div>
-          <div class="vis-terminal-line"><span class="dim">[orchestrator] parsing intent...</span></div>
-          <div class="vis-terminal-line"><span class="key">intent:</span> <span class="val">"car_secured_loan"</span></div>
-          <div class="vis-terminal-line"><span class="key">deadline:</span> <span class="val">"2026-05-31"</span></div>
-          <div class="vis-terminal-line"><span class="key">target_rate:</span> <span class="val">"6.0%–6.9%"</span></div>
-          <div class="vis-terminal-line"><span class="dim">[orchestrator] calling 10 partner APIs in parallel...</span></div>
-          <div class="vis-terminal-line"><span class="ok">✓</span> Toss · 6.4% · approved</div>
-          <div class="vis-terminal-line"><span class="ok">✓</span> 카카오페이 · 6.8% · approved</div>
-          <div class="vis-terminal-line"><span class="ok">✓</span> SK엔카 · 6.2% · approved</div>
-          <div class="vis-terminal-line"><span class="warn">!</span> 네이버 · ineligible (LTV)</div>
-          <div class="vis-terminal-line"><span class="dim">[orchestrator] 3 options matched · drafting comparison...</span></div>
-          <div class="vis-terminal-line"><span class="ok">▸</span> ready in 9.4s <span class="vis-terminal-cursor"></span></div>
-        </div>
-      </div>
-    </article>
 
     <!-- ─── Case 07 — SCENARIO / AI 고객응대 ─── -->
     <article class="case reveal" data-kind="scenario">
