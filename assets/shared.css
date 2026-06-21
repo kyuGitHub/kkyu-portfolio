@@ -4,6 +4,7 @@
    ============================================================ */
 
 :root {
+  color-scheme: light;
   /* Default point color = brand blue. Overridden by Tweaks. */
   --point: var(--blue-500);
   --point-deep: var(--blue-700);
