@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.bundle.css">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -35,12 +35,12 @@
     <a class="btn btn--sm header-cta" href="#contact">연락<span class="hide-sm">하기</span></a>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <div class="container">
   <section class="case-hero">
     <a class="text-link back" href="/work.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Work</a>
     <span class="eyebrow">CASE</span>
-    <span class="case-meta">페퍼저축은행 · 2021.03 – 2024.12 · 이후 2025 – 2026 확장</span>
+    <span class="case-meta">페퍼저축은행 · 2021.03 – 2024.12</span>
     <h1 class="display2">금융사 안에 데이터 파이프라인을<br>직접 깔기</h1>
     <p class="lead">모바일뱅킹 출시 후, 의사결정에 필요한 데이터를 현업이 직접 볼 수 없다는 것이 가장 큰 병목이었습니다. CXM팀을 만들고 사내 첫 클라우드 분석 환경을 도입해 현업이 대시보드를 직접 만드는 단계까지 정착시켰습니다.</p>
   </section>
@@ -71,8 +71,8 @@
     <div class="case-body"><p>규제를 설계 단계의 제약 조건으로 다룰 때 통과가 쉬웠습니다. "무엇을 수집하지 않는가"를 먼저 정하니 보안·준법 부서와 같은 편에서 이야기할 수 있었습니다.</p></div>
   </section>
   <nav class="next-case" aria-label="다른 케이스">
-    <a href="/work/system-integration.html"><span class="k">이전</span><span class="t">통합시스템 구축 총괄 PM</span></a>
-    <a href="/work/regulation.html"><span class="k">다음</span><span class="t">규제를 설계로 풀기</span></a>
+    <a class="prev" href="/work/system-integration.html"><span class="k">이전</span><span class="t">통합시스템 구축 총괄 PM</span></a>
+    <a class="next" href="/work/regulation.html"><span class="k">다음</span><span class="t">규제를 설계로 풀기</span></a>
   </nav>
 </div>
 </main>

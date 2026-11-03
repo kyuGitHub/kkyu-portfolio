@@ -1,8 +1,8 @@
-// Fails if outdated numbers from the old site reappear in built pages.
+// Fails if outdated numbers from the old site, or unrendered template code, appear in built pages.
 // Usage: node scripts/check-facts.mjs
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-const banned = ['1,500억', '150×', '150배', '60억', '17년', '2→40', '40명+', '4 Members', '14Y'];
+const banned = ['${', 'undefined', '[object', '1,500억', '150×', '150배', '60억', '17년', '2→40', '40명+', '4 Members', '14Y'];
 const walk = d => readdirSync(d).flatMap(f => { const p = join(d, f); return statSync(p).isDirectory() ? (['node_modules', '.git', 'src', 'scripts'].includes(f) ? [] : walk(p)) : p.endsWith('.html') ? [p] : []; });
 let bad = 0;
 for (const f of walk('.')) {

@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.bundle.css">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -35,7 +35,7 @@
     <a class="btn btn--sm header-cta" href="#contact">연락<span class="hide-sm">하기</span></a>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <section class="hero">
   <div class="container">
     <span class="eyebrow">WORK</span>
@@ -57,7 +57,7 @@
   </div>
 </a>
       <a class="card reveal" href="/work/inhouse-marketing.html">
-  <div class="card-media card-media--type"><span class="big num">5<small>명</small></span><span class="cap">대행사 없이 월 3~5억 광고비를 직접 집행</span></div>
+  <div class="card-media card-media--type"><span class="big num">3~5억<small>/월</small></span><span class="cap">대행사 없이 5명이 직접 집행</span></div>
   <div class="card-body">
     <span class="card-eyebrow">2018.08 – 2019.10 · 광고 운영팀 신설 · 리더</span>
     <h3 class="card-title">인하우스 광고 운영팀 0→1</h3>
@@ -70,7 +70,7 @@
   <div class="card-body">
     <span class="card-eyebrow">2019.10 – 2021.03 · 서비스기획 PM · 발주자</span>
     <h3 class="card-title">차세대 모바일뱅킹 0→1</h3>
-    <p class="card-desc">비대면 채널이 없던 저축은행에 회원가입, 비대면 실명확인, 계좌, 이체, 오픈뱅킹, 대출까지 전 범위를 설계했습니다. 예산 70억, 조직 2명 → 30명+.</p>
+    <p class="card-desc">비대면 채널이 없던 저축은행에 회원가입, 비대면 실명확인, 계좌, 이체, 오픈뱅킹, 대출까지 전 범위를 설계했습니다. 예산 70억, 조직 <span class="nowrap">2명 → 30명+</span>.</p>
     <span class="card-meta"><span class="badge">0→1</span><span class="badge">발주</span><span class="badge">조직 구축</span></span>
   </div>
 </a>

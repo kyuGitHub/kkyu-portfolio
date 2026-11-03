@@ -109,11 +109,11 @@ ${p.noindex ? '' : `<meta property="og:url" content="${url}">`}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.bundle.css">
 <script>document.documentElement.classList.add('js')</script>${p.jsonld ? `\n<script type="application/ld+json">${JSON.stringify(p.jsonld)}</script>` : ''}
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
 ${header(p.nav)}
-<main id="main">
+<main id="main" tabindex="-1">
 ${p.body.trim()}
 </main>
 ${footer()}
@@ -156,8 +156,8 @@ export function casePage(c) {
     <div class="case-body">${s.body}</div>
   </section>`).join('\n  ')}
   <nav class="next-case" aria-label="다른 케이스">
-    ${c.prev ? `<a href="${c.prev.href}"><span class="k">이전</span><span class="t">${c.prev.title}</span></a>` : ''}
-    ${c.next ? `<a href="${c.next.href}"><span class="k">다음</span><span class="t">${c.next.title}</span></a>` : ''}
+    ${c.prev ? `<a class="prev" href="${c.prev.href}"><span class="k">이전</span><span class="t">${c.prev.title}</span></a>` : ''}
+    ${c.next ? `<a class="next" href="${c.next.href}"><span class="k">다음</span><span class="t">${c.next.title}</span></a>` : ''}
   </nav>
 </div>`;
 }
@@ -180,7 +180,7 @@ export const pressSection = (id = 'press') => `<section class="section" id="${id
           <span class="card-eyebrow">${x.src} · ${x.kind}${x.date ? ' · ' + x.date : ''}</span>
           <h3 class="card-title">${x.title}</h3>
           <p class="card-desc">${x.desc}</p>
-          <span class="card-meta">${x.href ? `<span class="text-link">원문 보기${icon.out}</span>` : '<span class="caption">원문 링크 준비 중</span>'}</span>
+          <span class="card-meta">${x.href ? `<span class="text-link">원문 보기${icon.out}</span>` : ''}</span>
         </div>
       </${x.href ? 'a' : 'article'}>`).join('\n      ')}
     </div>

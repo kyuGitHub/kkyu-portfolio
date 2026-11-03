@@ -12,8 +12,8 @@ const T = {
 
 const cards = [
   { ...T.loan, image: '/assets/img/work/loan-toss.webp', imageAlt: '토스 내게 맞는 대출찾기에서 페퍼저축은행 대출로 이어지는 화면',  eyebrow: '2018.08 – 현재 · 초기 주도 → 제휴·운영 총괄', desc: '대출비교 서비스를 초기부터 주도해 월 신용대출을 10억에서 150억으로 키웠고, 토스·카카오페이·카카오뱅크·네이버 등 제휴 10개사의 계약부터 정산까지 총괄합니다.', badges: ['그로스', '제휴', '내부통제'] },
-  { ...T.mkt, big: '5<small>명</small>', cap: `대행사 없이 ${F.marketing.spend} 광고비를 직접 집행`, eyebrow: '2018.08 – 2019.10 · 광고 운영팀 신설 · 리더', desc: '마케팅 조직이 없던 회사에 광고 운영팀을 0에서 만들고, 채널 효율을 데이터로 증명해 본부 조직으로 승격시켰습니다.', badges: ['조직 구축', '퍼포먼스 마케팅', '인하우스'] },
-  { ...T.bank, image: '/assets/img/work/banking-app.webp', imageAlt: '페퍼저축은행 모바일뱅킹 앱 메인 화면',  eyebrow: `${F.banking.period} · 서비스기획 PM · 발주자`, desc: `비대면 채널이 없던 저축은행에 회원가입, 비대면 실명확인, 계좌, 이체, 오픈뱅킹, 대출까지 전 범위를 설계했습니다. 예산 ${F.banking.budget}, 조직 ${F.banking.team}.`, badges: ['0→1', '발주', '조직 구축'] },
+  { ...T.mkt, big: '3~5억<small>/월</small>', cap: `대행사 없이 ${F.marketing.team}이 직접 집행`, eyebrow: '2018.08 – 2019.10 · 광고 운영팀 신설 · 리더', desc: '마케팅 조직이 없던 회사에 광고 운영팀을 0에서 만들고, 채널 효율을 데이터로 증명해 본부 조직으로 승격시켰습니다.', badges: ['조직 구축', '퍼포먼스 마케팅', '인하우스'] },
+  { ...T.bank, image: '/assets/img/work/banking-app.webp', imageAlt: '페퍼저축은행 모바일뱅킹 앱 메인 화면',  eyebrow: `${F.banking.period} · 서비스기획 PM · 발주자`, desc: `비대면 채널이 없던 저축은행에 회원가입, 비대면 실명확인, 계좌, 이체, 오픈뱅킹, 대출까지 전 범위를 설계했습니다. 예산 ${F.banking.budget}, 조직 <span class="nowrap">${F.banking.team}</span>.`, badges: ['0→1', '발주', '조직 구축'] },
   { ...T.integ, big: F.integration.budget, cap: `${F.integration.people} · ${F.integration.months} · 진행 중`, eyebrow: '2026.06 – 진행 중 · 제안자 · 발주 총괄 PM', desc: `부서별로 따로 도입된 시스템 4개의 중복 운영을 문제로 정의하고 통합을 직접 제안했습니다. 요구사항 ${F.integration.requirements}을 정리해 공개입찰로 업체를 선정했습니다.`, badges: ['PMO', 'RFP·입찰', 'AI 적용'] },
   { ...T.data, big: '20→35<small>%</small>', cap: '제품 전체 Retention',  eyebrow: '2021.03 – 2024.12 · CXM팀 신설 · 데이터 플랫폼 리더', desc: `AppsFlyer·Amplitude·Tableau로 이어지는 데이터 파이프라인을 컨설팅 없이 직접 검토·도입·설치·운영했습니다. 망분리 위반으로 보던 클라우드 분석을 사내 첫 사례로 통과시켰고, Retention ${F.data.retention}.`, badges: ['데이터', 'CX', '보안성 심의'] },
   { ...T.reg, big: '제3안', cap: '준법과 운영의 교착을 합의로 푼 주민번호 수집 최소화', eyebrow: '2025.01 – 현재 · 디지털기획 담당', desc: '주민번호 수집 최소화, 다크패턴 가이드라인, 법정 통지서 시스템처럼 규제 대응을 화면과 운영 프로세스에 녹였습니다.', badges: ['규제', '준법 협의', '운영 시스템'] },
@@ -88,7 +88,7 @@ const mkt = {
       { h: '문제', body: `<p>고객 유입은 오프라인 대출모집인에 의존했고, 모집 수수료는 ${F.loan.offlineFee}였습니다. 온라인 신용대출 실적은 월 ${F.loan.start} 수준이었고, 광고를 집행하고 성과를 측정할 조직이 없었습니다.</p><p>온라인 광고에 예산을 받으려면 먼저 "광고가 모집인보다 효율적"이라는 것을 회사가 믿을 수 있는 숫자로 보여 줘야 했습니다.</p>` },
       { h: '판단과 접근', body: `<h3>대행사 대신 인하우스</h3><p>대행사에 맡기면 빨리 시작할 수 있지만, 어떤 매체와 소재가 대출 실적으로 이어지는지는 회사에 남지 않는다고 판단했습니다. 그래서 팀이 직접 학습하는 인하우스 모델을 택했습니다. <strong>${F.marketing.team}</strong>이 <strong>${F.marketing.spend}</strong>의 광고비를 집행하며 ${F.marketing.media} 매체를 직접 다뤘습니다.</p><h3>가설 → 실험 → 분석 → 고도화</h3><p>매체와 소재, 랜딩을 바꿀 때마다 가설을 세우고 작게 실험해 결과를 분석하고, 효과가 확인된 것만 키우는 그로스 사이클을 팀의 일하는 방식으로 정착시켰습니다.</p><figure class="figure"><div class="frame"><ol class="flow"><li><b>가설</b><span>어느 매체·소재가 신청까지 이어질까</span></li><li><b>실험</b><span>작은 예산으로 빠르게 집행</span></li><li><b>분석</b><span>채널별 비용과 대출 실적 비교</span></li><li><b>고도화</b><span>효과가 확인된 채널에 예산 집중</span></li></ol></div><figcaption>팀이 반복한 그로스 사이클</figcaption></figure><h3>예산을 설득한 숫자</h3><p>채널별 비용을 대출 실적까지 이어서 추적해, 온라인 채널 비용이 <strong>${F.loan.channelCost}</strong>로 오프라인 모집 수수료 ${F.loan.offlineFee}보다 낮다는 것을 증명했습니다. 이 숫자로 본부의 승인을 받았고, 광고 운영팀은 본부 조직으로 승격됐습니다.</p><h3>인하우스를 택할 수 있었던 이유</h3><p>NH농협캐피탈에서 검색·배너 광고와 플랫폼 제휴를 광고주로서 직접 집행하며 채널별 효율을 몸으로 익혔고, 창업 시절 SNS 광고대행을 운영한 경험이 있었습니다. 검색광고마케터 1급 자격도 이때 취득했습니다.</p>` },
       { h: '결과', body: results([[F.marketing.spend, '광고비 직접 집행'], [`${F.loan.channelCost} vs ${F.loan.offlineFee}`, '온라인 채널 비용과 오프라인 수수료'], [`${F.loan.start} → ${F.loan.early}`, '대출비교 초기 월 신용대출'], ['본부 승격', '광고 운영팀 조직 위상']]) + '<p>이 팀이 이후 대출비교 신사업과 제휴 채널을 키우는 기반이 됐습니다. 이어지는 이야기는 <a href="/work/loan-comparison.html">대출비교 신사업과 제휴 10개사</a>에 있습니다.</p>' },
-      { h: '배운 점', body: '<p>새 채널에 예산을 받는 가장 빠른 방법은 기존 채널과 같은 기준으로 비교한 숫자였습니다. 광고비를 모집 수수료와 같은 비율(${F.loan.channelCost} 대 ${F.loan.offlineFee})로 놓고 비교했고, 직접 운영했기에 그 숫자를 매일 갱신할 수 있었습니다.</p>' },
+      { h: '배운 점', body: `<p>새 채널에 예산을 받는 가장 빠른 방법은 기존 채널과 같은 기준으로 비교한 숫자였습니다. 광고비를 모집 수수료와 같은 비율(${F.loan.channelCost} 대 ${F.loan.offlineFee})로 놓고 비교했고, 직접 운영했기에 그 숫자를 매일 갱신할 수 있었습니다.</p>` },
     ],
     prev: T.loan, next: T.bank,
   }),
@@ -106,7 +106,7 @@ const bank = {
     sections: [
       { h: '문제', body: '<p>지점 중심의 저축은행에는 비대면 채널이 없었습니다. 고객은 계좌를 열거나 대출을 받으려면 지점이나 상담원을 거쳐야 했습니다.</p><p>짧은 기간 안에 출시해야 했지만, 이후 상품이 늘어날 때마다 핵심 기능을 다시 만드는 일은 피해야 했습니다.</p>' },
       { h: '판단과 접근', body: `<h3>범위와 산출물</h3><ul><li>회원가입, 비대면 실명확인, 계좌, 이체, 오픈뱅킹, 대출까지 전체 요구사항을 설계했습니다.</li><li>요구사항정의서, 화면설계서, 기능명세서, WBS를 직접 작성했고, 협력사 제안과 견적을 평가해 업체를 선정했습니다.</li></ul><figure class="figure"><div class="frame frame--img"><img src="/assets/img/work/banking-app.webp" alt="페퍼저축은행 모바일뱅킹 앱 메인 화면과 계좌 화면" loading="lazy" width="1600" height="1000"></div><figcaption>출시한 모바일뱅킹 앱. 이름과 금액은 예시입니다</figcaption></figure><h3>단기 출시와 장기 확장성 사이의 구조</h3><p>인증, 계좌 조회, 이체를 <strong>공통 모듈</strong>로 먼저 세우고 상품별 화면을 그 위에 얹는 구조를 택했습니다. 1차에서 빠지는 기능은 "왜 2차인지"를 문서로 남겨 이해관계자와 합의했습니다.</p><figure class="figure"><div class="frame"><div class="layers"><div class="layer layer--top"><b>2차 · 상품 화면</b><span>예금 · 적금 · 신용대출 · 이후 상품</span></div><div class="layer"><b>1차 · 공통 모듈</b><span>인증 · 비대면 실명확인 · 계좌 조회 · 이체 · 오픈뱅킹</span></div></div></div><figcaption>공통 모듈을 먼저 세워, 상품이 늘어도 핵심 기능을 다시 만들지 않게 했습니다</figcaption></figure><h3>조직</h3><p>상품, 리스크, 준법, IT, 고객센터, 협력사의 요구를 <strong>하나의 백로그</strong>로 모아 우선순위를 공개했고, 역할과 의사결정 경로를 정리했습니다. 프로젝트 조직은 ${F.banking.team}으로 커졌고, 마케팅·전략기획·CXM 팀을 직접 세팅했습니다.</p><p>저축은행 업계 최초로 행동 데이터 분석 도입을 제안해 CXM(고객경험관리)팀을 만들었습니다. 이 작업은 <a href="/work/data-cx.html">데이터 기반 고객경험 개선</a>으로 이어졌습니다.</p>` },
-      { h: '결과', body: results([[F.banking.mau, '출시 1년 차 MAU'], [F.banking.deposit, '출시 1년 예금'], [F.banking.loan, '출시 1년 대출'], [F.banking.team.replace(' ', ''), '프로젝트 조직']]) },
+      { h: '결과', body: results([[F.banking.mau, '출시 1년 차 MAU'], [F.banking.deposit, '출시 1년 예금'], [F.banking.loan, '출시 1년 대출'], [F.banking.team, '프로젝트 조직']]) },
       { h: '배운 점', body: '<p>출시 속도와 확장성은 순서를 정하는 것으로 함께 얻을 수 있었습니다. 빠지는 기능을 "왜 2차인지" 문서로 남겨 둔 것이 이해관계자의 합의를 지키는 데 가장 효과가 컸습니다.</p>' },
     ],
     prev: T.mkt, next: T.integ,
@@ -137,7 +137,7 @@ const data = {
   title: '데이터 파이프라인 구축과 고객경험 개선 · 김현규',
   description: `AppsFlyer·Amplitude·Tableau 데이터 파이프라인 구축, 사내 첫 클라우드 분석 환경 도입, 행동 데이터 ${F.data.events}개 이벤트 설계. Retention ${F.data.retention}.`,
   body: casePage({
-    back, eyebrow: '페퍼저축은행 · 2021.03 – 2024.12 · 이후 2025 – 2026 확장',
+    back, eyebrow: '페퍼저축은행 · 2021.03 – 2024.12',
     title: '금융사 안에 데이터 파이프라인을<br>직접 깔기',
     lead: '모바일뱅킹 출시 후, 의사결정에 필요한 데이터를 현업이 직접 볼 수 없다는 것이 가장 큰 병목이었습니다. CXM팀을 만들고 사내 첫 클라우드 분석 환경을 도입해 현업이 대시보드를 직접 만드는 단계까지 정착시켰습니다.',
     summary: [['역할', 'CXM팀 신설 · 데이터 플랫폼 리더'], ['기간', '2021.03 – 2024.12'], ['도구', 'AppsFlyer · Amplitude · Tableau'], ['결과', `Retention ${F.data.retention}`]],

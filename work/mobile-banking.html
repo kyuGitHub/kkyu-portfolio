@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.bundle.css">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -35,7 +35,7 @@
     <a class="btn btn--sm header-cta" href="#contact">연락<span class="hide-sm">하기</span></a>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <div class="container">
   <section class="case-hero">
     <a class="text-link back" href="/work.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Work</a>
@@ -60,15 +60,15 @@
   </section>
   <section class="case-section reveal">
     <h2>결과</h2>
-    <div class="case-body"><div class="results results--4"><div class="result"><div class="v">20만</div><div class="k">출시 1년 차 MAU</div></div><div class="result"><div class="v">5천억</div><div class="k">출시 1년 예금</div></div><div class="result"><div class="v">1.2조</div><div class="k">출시 1년 대출</div></div><div class="result"><div class="v">2명→ 30명+</div><div class="k">프로젝트 조직</div></div></div></div>
+    <div class="case-body"><div class="results results--4"><div class="result"><div class="v">20만</div><div class="k">출시 1년 차 MAU</div></div><div class="result"><div class="v">5천억</div><div class="k">출시 1년 예금</div></div><div class="result"><div class="v">1.2조</div><div class="k">출시 1년 대출</div></div><div class="result"><div class="v">2명 → 30명+</div><div class="k">프로젝트 조직</div></div></div></div>
   </section>
   <section class="case-section reveal">
     <h2>배운 점</h2>
     <div class="case-body"><p>출시 속도와 확장성은 순서를 정하는 것으로 함께 얻을 수 있었습니다. 빠지는 기능을 "왜 2차인지" 문서로 남겨 둔 것이 이해관계자의 합의를 지키는 데 가장 효과가 컸습니다.</p></div>
   </section>
   <nav class="next-case" aria-label="다른 케이스">
-    <a href="/work/inhouse-marketing.html"><span class="k">이전</span><span class="t">인하우스 광고 운영팀 0→1</span></a>
-    <a href="/work/system-integration.html"><span class="k">다음</span><span class="t">통합시스템 구축 총괄 PM</span></a>
+    <a class="prev" href="/work/inhouse-marketing.html"><span class="k">이전</span><span class="t">인하우스 광고 운영팀 0→1</span></a>
+    <a class="next" href="/work/system-integration.html"><span class="k">다음</span><span class="t">통합시스템 구축 총괄 PM</span></a>
   </nav>
 </div>
 </main>

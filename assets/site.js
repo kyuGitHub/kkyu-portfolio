@@ -24,17 +24,32 @@
   } else {
     items.forEach(function (el) { el.classList.add('in'); });
   }
+  // Printing, and tools that never scroll, still get every section
+  var showAll = function () { items.forEach(function (el) { el.classList.add('in'); }); };
+  window.addEventListener('beforeprint', showAll);
+  setTimeout(showAll, 4000);
 
   // Email copy buttons
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var text = btn.getAttribute('data-copy');
       var status = document.getElementById(btn.getAttribute('aria-describedby'));
-      var done = function (msg) { if (status) status.textContent = msg; };
+      var done = function (msg) {
+        if (!status) return;
+        status.textContent = '';
+        requestAnimationFrame(function () { status.textContent = msg; });
+        clearTimeout(btn._t);
+        btn._t = setTimeout(function () { status.textContent = ''; }, 3000);
+      };
+      var fallback = function () {
+        var code = btn.parentElement && btn.parentElement.querySelector('code');
+        if (code && window.getSelection) window.getSelection().selectAllChildren(code);
+        done('주소를 선택했습니다. 복사해 주세요');
+      };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () { done('복사했습니다'); }, function () { done('주소를 길게 눌러 복사해 주세요'); });
+        navigator.clipboard.writeText(text).then(function () { done('복사했습니다'); }, fallback);
       } else {
-        done('주소를 길게 눌러 복사해 주세요');
+        fallback();
       }
     });
   });
@@ -49,7 +64,14 @@
       panels.forEach(function (p) { p.hidden = p.getAttribute('data-agent-panel') !== id; });
     };
     nodes.forEach(function (n) {
-      n.addEventListener('click', function () { select(n.getAttribute('data-agent')); });
+      n.addEventListener('click', function () {
+        select(n.getAttribute('data-agent'));
+        var panel = document.getElementById(n.getAttribute('aria-controls'));
+        if (panel && panel.getBoundingClientRect().top > window.innerHeight * 0.7) {
+          var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+          panel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+        }
+      });
     });
     select(map.getAttribute('data-default') || nodes[0].getAttribute('data-agent'));
   }

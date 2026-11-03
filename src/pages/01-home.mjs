@@ -65,7 +65,7 @@ export default {
     <div class="sh-split">
       <div>
         <span class="eyebrow">WORK</span>
-        <h2 class="title1" id="work-title">고른 작업 6개</h2>
+        <h2 class="title1" id="work-title">대표 작업 6개</h2>
       </div>
       <div>
         <p>금융 현장에서 만든 성과 4개와 업무에 AI를 적용한 프로젝트 2개입니다. 각 케이스에서 문제, 판단, 결과를 자세히 볼 수 있습니다.</p>

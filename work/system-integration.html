@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.bundle.css">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -35,7 +35,7 @@
     <a class="btn btn--sm header-cta" href="#contact">연락<span class="hide-sm">하기</span></a>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <div class="container">
   <section class="case-hero">
     <a class="text-link back" href="/work.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Work</a>
@@ -67,8 +67,8 @@
     <div class="case-body"><p>큰 프로젝트일수록 분석 자체에 드는 비용을 먼저 따져야 했습니다. 산정 근거를 핵심 프로세스 단위로 남겨 두니, 견적 비교와 경영진 설득이 같은 숫자로 이어졌습니다.</p></div>
   </section>
   <nav class="next-case" aria-label="다른 케이스">
-    <a href="/work/mobile-banking.html"><span class="k">이전</span><span class="t">차세대 모바일뱅킹 0→1</span></a>
-    <a href="/work/data-cx.html"><span class="k">다음</span><span class="t">데이터 파이프라인 구축과 고객경험 개선</span></a>
+    <a class="prev" href="/work/mobile-banking.html"><span class="k">이전</span><span class="t">차세대 모바일뱅킹 0→1</span></a>
+    <a class="next" href="/work/data-cx.html"><span class="k">다음</span><span class="t">데이터 파이프라인 구축과 고객경험 개선</span></a>
   </nav>
 </div>
 </main>

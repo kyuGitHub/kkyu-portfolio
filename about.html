@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.bundle.css">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -35,7 +35,7 @@
     <a class="btn btn--sm header-cta" href="#contact">연락<span class="hide-sm">하기</span></a>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <section class="hero">
   <div class="container">
     <span class="eyebrow">ABOUT</span>
@@ -56,11 +56,11 @@
       <div><p>다섯 가지를 모두 해 봤기 때문에, 새 기술도 현업이 받아들이는 구조로 안착시키고 숫자로 확인해 왔습니다.</p></div>
     </div>
     <dl class="rows">
-      <div class="row reveal"><dt>디자인</dt><dd><p>여러 툴과 직접 코딩으로 페이지를 구현해 봤습니다. 디자인 전공, 전국기능경기대회 디자인 부문 수상.</p></dd></div>
-      <div class="row reveal"><dt>마케팅</dt><dd><p>매체를 직접 다루며 비용과 성과를 데이터로 증명해 봤습니다. 인하우스 광고팀을 만들어 월 최대 5억 원의 광고비를 직접 집행.</p></dd></div>
-      <div class="row reveal"><dt>비즈니스</dt><dd><p>여러 회사와 사람을 만나 성과를 함께 만들며 서로의 문제를 풀어 봤습니다. 제휴 발굴부터 계약, 운영, 정산까지.</p></dd></div>
-      <div class="row reveal"><dt>제품</dt><dd><p>디자인, 마케팅, 비즈니스를 이해한 위에서 서비스를 개발해 봤습니다. 요구사항, 프로세스, 화면설계를 지금도 직접 씁니다.</p></dd></div>
-      <div class="row reveal"><dt>조직</dt><dd><p>병목을 찾아 해결하고 다음 단계로 나아가는 조직을 만들어 봤습니다. 광고 운영팀, CXM팀 신설, 프로젝트 조직 2명 → 30명+.</p></dd></div>
+      <div class="row reveal"><dt>디자인</dt><dd><p>여러 툴과 직접 코딩으로 페이지를 구현했습니다. 디자인 전공, 전국기능경기대회 디자인 부문 수상.</p></dd></div>
+      <div class="row reveal"><dt>마케팅</dt><dd><p>매체를 직접 다루며 비용과 성과를 데이터로 증명했습니다. 인하우스 광고팀을 만들어 월 최대 5억 원의 광고비를 직접 집행.</p></dd></div>
+      <div class="row reveal"><dt>비즈니스</dt><dd><p>여러 회사와 사람을 만나 성과를 함께 만들며 서로의 문제를 풀었습니다. 제휴 발굴부터 계약, 운영, 정산까지.</p></dd></div>
+      <div class="row reveal"><dt>제품</dt><dd><p>디자인, 마케팅, 비즈니스를 이해한 위에서 서비스를 개발했습니다. 요구사항, 프로세스, 화면설계를 지금도 직접 씁니다.</p></dd></div>
+      <div class="row reveal"><dt>조직</dt><dd><p>병목을 찾아 해결하고 다음 단계로 나아가는 조직을 만들었습니다. 광고 운영팀, CXM팀 신설, 프로젝트 조직 2명 → 30명+.</p></dd></div>
     </dl>
   </div>
 </section>
@@ -155,7 +155,7 @@
           <span class="card-eyebrow">모바일히어로즈 · 마케터 커뮤니티 · 2020 – 2023</span>
           <h3 class="card-title">리프트오프 주관 마케터 모임 · 인터뷰 게재</h3>
           <p class="card-desc">모바일 앱 마케터 커뮤니티에서 활동하며 인하우스 퍼포먼스 마케팅 경험을 공유했고, 인터뷰가 게재됐습니다.</p>
-          <span class="card-meta"><span class="caption">원문 링크 준비 중</span></span>
+          <span class="card-meta"></span>
         </div>
       </article>
     </div>

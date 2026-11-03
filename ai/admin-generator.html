@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.bundle.css">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -35,7 +35,7 @@
     <a class="btn btn--sm header-cta" href="#contact">연락<span class="hide-sm">하기</span></a>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <div class="container">
   <section class="case-hero">
     <a class="text-link back" href="/ai.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>AI Lab</a>
@@ -71,7 +71,7 @@
     <div class="case-body"><p>AI에게 자유를 줄수록 결과를 믿기 어려웠습니다. 출력 형식을 스키마로 묶고 검증과 재시도를 붙이자, 현업에 넘길 수 있는 수준으로 결과가 안정됐습니다.</p></div>
   </section>
   <nav class="next-case" aria-label="다른 케이스">
-    <a href="/ai/knellgrave.html"><span class="k">이전</span><span class="t">넬그레이브</span></a>
+    <a class="prev" href="/ai/knellgrave.html"><span class="k">이전</span><span class="t">넬그레이브</span></a>
     
   </nav>
 </div>

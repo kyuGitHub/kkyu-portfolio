@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.bundle.css">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -35,7 +35,7 @@
     <a class="btn btn--sm header-cta" href="#contact">연락<span class="hide-sm">하기</span></a>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <div class="container">
   <section class="case-hero">
     <a class="text-link back" href="/ai.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>AI Lab</a>
@@ -71,8 +71,8 @@
     <div class="case-body"><ol class="case-list"><li><strong>"완료"의 기준은 실제 폰 화면입니다.</strong> 화면에서 확인하기 전에 완료로 넘긴 일이 반복돼, 두 화면 크기 캡처를 배포 조건으로 삼았습니다.</li><li><strong>한 곳을 고치면 다른 곳이 깨집니다.</strong> 일괄 치환으로 1.5초가 1.5ms로 바뀐 사고 이후, 흐름 변경과 테스트 수정을 한 묶음으로 처리합니다.</li><li><strong>만든 사람과 하는 사람의 기준은 다릅니다.</strong> 플레이어 피드백 5건이 모두 이 차이에서 나왔고, 이후 결정은 처음 하는 사람 기준으로 점검합니다.</li></ol></div>
   </section>
   <nav class="next-case" aria-label="다른 케이스">
-    <a href="/ai/second-brain.html"><span class="k">이전</span><span class="t">세컨브레인</span></a>
-    <a href="/ai/admin-generator.html"><span class="k">다음</span><span class="t">어드민 화면 제너레이터</span></a>
+    <a class="prev" href="/ai/second-brain.html"><span class="k">이전</span><span class="t">세컨브레인</span></a>
+    <a class="next" href="/ai/admin-generator.html"><span class="k">다음</span><span class="t">어드민 화면 제너레이터</span></a>
   </nav>
 </div>
 </main>
