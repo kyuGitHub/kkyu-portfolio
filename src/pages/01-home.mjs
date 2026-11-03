@@ -15,6 +15,7 @@ const agents = [
 
 export default {
   path: 'index.html',
+  jsonld: { '@context': 'https://schema.org', '@type': 'Person', name: '김현규', alternateName: 'Kim Hyunkyu', jobTitle: '디지털금융 PM', worksFor: { '@type': 'Organization', name: '페퍼저축은행' }, url: 'https://kkyu-portfolio.vercel.app/', email: 'mailto:hukami6472@gmail.com', sameAs: [LINKS.linkedin, LINKS.github] },
   nav: 'home',
   title: '김현규 · 고객채널을 디렉팅하는 디지털금융 PM',
   description: `금융·핀테크 ${F.career.years}, 대출 채널을 월 최대 ${F.loan.peak}까지 키우고 차세대 모바일뱅킹을 만든 디지털금융 PM. 지금은 AI 에이전트와 함께 직접 만듭니다.`,

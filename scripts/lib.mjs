@@ -94,7 +94,7 @@ export function layout(p) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <title>${p.title}</title>
-<meta name="description" content="${p.description}">
+<meta name="description" content="${p.description}">${p.noindex ? '\n<meta name="robots" content="noindex">' : ''}
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="KKYU">
@@ -107,8 +107,8 @@ export function layout(p) {
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/site.css">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="/assets/site.bundle.css">
+<script>document.documentElement.classList.add('js')</script>${p.jsonld ? `\n<script type="application/ld+json">${JSON.stringify(p.jsonld)}</script>` : ''}
 <script src="/assets/site.js" defer></script>
 </head>
 <body>

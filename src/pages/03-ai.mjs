@@ -43,7 +43,7 @@ const by = layer => agents.filter(a => a.layer === layer);
 const list = {
   path: 'ai.html', nav: 'ai',
   title: 'AI Lab · 김현규',
-  description: `AI로 직접 만든 프로젝트 3개와, 역할을 나눠 일하는 업무용 AI 에이전트 ${F.agents.count}의 구성.`,
+  description: `세컨브레인, 넬그레이브, 어드민 화면 제너레이터까지 AI로 직접 만든 프로젝트 3개와, 역할을 나눠 일하는 업무용 AI 에이전트 ${F.agents.count}의 구성.`,
   body: `
 <section class="hero">
   <div class="container">
