@@ -1,0 +1,10 @@
+{
+  "cleanUrls": false,
+  "redirects": [
+    { "source": "/portfolio.html", "destination": "/work.html", "permanent": true },
+    { "source": "/agent-ai.html", "destination": "/ai.html", "permanent": true }
+  ],
+  "headers": [
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] }
+  ]
+}

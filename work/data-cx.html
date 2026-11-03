@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>데이터 기반 고객경험 개선 · 김현규</title>
+<meta name="description" content="사내 첫 클라우드 분석 환경 도입과 행동 데이터 432개 이벤트 설계. Retention 20% → 35%.">
+<link rel="canonical" href="https://kkyu-portfolio.vercel.app/work/data-cx.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KKYU">
+<meta property="og:title" content="데이터 기반 고객경험 개선 · 김현규">
+<meta property="og:description" content="사내 첫 클라우드 분석 환경 도입과 행동 데이터 432개 이벤트 설계. Retention 20% → 35%.">
+<meta property="og:url" content="https://kkyu-portfolio.vercel.app/work/data-cx.html">
+<meta property="og:image" content="https://kkyu-portfolio.vercel.app/assets/og.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="/assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="/" aria-label="KKYU 홈">KKYU</a>
+    <nav class="site-nav" aria-label="주 메뉴">
+      <a href="/work.html" aria-current="page">Work</a>
+      <a href="/ai.html">AI Lab</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <a class="btn btn--sm header-cta" href="#contact">연락하기</a>
+  </div>
+</header>
+<main id="main">
+<div class="container">
+  <section class="case-hero">
+    <a class="text-link back" href="/work.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Work</a>
+    <span class="eyebrow">페퍼저축은행 · 2021.03 – 2024.12</span>
+    <h1 class="display2">"안 된다"던 클라우드 분석을<br>사내 첫 사례로</h1>
+    <p class="lead">모바일뱅킹 출시 후, 의사결정에 필요한 데이터를 현업이 직접 볼 수 없다는 것이 가장 큰 병목이었습니다. CXM팀을 만들고 사내 첫 클라우드 분석 환경을 도입해 현업이 대시보드를 직접 만드는 단계까지 정착시켰습니다.</p>
+  </section>
+  <dl class="summary">
+    <div><dt>역할</dt><dd>CXM팀 신설 · 데이터 플랫폼 리더</dd></div>
+    <div><dt>기간</dt><dd>2021.03 – 2024.12</dd></div>
+    <div><dt>도구</dt><dd>AppsFlyer · Amplitude · Tableau</dd></div>
+    <div><dt>결과</dt><dd>Retention 20% → 35%</dd></div>
+  </dl>
+  <section class="case-section reveal">
+    <h2>문제</h2>
+    <div class="case-body"><p>마케팅, 상품기획, 개발이 각자의 엑셀과 서버 로그로 따로 보고했고, 데이터 추출 요청은 개발팀에 쌓였습니다. 개발팀장, 상품기획 담당과 함께 문제를 "의사결정에 필요한 데이터를 현업이 직접 볼 수 없다"로 정의했습니다.</p><p>클라우드 분석 솔루션은 IT보안·준법·리스크 부서에서 "망분리 위반"으로 보던 사안이었습니다.</p></div>
+  </section>
+  <section class="case-section reveal">
+    <h2>판단과 접근</h2>
+    <div class="case-body"><h3>설계 단계에서 규제 리스크를 없애기</h3><ul><li>이벤트를 추가할 때마다 개발이 필요한 온프레미스 BI 대신 클라우드 SaaS를 택했습니다.</li><li>규제 리스크를 심의에서 다투지 않고, <strong>개인정보를 수집하지 않는 이벤트 체계</strong>로 설계해 처음부터 없앴습니다.</li><li>전자금융감독규정과 클라우드 가이드를 조항 단위로 대조해 위원회 심의 체크리스트를 항목별로 충족했고, 보안성 심의를 통과했습니다.</li></ul><figure class="figure"><div class="frame"><ol class="flow"><li><b>AppsFlyer</b><span>광고 어트리뷰션</span></li><li><b>Amplitude</b><span>앱 행동 분석</span></li><li><b>Tableau</b><span>전사 BI · 대시보드</span></li></ol></div><figcaption>리스크가 낮은 도구부터 단계적으로 도입했습니다</figcaption></figure><h3>공통 행동 데이터 체계</h3><ul><li>이벤트 <strong>432개</strong>, 속성 <strong>241개</strong>를 직접 정의하고 비식별 기준을 문서로 만들었습니다.</li><li>마케팅·상품·CS·개발 부서를 교육해 현업이 대시보드를 직접 만드는 단계까지 정착시켰고, 사내 스터디 '아이스'(12명)를 운영했습니다.</li><li>이후 태블로 도입 프로젝트를 주도해 부문 대시보드 4종과 수신 시뮬레이터를 현업이 쓰는 상태로 만들었습니다.</li></ul></div>
+  </section>
+  <section class="case-section reveal">
+    <h2>결과</h2>
+    <div class="case-body"><div class="results"><div class="result"><div class="v">20% → 35%</div><div class="k">제품 전체 Retention</div></div><div class="result"><div class="v">30% → 60%</div><div class="k">메인화면 개인화 후 활성 사용률</div></div><div class="result"><div class="v">20% → 30%</div><div class="k">계좌개설 완료율</div></div></div><p>도입 과정에서 정리한 검토 항목·절차·책임 구분은 정보보호팀이 제정한 <strong>사내 클라우드 규정의 기준 사례</strong>가 됐습니다. 이 사례는 AB180 고객 사례와 ZDNet Korea 인터뷰로 외부에 소개됐습니다.</p></div>
+  </section>
+  <section class="case-section reveal">
+    <h2>배운 점</h2>
+    <div class="case-body"><p>규제는 나중에 붙이는 조건이 아니라 설계 단계의 제약 조건으로 다룰 때 통과가 쉬웠습니다. "무엇을 수집하지 않는가"를 먼저 정하니 보안·준법 부서와 같은 편에서 이야기할 수 있었습니다.</p></div>
+  </section>
+  <nav class="next-case" aria-label="다른 케이스">
+    <a href="/work/system-integration.html"><span class="k">이전</span><span class="t">통합시스템 구축 총괄 PM</span></a>
+    <a href="/work/regulation.html"><span class="k">다음</span><span class="t">규제를 설계로 풀기</span></a>
+  </nav>
+</div>
+</main>
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-cta">
+      <div>
+        <span class="eyebrow">CONTACT</span>
+        <h2 class="display2">협업 제안과 커피챗을<br>기다립니다</h2>
+      </div>
+      <div class="stack">
+        <p>이메일이나 링크드인으로 연락 주세요. 채용, 협업, 강연 모두 환영합니다.</p>
+        <div class="email-copy">
+          <code>hukami6472@gmail.com</code>
+          <button class="btn btn--sm btn--inverse" type="button" data-copy="hukami6472@gmail.com" aria-describedby="copy-status">주소 복사</button>
+          <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--inverse" href="mailto:hukami6472@gmail.com">메일 보내기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--secondary" href="https://www.linkedin.com/in/kkyu64" target="_blank" rel="noopener noreferrer">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <a class="wordmark" href="/">KKYU</a>
+      <div class="footer-col">
+        <span>페이지</span>
+        <a href="/work.html">Work</a>
+        <a href="/ai.html">AI Lab</a>
+        <a href="/about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <span>링크</span>
+        <a href="https://www.linkedin.com/in/kkyu64" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/kyuGitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://diary-puce-nine.vercel.app/" target="_blank" rel="noopener noreferrer">에이전트 일기</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 김현규</span>
+      <span>디지털금융 PM · 서울</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

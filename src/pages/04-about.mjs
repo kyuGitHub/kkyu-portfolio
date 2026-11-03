@@ -1,0 +1,99 @@
+import { F, LINKS, ext } from '../../scripts/lib.mjs';
+
+export default {
+  path: 'about.html', nav: 'about',
+  title: 'About · 김현규',
+  description: `디자인 전공으로 시작해 마케팅, 비즈니스, 제품, 조직까지 직접 해 본 ${F.career.years} 차 디지털금융 PM 김현규.`,
+  body: `
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">ABOUT</span>
+    <h1 class="display2">김현규<br>고객채널을 디렉팅하는 사람</h1>
+    <p class="lead">${F.career.years}간 디자인, 마케팅, 비즈니스, 제품, 조직의 다섯 관점을 모두 직접 해 봤습니다. 그래서 각 분야가 어디서 막히는지 알고 방향을 잡을 수 있습니다.</p>
+    <div class="hero-meta">
+      <span><b>현재</b>${F.role}</span>
+      <span><b>경력</b>${F.career.years} (${F.career.since} – )</span>
+      <span><b>연락</b>hukami6472@gmail.com</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight" aria-labelledby="views-title">
+  <div class="container">
+    <div class="sh-split">
+      <div><span class="eyebrow">PERSPECTIVES</span><h2 class="title1" id="views-title">직접 해 본<br>다섯 가지 관점</h2></div>
+      <div><p>새 기술을 기술 자체가 아니라 회사와 고객의 문제를 푸는 도구로 쓰고, 조직이 받아들이는 구조로 안착시켜 숫자로 증명해 왔습니다.</p></div>
+    </div>
+    <dl class="rows">
+      <div class="row reveal"><dt>디자인</dt><dd><p>여러 툴과 직접 코딩으로 페이지를 구현해 봤습니다. 디자인 전공, 전국기능경기대회 디자인 부문 수상.</p></dd></div>
+      <div class="row reveal"><dt>마케팅</dt><dd><p>매체를 직접 다루며 비용과 성과를 데이터로 증명해 봤습니다. 인하우스 광고팀으로 월 광고비 5억 집행.</p></dd></div>
+      <div class="row reveal"><dt>비즈니스</dt><dd><p>여러 회사와 사람을 만나 성과를 함께 만들며 서로의 문제를 풀어 봤습니다. 제휴 발굴부터 계약, 운영, 정산까지.</p></dd></div>
+      <div class="row reveal"><dt>제품</dt><dd><p>디자인, 마케팅, 비즈니스를 이해한 위에서 서비스를 개발해 봤습니다. 요구사항, 프로세스, 화면설계를 지금도 직접 씁니다.</p></dd></div>
+      <div class="row reveal"><dt>조직</dt><dd><p>병목을 찾아 해결하고 다음 단계로 나아가는 조직을 만들어 봤습니다. 광고 운영팀, CXM팀 신설, 프로젝트 조직 2명 → 30명+.</p></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="core-title">
+  <div class="container">
+    <div class="sh-split">
+      <div><span class="eyebrow">STRENGTHS</span><h2 class="title1" id="core-title">제가 기여하는 방식</h2></div>
+      <div><p>고객과 사업 감각, 규제 환경에서의 도입과 안착, 조직 구축이 한 사람 안에 있다는 것이 제 강점입니다.</p></div>
+    </div>
+    <div class="grid-3">
+      <article class="card card--filled reveal"><div class="card-body"><span class="card-eyebrow">기초</span><h3 class="card-title">고객 관점에서 만들고,<br>직접 팔아 본 사람</h3><p class="card-desc">제품을 기획하는 일과 시장에서 파는 일을 모두 했습니다. Figma, Amplitude, Tableau, WBS, Claude까지 필요한 도구를 남에게 맡기지 않고 직접 다룹니다.</p></div></article>
+      <article class="card card--filled reveal"><div class="card-body"><span class="card-eyebrow">핵심</span><h3 class="card-title">도입한 것이 현업에서<br>쓰일 때까지 책임집니다</h3><p class="card-desc">규제가 많은 금융에서 "안 된다"로 끝나던 일을 설계와 설득으로 통과시켰습니다. 사내 첫 클라우드 분석 도입은 사내 클라우드 규정의 기준 사례가 됐습니다.</p></div></article>
+      <article class="card card--filled reveal"><div class="card-body"><span class="card-eyebrow">리더십</span><h3 class="card-title">신사업을 만들고,<br>팀을 세워 안착시킵니다</h3><p class="card-desc">창업을 접어 본 경험 때문에 회사 일을 제 사업처럼 봅니다. 예산은 제 돈처럼 따지고, 신사업은 접어야 할 순간의 무게까지 함께 계산합니다.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="career-title">
+  <div class="container">
+    <div class="sh-split">
+      <div><span class="eyebrow">CAREER</span><h2 class="title1" id="career-title">경력</h2></div>
+      <div><p>금융과 핀테크의 고객 접점 전반을 경험했습니다. 연차로는 총괄급이지만, 실무를 놓지 않고 현장에서 직접 문제를 정의하고 운영합니다.</p></div>
+    </div>
+    <dl class="rows">
+      <div class="row reveal"><dt class="num">2018.08 – 현재</dt><dd class="row-body"><h3>페퍼저축은행 · 디지털뱅킹 매니저(팀장)</h3><p>호주계 Pepper Group 산하, 자산 3.6조, 직원 500명</p><ul class="body2 muted"><li>2018 광고 운영팀 신설 → 대출비교 신사업 승격</li><li>2019 – 2021 차세대 모바일뱅킹 서비스기획 PM (예산 ${F.banking.budget})</li><li>2021 – 2024 CXM팀 신설, 데이터 플랫폼 리더</li><li>2025 – 현재 대출비교·디지털기획 총괄, 사내 AI 도입 리드</li><li>2026 – 현재 통합시스템 구축 총괄 PM (예산 ${F.integration.budget})</li></ul></dd></div>
+      <div class="row reveal"><dt class="num">2013.07 – 2018.08</dt><dd class="row-body"><h3>NH농협캐피탈 · 다이렉트금융팀 사원 – 파트장</h3><p>NH금융지주 자회사, 자산 11조. 온라인 대출 채널 0→1 구축, 콜센터 업무량 40% 절감, 자동차금융 플랫폼 제휴 10건+</p></dd></div>
+      <div class="row reveal"><dt class="num">2010 – 2013</dt><dd class="row-body"><h3>알프스드림 · 대표 (창업)</h3><p>신용대출 중개와 광고대행 법인, 직원 약 15명. 영업·상담 콜센터를 직접 구성해 운영했습니다.</p></dd></div>
+      <div class="row reveal"><dt class="num">2007.07 – 2010.08</dt><dd class="row-body"><h3>SBI저축은행 · 알프스사업부</h3><p>자산 12조. 홈페이지 4개 → 1개 통합 총괄 PM, TV·검색광고 멀티채널 운영, 블로그 포털 메인 선정 2회</p></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="skills-title">
+  <div class="container">
+    <div class="sh-split">
+      <div><span class="eyebrow">SKILLS</span><h2 class="title1" id="skills-title">다루는 일과 도구</h2></div>
+      <div><p>기획, 데이터, 디자인, AI 도구를 직접 다루며 일합니다.</p></div>
+    </div>
+    <dl class="rows">
+      <div class="row reveal"><dt>제품 · PM</dt><dd><p>고객 관점 서비스 기획, 요구사항 정의, 화면 설계, 기능 명세, WBS, IA·프로세스 설계, 테스트케이스</p></dd></div>
+      <div class="row reveal"><dt>PMO · 프로젝트</dt><dd><p>범위·일정·비용·품질 관리, 사업계획서·제안서, RFP와 공개입찰, 업체 선정, 리스크·자원 배분, 조직 세팅</p></dd></div>
+      <div class="row reveal"><dt>마케팅 · 데이터</dt><dd><p>퍼포먼스 마케팅(Google, Meta, Moloco, 검색광고), Amplitude 이벤트 설계, AppsFlyer, Tableau, Google Analytics, SQL 기초</p></dd></div>
+      <div class="row reveal"><dt>AI · 자동화</dt><dd><p>AI 에이전트 구성과 운영, Claude Code, MCP 연동, OpenClaw, Hermes, 옵시디언, 온프레미스 LLM 검토</p></dd></div>
+      <div class="row reveal"><dt>금융 규제</dt><dd><p>전자금융·개인정보·금소법 대응, 감사와 소송 대응, 준법 협의, 내부통제 설계</p></dd></div>
+      <div class="row reveal"><dt>디자인 · 협업</dt><dd><p>Figma(작업 방식 표준화와 교육), Photoshop, After Effects, Notion, Slack</p></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="more-title">
+  <div class="container">
+    <div class="sh-split">
+      <div><span class="eyebrow">MORE</span><h2 class="title1" id="more-title">학력 · 활동 · 외부 소개</h2></div>
+      <div></div>
+    </div>
+    <dl class="rows">
+      <div class="row reveal"><dt>학력</dt><dd><p>한양사이버대학교 뉴미디어디자인 학사</p></dd></div>
+      <div class="row reveal"><dt>자격 · 수상</dt><dd><p>검색광고마케터 1급 (2017), 전국기능경기대회 디자인 부문 (2003)</p></dd></div>
+      <div class="row reveal"><dt>교육 · 커뮤니티</dt><dd><p>태블로 부트캠프 수료(2025), 바이브랩스·지피터스 AI 커뮤니티, AI 에이전트 워크숍 참여</p></dd></div>
+      <div class="row reveal"><dt>사내 활동</dt><dd><p>사내 스터디 '아이스'(12명) 운영, 부서 방문 AI 기초 교육, 기획자 직무교육 강사</p></dd></div>
+      <div class="row reveal"><dt>외부 소개</dt><dd class="row-body"><p>${ext(LINKS.ab180, 'AB180 고객 사례 · Amplitude로 활성 사용률 30% → 60%')}</p><p>${ext(LINKS.zdnet, 'ZDNet Korea 인터뷰 · 성공적인 마케팅, 고객여정을 명확히')}</p></dd></div>
+    </dl>
+  </div>
+</section>
+`,
+};
