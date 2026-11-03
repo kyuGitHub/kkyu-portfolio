@@ -1,11 +1,11 @@
 import { F, icon, caseCard, LINKS, ext, pressSection } from '../../scripts/lib.mjs';
 
 const featured = [
-  { href: '/work/loan-comparison.html', big: `${F.loan.partners}`, cap: '토스·카카오페이·카카오뱅크·네이버 등 제휴 운영', eyebrow: '페퍼저축은행 · 2018 – 현재', title: '대출비교 신사업과 제휴 10개사', desc: '광고 운영팀을 0에서 세팅하고, 채널 효율을 데이터로 증명해 대출비교를 회사의 신사업으로 키웠습니다.', badges: ['그로스', '제휴', '내부통제'] },
+  { href: '/work/loan-comparison.html', big: `${F.loan.partners}`, cap: '토스·카카오페이·카카오뱅크·네이버 등 제휴 운영', eyebrow: '페퍼저축은행 · 2018 – 현재', title: '대출비교 신사업과 제휴 10개사', desc: '대출비교 서비스를 초기부터 주도해 월 신용대출을 10억에서 150억으로 키우고, 제휴 10개사의 계약부터 정산까지 총괄합니다.', badges: ['그로스', '제휴', '내부통제'] },
   { href: '/work/mobile-banking.html', big: '0→1', cap: '회원가입부터 오픈뱅킹까지 전 범위 설계', dark: true, eyebrow: '페퍼저축은행 · 2019 – 2021', title: '차세대 모바일뱅킹 0→1', desc: `비대면 채널이 없던 저축은행에 회원가입부터 오픈뱅킹까지 전 범위를 설계했습니다. 예산 ${F.banking.budget}, 조직 ${F.banking.team}.`, badges: ['서비스기획 PM', '발주', '조직 구축'] },
   { href: '/work/data-cx.html', image: '/assets/img/work/data-dashboard.webp', imageAlt: 'Amplitude 대시보드, 수치는 가림', eyebrow: '페퍼저축은행 · 2021 – 2026', title: '데이터 파이프라인 구축', desc: `AppsFlyer·Amplitude·Tableau 파이프라인을 직접 도입하고 운영했습니다. 사내 첫 클라우드 분석 도입, Retention ${F.data.retention}.`, badges: ['데이터', 'CX', '보안성 심의'] },
-  { href: '/ai/second-brain.html', image: '/assets/img/work/secondbrain-1.webp', imageAlt: '세컨브레인 지식 그래프 화면', eyebrow: 'AI · 2025 – 현재', title: '세컨브레인', desc: `회의록·요구사항·의사결정을 연결된 지식으로 쌓는 팀 단위 AI 시스템. 회의록 작성 ${F.secondBrain.minutes}.`, badges: ['사내 최초 팀 적용', 'Claude', 'Obsidian'] },
-  { href: '/ai/knellgrave.html', image: '/assets/img/work/knellgrave-1.webp', imageAlt: '넬그레이브 게임 화면', eyebrow: 'AI · 개인 프로젝트', title: '넬그레이브', desc: 'AI 에이전트와 1인 개발한 다크판타지 서바이버 슈팅 게임. 기획과 디렉팅은 사람이, 개발은 에이전트가 맡았습니다.', badges: ['게임', `프로토타입 ${F.knellgrave.version}`] },
+  { href: '/ai/second-brain.html', image: '/assets/img/work/secondbrain-1.webp', imageAlt: '세컨브레인 지식 그래프 화면', eyebrow: 'AI · 2025 – 현재', title: '세컨브레인', desc: `회의록·요구사항·의사결정을 연결된 지식으로 쌓는 팀 단위 AI 시스템. 회의록 작성 ${F.secondBrain.minutes}.`, badges: ['사내 최초 팀 적용', 'Claude', '옵시디언'] },
+  { href: '/ai/knellgrave.html', image: '/assets/img/work/knellgrave-1.webp', imageAlt: '넬그레이브 게임 화면', eyebrow: 'AI · 개인 프로젝트', title: '넬그레이브', desc: 'AI 에이전트와 1인 개발한 다크판타지 서바이버 슈팅 게임. 기획과 디렉팅은 제가, 개발은 에이전트가 맡았습니다.', badges: ['게임', `프로토타입 ${F.knellgrave.version}`] },
   { href: '/ai/admin-generator.html', image: '/assets/img/work/admin-generator.webp', imageAlt: '어드민 화면 제너레이터 화면 목록', eyebrow: 'AI · 사내 도구 · 2026', title: '어드민 화면 제너레이터', desc: '요구사항을 넣으면 디자인 시스템 규격대로 어드민 화면과 화면정의서를 만드는 도구. PPT 화면설계서를 대체하는 것이 목표입니다.', badges: ['사내 도구', '파일럿 준비'] },
 ];
 
@@ -84,11 +84,11 @@ export default {
   <div class="container section">
     <div class="sh-split">
       <div>
-        <span class="eyebrow">AI AGENTS</span>
+        <span class="eyebrow">AGENTS</span>
         <h2 class="title1" id="agents-title">에이전트 ${F.agents.count}와<br>역할을 나눠 일합니다</h2>
       </div>
       <div>
-        <p>매니저가 요청을 나누고, 리서처·빌더·디자이너가 맡은 일을 하고, 아카이비스트가 결정과 산출물을 기록합니다. 방향과 최종 검수는 사람이 합니다.</p>
+        <p>매니저가 요청을 나누고, 리서처·빌더·디자이너가 맡은 일을 하고, 아카이비스트가 결정과 산출물을 기록합니다. 방향과 최종 검수는 제가 합니다.</p>
         <a class="btn btn--secondary" href="/ai.html#agents">구성도 보기 ${icon.arrow}</a>
       </div>
     </div>

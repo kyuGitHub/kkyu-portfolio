@@ -22,11 +22,11 @@ export default {
   <div class="container">
     <div class="sh-split">
       <div><span class="eyebrow">PERSPECTIVES</span><h2 class="title1" id="views-title">직접 해 본<br>다섯 가지 관점</h2></div>
-      <div><p>새 기술을 기술 자체가 아니라 회사와 고객의 문제를 푸는 도구로 쓰고, 조직이 받아들이는 구조로 안착시켜 숫자로 증명해 왔습니다.</p></div>
+      <div><p>새 기술을 현업에 안착시키고, 효과를 숫자로 확인해 왔습니다.</p></div>
     </div>
     <dl class="rows">
       <div class="row reveal"><dt>디자인</dt><dd><p>여러 툴과 직접 코딩으로 페이지를 구현해 봤습니다. 디자인 전공, 전국기능경기대회 디자인 부문 수상.</p></dd></div>
-      <div class="row reveal"><dt>마케팅</dt><dd><p>매체를 직접 다루며 비용과 성과를 데이터로 증명해 봤습니다. 인하우스 광고팀으로 월 광고비 5억 집행.</p></dd></div>
+      <div class="row reveal"><dt>마케팅</dt><dd><p>매체를 직접 다루며 비용과 성과를 데이터로 증명해 봤습니다. 인하우스 광고팀을 만들어 월 최대 5억 원의 광고비를 직접 집행.</p></dd></div>
       <div class="row reveal"><dt>비즈니스</dt><dd><p>여러 회사와 사람을 만나 성과를 함께 만들며 서로의 문제를 풀어 봤습니다. 제휴 발굴부터 계약, 운영, 정산까지.</p></dd></div>
       <div class="row reveal"><dt>제품</dt><dd><p>디자인, 마케팅, 비즈니스를 이해한 위에서 서비스를 개발해 봤습니다. 요구사항, 프로세스, 화면설계를 지금도 직접 씁니다.</p></dd></div>
       <div class="row reveal"><dt>조직</dt><dd><p>병목을 찾아 해결하고 다음 단계로 나아가는 조직을 만들어 봤습니다. 광고 운영팀, CXM팀 신설, 프로젝트 조직 2명 → 30명+.</p></dd></div>

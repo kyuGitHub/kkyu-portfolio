@@ -10,11 +10,11 @@ const T = {
 const cards = [
   { ...T.sb, image: '/assets/img/work/secondbrain-1.webp', imageAlt: '세컨브레인 지식 그래프 화면 (샘플 데이터)', eyebrow: '2025.02 – 현재 · 운영 중', title: '세컨브레인', desc: `Plaud 녹음 → Claude 변환 → 옵시디언 위키로 이어지는 팀 지식 시스템. 30억 통합 프로젝트 팀에 사내 최초로 적용해 요구사항 ${F.secondBrain.requirements}, 의사결정 ${F.secondBrain.decisions}을 쌓았습니다.`, badges: ['사내 최초 팀 적용', '운영 중'] },
   { ...T.kg, image: '/assets/img/work/knellgrave-1.webp', imageAlt: '넬그레이브 게임 화면', eyebrow: `개인 프로젝트 · 프로토타입 ${F.knellgrave.version}`, title: '넬그레이브', desc: '세로형 다크판타지 서바이버 슈팅 게임. 기획·플레이 피드백·아트 디렉팅은 사람이, 코드·테스트·픽셀 아트 생성은 AI가 맡아 1인 개발했습니다.', badges: ['게임', '프로토타입'] },
-  { ...T.ad, image: '/assets/img/work/admin-generator.webp', imageAlt: '어드민 화면 제너레이터의 화면 목록',  eyebrow: '2026.10 · 약 4주 · 파일럿 준비', title: '어드민 화면 제너레이터', desc: '요구사항을 넣으면 디자인 시스템 규격대로 어드민 화면과 화면정의서를 만들어 주는 도구. PPT 화면설계서를 대체하는 것이 목표입니다.', badges: ['사내 도구', '파일럿 준비'] },
+  { ...T.ad, image: '/assets/img/work/admin-generator.webp', imageAlt: '어드민 화면 제너레이터의 화면 목록',  eyebrow: '2026.10 · 약 4주 · 파일럿 준비', title: '어드민 화면 제너레이터', desc: '요구사항을 넣으면 디자인 시스템 규격대로 어드민 화면과 화면정의서를 만드는 도구. PPT 화면설계서를 대체하는 것이 목표입니다.', badges: ['사내 도구', '파일럿 준비'] },
 ];
 
 const agents = [
-  { id: 'kkyu', name: '뀨님', role: '사람 · 방향과 결정', img: null, layer: 'person',
+  { id: 'kkyu', name: '김현규', role: '본인 · 방향과 결정', img: null, layer: 'person',
     lead: '큰 그림을 정하고 최종 결정을 내립니다. 에이전트는 초안과 근거를 만들고, 결정은 언제나 사람이 합니다.',
     rows: [['맡는 일', '방향 설정, 우선순위, 최종 검수와 결재'], ['원칙', '실수하면 안 되는 일일수록 원문과 대조해 직접 검증합니다']] },
   { id: 'bobbi', name: '뽀삐', role: '매니저', img: 'bobbi', layer: 'manager',
@@ -35,7 +35,7 @@ const agents = [
 ];
 
 const node = a => `<button type="button" class="agent-node" data-agent="${a.id}" aria-pressed="false" aria-controls="agent-${a.id}">
-            ${a.img ? `<img src="/assets/img/agents/${a.img}.webp" alt="" width="44" height="44">` : '<span class="an-avatar" aria-hidden="true">뀨</span>'}
+            ${a.img ? `<img src="/assets/img/agents/${a.img}.webp" alt="" width="44" height="44">` : '<span class="an-avatar" aria-hidden="true">김</span>'}
             <span class="an-text"><span class="an-name">${a.name}</span><span class="an-role">${a.role}</span></span>
           </button>`;
 const by = layer => agents.filter(a => a.layer === layer);
@@ -49,7 +49,7 @@ const list = {
   <div class="container">
     <span class="eyebrow">AI LAB</span>
     <h1 class="display2">AI로 직접 만들고,<br>조직에 안착시킵니다</h1>
-    <p class="lead">새 기술을 기술 자체가 아니라 회사와 고객의 문제를 푸는 도구로 씁니다. 커뮤니티에서 트렌드를 모으고, 직접 써 보며 우리 조건에서 되는 것을 가려내고, 팀에 적용해 숫자로 확인합니다.</p>
+    <p class="lead">새 기술은 회사와 고객의 문제를 푸는 데 씁니다. 커뮤니티에서 트렌드를 모으고, 직접 써 보며 우리 조건에서 되는 것을 가려내고, 팀에 적용해 숫자로 확인합니다.</p>
     <ol class="flow flow--plain hero-flow">
       <li><b>수집</b><span>AI 커뮤니티·워크숍에서 트렌드를 상시 수집</span></li>
       <li><b>판별</b><span>에이전트 도구와 MCP를 직접 써 보고 되는 것만 고름</span></li>
@@ -91,7 +91,7 @@ const list = {
       </div>
       <div class="agent-archive">
         <div><span class="agent-layer-label">기록 · Hermes</span>${by('archive').map(node).join('')}</div>
-        <p>매니저와 실무 에이전트가 만든 산출물과 결정이 옵시디언 지식 저장소에 쌓이고, 다음 작업을 시작할 때 맥락으로 다시 쓰입니다. 작업을 실행하는 층(OpenClaw)과 지식을 쌓는 층(Hermes)을 나눠 운영합니다.</p>
+        <p>매니저와 실무 에이전트가 만든 산출물과 결정이 옵시디언 지식 저장소에 쌓이고, 다음 작업을 시작할 때 맥락으로 다시 쓰입니다. 작업을 실행하는 층(OpenClaw, 에이전트 실행 도구)과 지식을 쌓는 층(Hermes, 기록·검색 도구)을 나눠 운영합니다.</p>
       </div>
     </div>
     <div class="agent-detail">
@@ -129,13 +129,13 @@ const sb = {
     back, eyebrow: 'AI · 2025.02 – 현재 · 운영 중',
     title: '휘발되던 회의와 결정을<br>추적 가능한 자산으로',
     lead: `회의록, 요구사항, 의사결정이 사람의 기억과 메신저에 흩어져 사라지던 문제를 풀기 위해 만든 시스템입니다. 30억 규모 통합시스템 프로젝트 팀에 사내 최초로 팀 단위로 적용했습니다.`,
-    summary: [['역할', '설계 · 구축 · 팀 전파'], ['기간', '2025.02 – 현재'], ['적용', '통합시스템 프로젝트 팀 5명'], ['결과', `회의록 ${F.secondBrain.minutes}`]],
+    summary: [['역할', '설계 · 구축 · 팀 전파'], ['기간', '2025.02 – 현재'], ['팀 적용', '2026.07 – · 통합시스템 팀 5명'], ['결과', `회의록 ${F.secondBrain.minutes}`]],
     sections: [
       { h: '문제', body: '<p>큰 프로젝트일수록 "이 요구사항은 어느 회의에서 나왔지?", "이 결정은 누가 왜 했지?"를 찾는 데 시간이 많이 듭니다. 회의록은 작성에 1시간씩 걸렸고, 써 둔 기록도 서로 연결되지 않아 다시 찾기 어려웠습니다.</p>' },
-      { h: '구조', body: `<figure class="figure"><div class="frame"><ol class="flow"><li><b>수집</b><span>Plaud 회의 녹음, 문서, 외부 데이터</span></li><li><b>변환</b><span>Claude Code가 회의록·요구사항 초안 작성</span></li><li><b>전처리</b><span>옵시디언 규칙 검사(린팅)</span></li><li><b>분류</b><span>태그와 백링크로 연결</span></li><li><b>위키</b><span>회의 → 요구사항 → 결정 추적</span></li></ol></div><figcaption>데이터 수집부터 위키 구축까지 5단계</figcaption></figure><ul><li>회의록 작성 규칙을 표준화해 팀에 전파했습니다. 팀원은 문서화 대신 회의에 집중합니다.</li><li>요구사항, 프로세스 정의, 화면 프로토타입 템플릿을 표준화하고 AI가 초안을 채우게 했습니다.</li><li>운영 원칙은 외부망 전용, 개인정보 미취급, 비식별 자료만 사용입니다.</li></ul><h3>그래프 뷰어를 웹으로</h3><p>쌓인 노트를 한눈에 보도록 노트 간 관계를 2D·3D 지식 그래프와 요구사항 표로 보여 주는 웹 뷰어를 Claude Code와 함께 이틀 만에 만들었습니다(21커밋). 노트의 근거 회의가 빠진 요구사항, 바뀐 요구사항이 바로 보입니다.</p><ul><li>보기 6가지: 표, 3D 브레인, 자유, 별자리, 계층, 타임라인</li><li>데이터는 GitHub에 올리지 않고 비공개 저장소(Supabase)에 두며, 열람 명단에 있는 사람만 로그인해 봅니다.</li><li>회사 PC와 집 Mac에서 60분마다 바뀐 노트만 자동으로 올리고, 마지막 업로드 시각을 화면에 표시합니다.</li></ul>` },
+      { h: '구조', body: `<figure class="figure"><div class="frame"><ol class="flow"><li><b>수집</b><span>Plaud(AI 녹음기) 회의 녹음, 문서, 외부 데이터</span></li><li><b>변환</b><span>Claude Code가 회의록·요구사항 초안 작성</span></li><li><b>전처리</b><span>옵시디언 규칙 검사(린팅)</span></li><li><b>분류</b><span>태그와 백링크로 연결</span></li><li><b>위키</b><span>회의 → 요구사항 → 결정 추적</span></li></ol></div><figcaption>데이터 수집부터 위키 구축까지 5단계</figcaption></figure><ul><li>회의록 작성 규칙을 표준화해 팀에 전파했습니다. 팀원은 문서화 대신 회의에 집중합니다.</li><li>요구사항, 프로세스 정의, 화면 프로토타입 템플릿을 표준화하고 AI가 초안을 채우게 했습니다.</li><li>운영 원칙은 외부망 전용, 개인정보 미취급, 비식별 자료만 사용입니다.</li></ul><h3>그래프 뷰어를 웹으로</h3><p>쌓인 노트를 한눈에 보도록 노트 간 관계를 2D·3D 지식 그래프와 요구사항 표로 보여 주는 웹 뷰어를 Claude Code와 함께 이틀 만에 만들었습니다(커밋 21회). 근거 회의가 없는 요구사항과 바뀐 요구사항이 바로 보입니다.</p><ul><li>보기 6가지: 표, 3D 브레인, 자유, 별자리, 계층, 타임라인</li><li>데이터는 GitHub에 올리지 않고 비공개 저장소(Supabase)에 두며, 열람 명단에 있는 사람만 로그인해 봅니다.</li><li>회사 PC와 집 Mac에서 60분마다 바뀐 노트만 자동으로 올리고, 마지막 업로드 시각을 화면에 표시합니다.</li></ul>` },
       { h: '화면', body: '<div class="shots shots--2"><img src="/assets/img/work/secondbrain-1.webp" alt="3D 지식 그래프 보기" loading="lazy" width="1600" height="1000"><img src="/assets/img/work/secondbrain-2.webp" alt="별자리 보기: 핵심 주장 노트를 원 위에 고정한 그래프" loading="lazy" width="1600" height="1000"></div><p class="caption">샘플 데이터로 만든 화면입니다. 실제 프로젝트 데이터는 공개하지 않습니다.</p>' },
-      { h: '결과', body: results([[F.secondBrain.minutes, '회의록 작성 시간'], [F.secondBrain.weekly, '주간보고 작성 시간 (도입 초기)'], [F.secondBrain.requirements, '요구사항 축적'], [F.secondBrain.decisions, '의사결정 축적']]) + '<p>파편화되고 휘발되던 업무 지식이 자산으로 운영되는 사내 첫 사례입니다.</p>' },
-      { h: '배운 점', body: '<p>AI를 팀에 들이는 데 가장 중요했던 것은 모델이 아니라 규칙이었습니다. 작성 규칙과 템플릿을 먼저 정하니 사람마다 다른 기록이 같은 모양으로 쌓였고, 그래야 연결이 생겼습니다.</p>' },
+      { h: '결과', body: results([[F.secondBrain.minutes, '회의록 작성 시간'], [F.secondBrain.weekly, '주간보고 작성 시간 (도입 초기)'], [F.secondBrain.requirements, '요구사항 축적'], [F.secondBrain.decisions, '의사결정 축적']]) + '<p>흩어지던 업무 지식을 팀 자산으로 운영한 사내 첫 사례입니다.</p>' },
+      { h: '배운 점', body: '<p>AI를 팀에 들이는 데 가장 중요했던 것은 규칙이었습니다. 작성 규칙과 템플릿을 먼저 정하니 사람마다 다른 기록이 같은 모양으로 쌓였고, 그래야 연결이 생겼습니다.</p>' },
     ],
     next: T.kg,
   }),
@@ -147,13 +147,13 @@ const kg = {
   description: 'AI 에이전트와 1인 개발한 세로형 다크판타지 서바이버 슈팅 게임. 기획과 품질 기준은 사람이, 개발은 AI가.',
   body: casePage({
     back, eyebrow: `개인 프로젝트 · 프로토타입 ${F.knellgrave.version}`,
-    title: '비개발자 PM이 AI 에이전트와<br>게임 하나를 끝까지 만들기',
+    title: '비개발자 PM이 AI 에이전트와<br>게임 프로토타입 만들기',
     lead: '『넬그레이브: 마지막 종지기』는 한 손으로 15분 한 판을 즐기는 세로형 다크판타지 서바이버 슈팅 게임입니다. PM이 AI 에이전트만으로 실제 제품을 어디까지 만들 수 있는지 확인하려고 시작했습니다.',
     summary: [['역할', '기획 · 플레이 피드백 · 아트 디렉팅'], ['AI가 맡은 일', '코드 · 테스트 · 픽셀 아트'], ['상태', `프로토타입 ${F.knellgrave.version}`], ['버전', `${F.knellgrave.versions} 반복`]],
     sections: [
       { h: '화면', body: '<div class="shots"><img src="/assets/img/work/knellgrave-1.webp" alt="넬그레이브 타이틀 화면" loading="lazy" width="780" height="1688"><img src="/assets/img/work/knellgrave-2.webp" alt="캐릭터 선택 화면: 마지막 종지기, 도자기 마녀 노아, 그림자 기사 오르윈" loading="lazy" width="780" height="1688"><img src="/assets/img/work/knellgrave-3.webp" alt="전투 화면: 적에게 둘러싸인 플레이어와 HUD" loading="lazy" width="780" height="1688"><img src="/assets/img/work/knellgrave-4.webp" alt="보스전 화면: 거종 장군 바르함" loading="lazy" width="780" height="1688"></div>' },
       { h: '만든 것', body: '<ul><li>조작은 이동만 하고 공격은 자동, 레벨업 때 카드 3장 중 1장을 고르는 로그라이트 구조</li><li>고유 공격과 엔딩을 가진 캐릭터 3종, 페이즈가 3단계인 보스 5종, 스테이지 4개와 적 16종 이상</li><li>무기·패시브 진화 9종과 궁극기, 피난처 영구 강화, 유물 8종, 동료, 도감, 회차 모드</li><li>세계 지도와 마을 4곳, 생존자의 선택지·퍼즐·부탁, 주인공의 정체가 드러나는 반전 엔딩</li><li>튜토리얼, 쉬운 난이도 모드, 저장 데이터 손상 복구</li><li>기획서에는 KPI 가설, 수익 모델, 리스크 표, IP·상표 점검, 출시 체크리스트까지 담았습니다.</li></ul>' },
-      { h: '사람과 AI의 역할 분담', body: `<dl class="rows"><div class="row"><dt>사람</dt><dd class="row-body"><p>기획, 플레이 피드백, 아트 디렉팅, 일러스트 리터칭. "처음 하는 사람이 한 손으로 폰을 들고 할 때"를 기준으로 모든 결정을 점검했습니다.</p></dd></div><div class="row"><dt>Claude</dt><dd class="row-body"><p>코드 전체(Phaser 3), 테스트, 시나리오 초안. 픽셀 스프라이트와 모션은 Claude가 PixelLab을 MCP로 연결해 직접 생성했습니다.</p></dd></div><div class="row"><dt>리뷰 에이전트</dt><dd class="row-body"><p>UX, UI, 레벨디자인 관점의 에이전트들이 직접 플레이하고 리뷰했습니다(v1.9에서 5명, v2.2에서 3명).</p></dd></div><div class="row"><dt>일러스트</dt><dd class="row-body"><p>Morphic으로 생성하고 사람이 리터칭했습니다.</p></dd></div></dl>` },
+      { h: '사람과 AI의 역할 분담', body: `<dl class="rows"><div class="row"><dt>사람</dt><dd class="row-body"><p>기획, 플레이 피드백, 아트 디렉팅, 일러스트 리터칭. "처음 하는 사람이 한 손으로 폰을 들고 할 때"를 기준으로 모든 결정을 점검했습니다.</p></dd></div><div class="row"><dt>Claude</dt><dd class="row-body"><p>코드 전체(Phaser 3), 테스트, 시나리오 초안. 픽셀 스프라이트와 모션은 Claude가 PixelLab을 MCP(AI와 외부 도구를 잇는 규격)로 연결해 직접 생성했습니다.</p></dd></div><div class="row"><dt>리뷰 에이전트</dt><dd class="row-body"><p>UX, UI, 레벨디자인 관점의 에이전트들이 직접 플레이하고 리뷰했습니다(v1.9에서 5명, v2.2에서 3명).</p></dd></div><div class="row"><dt>일러스트</dt><dd class="row-body"><p>Morphic으로 생성하고 사람이 리터칭했습니다.</p></dd></div></dl>` },
       { h: '품질을 지킨 방법', body: `<p>AI가 빠르게 만드는 만큼 깨지는 것도 빨랐습니다. 그래서 배포 조건을 먼저 정했습니다.</p><ul><li>배포 전마다 회귀 테스트 <strong>${F.knellgrave.regression}</strong>과 봇 자동 플레이 검증을 돌립니다.</li><li>회고에서 작업 규칙 <strong>${F.knellgrave.rules}</strong>를 만들고, 하나라도 빠지면 배포하지 않습니다. 예: 두 가지 폰 크기(390×844, 360×640)에서 캡처해 눈으로 확인, 자주 누르는 버튼은 엄지 영역에 44px 이상, 일괄 치환 금지, 흐름을 바꾸면 테스트도 같은 수정에서 고치기.</li><li>성능: ${F.knellgrave.perf}, 6판 연속 플레이에서 메모리 누수 0.</li><li>페이지 용량이 16.2MB로 한도를 넘자 96색 양자화로 14.9MB까지 줄였습니다.</li></ul>` },
       { h: '배운 점', body: '<ol class="case-list"><li><strong>"완료"의 기준은 실제 폰 화면입니다.</strong> 화면에서 확인하기 전에 완료로 넘긴 일이 반복돼, 두 화면 크기 캡처를 배포 조건으로 삼았습니다.</li><li><strong>한 곳을 고치면 다른 곳이 깨집니다.</strong> 일괄 치환으로 1.5초가 1.5ms로 바뀐 사고 이후, 흐름 변경과 테스트 수정을 한 묶음으로 처리합니다.</li><li><strong>만든 사람과 하는 사람의 기준은 다릅니다.</strong> 플레이어 피드백 5건이 모두 이 차이에서 나왔고, 이후 결정은 처음 하는 사람 기준으로 점검합니다.</li></ol>' },
     ],

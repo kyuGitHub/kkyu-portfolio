@@ -46,7 +46,7 @@
   <dl class="summary">
     <div><dt>역할</dt><dd>설계 · 구축 · 팀 전파</dd></div>
     <div><dt>기간</dt><dd>2025.02 – 현재</dd></div>
-    <div><dt>적용</dt><dd>통합시스템 프로젝트 팀 5명</dd></div>
+    <div><dt>팀 적용</dt><dd>2026.07 – · 통합시스템 팀 5명</dd></div>
     <div><dt>결과</dt><dd>회의록 1시간 → 10분</dd></div>
   </dl>
   <section class="case-section reveal">
@@ -55,7 +55,7 @@
   </section>
   <section class="case-section reveal">
     <h2>구조</h2>
-    <div class="case-body"><figure class="figure"><div class="frame"><ol class="flow"><li><b>수집</b><span>Plaud 회의 녹음, 문서, 외부 데이터</span></li><li><b>변환</b><span>Claude Code가 회의록·요구사항 초안 작성</span></li><li><b>전처리</b><span>옵시디언 규칙 검사(린팅)</span></li><li><b>분류</b><span>태그와 백링크로 연결</span></li><li><b>위키</b><span>회의 → 요구사항 → 결정 추적</span></li></ol></div><figcaption>데이터 수집부터 위키 구축까지 5단계</figcaption></figure><ul><li>회의록 작성 규칙을 표준화해 팀에 전파했습니다. 팀원은 문서화 대신 회의에 집중합니다.</li><li>요구사항, 프로세스 정의, 화면 프로토타입 템플릿을 표준화하고 AI가 초안을 채우게 했습니다.</li><li>운영 원칙은 외부망 전용, 개인정보 미취급, 비식별 자료만 사용입니다.</li></ul><h3>그래프 뷰어를 웹으로</h3><p>쌓인 노트를 한눈에 보도록 노트 간 관계를 2D·3D 지식 그래프와 요구사항 표로 보여 주는 웹 뷰어를 Claude Code와 함께 이틀 만에 만들었습니다(21커밋). 노트의 근거 회의가 빠진 요구사항, 바뀐 요구사항이 바로 보입니다.</p><ul><li>보기 6가지: 표, 3D 브레인, 자유, 별자리, 계층, 타임라인</li><li>데이터는 GitHub에 올리지 않고 비공개 저장소(Supabase)에 두며, 열람 명단에 있는 사람만 로그인해 봅니다.</li><li>회사 PC와 집 Mac에서 60분마다 바뀐 노트만 자동으로 올리고, 마지막 업로드 시각을 화면에 표시합니다.</li></ul></div>
+    <div class="case-body"><figure class="figure"><div class="frame"><ol class="flow"><li><b>수집</b><span>Plaud(AI 녹음기) 회의 녹음, 문서, 외부 데이터</span></li><li><b>변환</b><span>Claude Code가 회의록·요구사항 초안 작성</span></li><li><b>전처리</b><span>옵시디언 규칙 검사(린팅)</span></li><li><b>분류</b><span>태그와 백링크로 연결</span></li><li><b>위키</b><span>회의 → 요구사항 → 결정 추적</span></li></ol></div><figcaption>데이터 수집부터 위키 구축까지 5단계</figcaption></figure><ul><li>회의록 작성 규칙을 표준화해 팀에 전파했습니다. 팀원은 문서화 대신 회의에 집중합니다.</li><li>요구사항, 프로세스 정의, 화면 프로토타입 템플릿을 표준화하고 AI가 초안을 채우게 했습니다.</li><li>운영 원칙은 외부망 전용, 개인정보 미취급, 비식별 자료만 사용입니다.</li></ul><h3>그래프 뷰어를 웹으로</h3><p>쌓인 노트를 한눈에 보도록 노트 간 관계를 2D·3D 지식 그래프와 요구사항 표로 보여 주는 웹 뷰어를 Claude Code와 함께 이틀 만에 만들었습니다(커밋 21회). 근거 회의가 없는 요구사항과 바뀐 요구사항이 바로 보입니다.</p><ul><li>보기 6가지: 표, 3D 브레인, 자유, 별자리, 계층, 타임라인</li><li>데이터는 GitHub에 올리지 않고 비공개 저장소(Supabase)에 두며, 열람 명단에 있는 사람만 로그인해 봅니다.</li><li>회사 PC와 집 Mac에서 60분마다 바뀐 노트만 자동으로 올리고, 마지막 업로드 시각을 화면에 표시합니다.</li></ul></div>
   </section>
   <section class="case-section reveal">
     <h2>화면</h2>
@@ -63,11 +63,11 @@
   </section>
   <section class="case-section reveal">
     <h2>결과</h2>
-    <div class="case-body"><div class="results"><div class="result"><div class="v">1시간 → 10분</div><div class="k">회의록 작성 시간</div></div><div class="result"><div class="v">90분 → 15분</div><div class="k">주간보고 작성 시간 (도입 초기)</div></div><div class="result"><div class="v">약 700건</div><div class="k">요구사항 축적</div></div><div class="result"><div class="v">약 370건</div><div class="k">의사결정 축적</div></div></div><p>파편화되고 휘발되던 업무 지식이 자산으로 운영되는 사내 첫 사례입니다.</p></div>
+    <div class="case-body"><div class="results"><div class="result"><div class="v">1시간 → 10분</div><div class="k">회의록 작성 시간</div></div><div class="result"><div class="v">90분 → 15분</div><div class="k">주간보고 작성 시간 (도입 초기)</div></div><div class="result"><div class="v">약 700건</div><div class="k">요구사항 축적</div></div><div class="result"><div class="v">약 370건</div><div class="k">의사결정 축적</div></div></div><p>흩어지던 업무 지식을 팀 자산으로 운영한 사내 첫 사례입니다.</p></div>
   </section>
   <section class="case-section reveal">
     <h2>배운 점</h2>
-    <div class="case-body"><p>AI를 팀에 들이는 데 가장 중요했던 것은 모델이 아니라 규칙이었습니다. 작성 규칙과 템플릿을 먼저 정하니 사람마다 다른 기록이 같은 모양으로 쌓였고, 그래야 연결이 생겼습니다.</p></div>
+    <div class="case-body"><p>AI를 팀에 들이는 데 가장 중요했던 것은 규칙이었습니다. 작성 규칙과 템플릿을 먼저 정하니 사람마다 다른 기록이 같은 모양으로 쌓였고, 그래야 연결이 생겼습니다.</p></div>
   </section>
   <nav class="next-case" aria-label="다른 케이스">
     
@@ -80,10 +80,10 @@
     <div class="footer-cta">
       <div>
         <span class="eyebrow">CONTACT</span>
-        <h2 class="display2">협업 제안과 커피챗을<br>기다립니다</h2>
+        <h2 class="display2">채용과 협업 제안을<br>기다립니다</h2>
       </div>
       <div class="stack">
-        <p>이메일이나 링크드인으로 연락 주세요. 채용, 협업, 강연 모두 환영합니다.</p>
+        <p>이메일이나 링크드인으로 연락 주세요. 채용, 협업, 강연 제안 모두 환영합니다.</p>
         <div class="email-copy">
           <code>hukami6472@gmail.com</code>
           <button class="btn btn--sm btn--inverse" type="button" data-copy="hukami6472@gmail.com" aria-describedby="copy-status">주소 복사</button>
