@@ -63,13 +63,13 @@ const loan = {
   body: casePage({
     back, eyebrow: '페퍼저축은행 · 2018.08 – 현재',
     title: `월 ${F.loan.start}이던 대출 채널을<br>월 최대 ${F.loan.peak}으로`,
-    lead: '마케팅 조직이 없던 회사에서 광고 운영팀을 만들고, 채널 효율을 데이터로 증명해 대출비교를 회사의 신사업으로 키웠습니다. 지금은 제휴 10개사의 계약부터 정산, 내부통제까지 총괄합니다.',
+    lead: `대출비교 서비스를 초기부터 주도해 월 ${F.loan.start}이던 신용대출을 ${F.loan.early}으로 키웠습니다. 이후 토스·카카오뱅크 등 제휴 ${F.loan.partners}로 넓혀 월 최대 ${F.loan.peak}을 기록했고, 계약부터 정산과 내부통제까지 총괄합니다.`,
     summary: [['역할', '초기 주도 → 제휴·운영 총괄'], ['기간', '2018.08 – 현재'], ['규모', `광고비 ${F.loan.adSpend} · 제휴 ${F.loan.partners}`], ['결과', `월 최대 ${F.loan.peak}`]],
     sections: [
-      { h: '문제', body: `<p>2018년 합류 당시 회사에는 마케팅 조직이 없었고, 온라인 신용대출 실적은 <strong>월 ${F.loan.start}</strong> 수준이었습니다. 고객 유입은 오프라인 대출모집인에 의존했고, 모집 수수료는 ${F.loan.offlineFee}였습니다.</p><p>온라인 채널에 예산을 쓰려면 "광고가 모집인보다 싸다"는 것을 숫자로 증명해야 했습니다.</p>` },
-      { h: '판단과 접근', body: `<h3>1. 광고 운영팀을 0에서 세팅</h3><p>온라인 채널 비용이 <strong>${F.loan.channelCost}</strong>로 모집인 수수료 ${F.loan.offlineFee}보다 낮다는 숫자로 예산을 확보했습니다. 자세한 과정은 <a href="/work/inhouse-marketing.html">인하우스 광고 운영팀 0→1</a>에 있습니다.</p><h3>2. 대출비교 서비스를 신사업으로</h3><ul><li>대출비교 서비스 초기부터 주도해 월 신용대출을 <strong>${F.loan.start}에서 ${F.loan.early}</strong>으로 키웠습니다.</li><li>이후 토스, 카카오페이, 카카오뱅크, 네이버 등 <strong>제휴 ${F.loan.partners}</strong>를 발굴하고 계약을 협상해 운영과 정산까지 전 과정을 맡았습니다.</li><li>상품군을 ${F.loan.products} 3개로 넓혔습니다.</li></ul><figure class="figure"><div class="shots shots--2"><img src="/assets/img/work/loan-toss.webp" alt="토스 내게 맞는 대출찾기에서 페퍼저축은행 대출 신청으로 이어지는 화면" loading="lazy" width="1400" height="860"><img src="/assets/img/work/loan-kakao.webp" alt="카카오뱅크 연계대출에서 페퍼저축은행 대출 신청으로 이어지는 화면" loading="lazy" width="1400" height="885"></div><figcaption>토스와 카카오뱅크에서 페퍼저축은행 대출 신청으로 이어지는 제휴 채널</figcaption></figure><h3>3. 제휴 채널의 내부통제와 운영 자동화</h3><ul><li>제휴사별 상품 조건, 광고 문구, 트래픽을 통제하는 내부통제 체계를 운영합니다.</li><li>제휴사 수수료 정산 기준을 매뉴얼로 만들고 카카오뱅크·토스 수수료 정산을 배치로 자동화해 <strong>정산 2일 → 3시간</strong>으로 줄였습니다.</li><li>제휴 채널 트래픽 타임아웃 장애 때는 긴급회의를 주재해 서버 스레드 확장과 상시 모니터링 체계를 만들었습니다.</li><li>제휴사 '이어하기' 프로세스를 전 채널에 열고, 토스 웹뷰 대출신청 프로젝트 PM을 맡아 Claude로 테스트케이스를 작성했습니다.</li></ul>` },
+      { h: '문제', body: `<p>대출비교 서비스로 월 신용대출을 ${F.loan.early}까지 키운 뒤, 더 큰 성장은 토스·카카오페이 같은 외부 플랫폼과의 제휴에 있었습니다.</p><p>제휴사가 늘수록 상품 조건, 광고 문구, 트래픽, 정산을 회사가 직접 통제하기 어려워졌습니다. 성장과 통제를 함께 가져갈 운영 체계가 필요했습니다.</p>` },
+      { h: '판단과 접근', body: `<h3>1. 광고 운영팀을 0에서 세팅</h3><p>온라인 채널 비용이 <strong>${F.loan.channelCost}</strong>로 모집인 수수료 ${F.loan.offlineFee}보다 낮다는 숫자로 예산을 확보했습니다. 자세한 과정은 <a href="/work/inhouse-marketing.html">인하우스 광고 운영팀 0→1</a>에 있습니다.</p><h3>2. 대출비교 서비스를 신사업으로</h3><ul><li>대출비교 서비스 초기부터 주도해 월 신용대출을 <strong>${F.loan.start}에서 ${F.loan.early}</strong>으로 키웠습니다.</li><li>이후 토스, 카카오페이, 카카오뱅크, 네이버 등 <strong>제휴 ${F.loan.partners}</strong>를 발굴하고 계약을 협상해 운영과 정산까지 전 과정을 맡았습니다.</li><li>상품군을 ${F.loan.products} 3개로 넓혔습니다.</li></ul><figure class="figure"><div class="shots shots--2"><img src="/assets/img/work/loan-toss.webp" alt="토스 내게 맞는 대출찾기에서 페퍼저축은행 대출 신청으로 이어지는 화면" loading="lazy" width="1400" height="860"><img src="/assets/img/work/loan-kakao.webp" alt="카카오뱅크 연계대출에서 페퍼저축은행 대출 신청으로 이어지는 화면" loading="lazy" width="1400" height="885"></div><figcaption>토스와 카카오뱅크에서 페퍼저축은행 대출 신청으로 이어지는 제휴 채널</figcaption></figure><h3>3. 제휴 채널의 내부통제와 운영 자동화</h3><ul><li>제휴사별 상품 조건, 광고 문구, 트래픽을 통제하는 내부통제 체계를 운영합니다.</li><li>제휴사 수수료 정산 기준을 매뉴얼로 만들고 카카오뱅크·토스 수수료 정산을 배치로 자동화해 <strong>정산 2일 → 3시간</strong>으로 줄였습니다.</li><li>제휴 채널 트래픽 타임아웃 장애 때는 긴급회의를 주재해 서버 스레드 확장과 상시 모니터링 체계를 만들었습니다.</li><li>제휴사에서 들어온 고객이 중단한 신청을 이어서 진행하는 이어하기 프로세스의 화면과 동선을 설계해 전 채널에 열었습니다.</li><li>토스 웹뷰 대출신청 프로젝트 PM으로 준법·정보보호 검토, 요구사항, WBS를 맡았고, 테스트케이스는 Claude로 작성했습니다.</li></ul>` },
       { h: '결과', body: `<figure class="figure"><div class="frame"><div class="growth" role="img" aria-label="월 실적: 10억, 150억, 최대 1,200억"><div class="growth-row"><span class="growth-k">시작</span><span class="growth-bar g1"></span><span class="growth-v num">${F.loan.start}</span></div><div class="growth-row"><span class="growth-k">대출비교 초기</span><span class="growth-bar g2"></span><span class="growth-v num">${F.loan.early}</span></div><div class="growth-row"><span class="growth-k">월 최대</span><span class="growth-bar g3"></span><span class="growth-v num">${F.loan.peak}</span></div></div></div><figcaption>월 대출 실적, 같은 축척</figcaption></figure>${results([[F.loan.peak, '월 최대 실적 (10억의 120배)'], [F.loan.partners, '제휴사 계약·운영'], ['2일 → 3시간', '수수료 정산 시간'], ['3개', '상품군 (신용·주택담보·자동차)']])}` },
-      { h: '배운 점', body: '<p>새 채널에 예산을 받는 가장 빠른 방법은 기존 채널과 같은 기준으로 비교한 숫자였습니다. 대행사 없이 직접 운영했기 때문에 그 숫자를 매일 만들 수 있었습니다.</p><p>제휴가 늘수록 성과보다 통제가 어려워졌습니다. 상품 조건, 문구, 트래픽, 정산을 처음부터 체계로 묶어 두는 것이 제휴를 오래 키우는 조건이었습니다.</p>' },
+      { h: '배운 점', body: '<p>제휴가 늘수록 성과보다 통제가 어려워졌습니다. 상품 조건, 문구, 트래픽, 정산을 처음부터 체계로 묶어 두는 것이 제휴를 오래 키우는 조건이었습니다.</p>' },
     ],
     next: T.mkt,
   }),
@@ -86,9 +86,9 @@ const mkt = {
     summary: [['역할', '광고 운영팀 신설 · 리더'], ['기간', '2018.08 – 2019.10'], ['규모', `${F.marketing.team} · ${F.marketing.spend}`], ['결과', '본부 조직 승격']],
     sections: [
       { h: '문제', body: `<p>고객 유입은 오프라인 대출모집인에 의존했고, 모집 수수료는 ${F.loan.offlineFee}였습니다. 온라인 신용대출 실적은 월 ${F.loan.start} 수준이었고, 광고를 집행하고 성과를 측정할 조직이 없었습니다.</p><p>온라인 광고에 예산을 받으려면 먼저 "광고가 모집인보다 효율적"이라는 것을 회사가 믿을 수 있는 숫자로 보여 줘야 했습니다.</p>` },
-      { h: '판단과 접근', body: `<h3>대행사 대신 인하우스</h3><p>광고대행사에 맡기는 대신, 인하우스 조직이 직접 학습하고 성장하는 모델을 택했습니다. <strong>${F.marketing.team}</strong>이 <strong>${F.marketing.spend}</strong>의 광고비를 집행하며 ${F.marketing.media} 매체를 직접 다뤘습니다.</p><h3>가설 → 실험 → 분석 → 고도화</h3><p>매체와 소재, 랜딩을 바꿀 때마다 가설을 세우고 작게 실험해 결과를 분석하고, 효과가 확인된 것만 키우는 그로스 사이클을 팀의 일하는 방식으로 정착시켰습니다.</p><figure class="figure"><div class="frame"><ol class="flow"><li><b>가설</b><span>어느 매체·소재가 신청까지 이어질까</span></li><li><b>실험</b><span>작은 예산으로 빠르게 집행</span></li><li><b>분석</b><span>채널별 비용과 대출 실적 비교</span></li><li><b>고도화</b><span>효과가 확인된 채널에 예산 집중</span></li></ol></div><figcaption>팀이 반복한 그로스 사이클</figcaption></figure><h3>예산을 설득한 숫자</h3><p>채널별 비용을 대출 실적까지 이어서 추적해, 온라인 채널 비용이 <strong>${F.loan.channelCost}</strong>로 오프라인 모집 수수료 ${F.loan.offlineFee}보다 낮다는 것을 증명했습니다. 이 숫자로 본부의 승인을 받았고, 광고 운영팀은 본부 조직으로 승격됐습니다.</p><h3>이전 경험이 바탕이 됐습니다</h3><p>NH농협캐피탈에서 검색·배너 광고와 플랫폼 제휴를 광고주로서 직접 집행하며 채널별 효율을 몸으로 익혔고, 창업 시절 SNS 광고대행을 운영한 경험이 있었습니다. 검색광고마케터 1급 자격도 이때 취득했습니다.</p>` },
+      { h: '판단과 접근', body: `<h3>대행사 대신 인하우스</h3><p>대행사에 맡기면 빨리 시작할 수 있지만, 어떤 매체와 소재가 대출 실적으로 이어지는지는 회사에 남지 않는다고 판단했습니다. 그래서 팀이 직접 학습하는 인하우스 모델을 택했습니다. <strong>${F.marketing.team}</strong>이 <strong>${F.marketing.spend}</strong>의 광고비를 집행하며 ${F.marketing.media} 매체를 직접 다뤘습니다.</p><h3>가설 → 실험 → 분석 → 고도화</h3><p>매체와 소재, 랜딩을 바꿀 때마다 가설을 세우고 작게 실험해 결과를 분석하고, 효과가 확인된 것만 키우는 그로스 사이클을 팀의 일하는 방식으로 정착시켰습니다.</p><figure class="figure"><div class="frame"><ol class="flow"><li><b>가설</b><span>어느 매체·소재가 신청까지 이어질까</span></li><li><b>실험</b><span>작은 예산으로 빠르게 집행</span></li><li><b>분석</b><span>채널별 비용과 대출 실적 비교</span></li><li><b>고도화</b><span>효과가 확인된 채널에 예산 집중</span></li></ol></div><figcaption>팀이 반복한 그로스 사이클</figcaption></figure><h3>예산을 설득한 숫자</h3><p>채널별 비용을 대출 실적까지 이어서 추적해, 온라인 채널 비용이 <strong>${F.loan.channelCost}</strong>로 오프라인 모집 수수료 ${F.loan.offlineFee}보다 낮다는 것을 증명했습니다. 이 숫자로 본부의 승인을 받았고, 광고 운영팀은 본부 조직으로 승격됐습니다.</p><h3>인하우스를 택할 수 있었던 이유</h3><p>NH농협캐피탈에서 검색·배너 광고와 플랫폼 제휴를 광고주로서 직접 집행하며 채널별 효율을 몸으로 익혔고, 창업 시절 SNS 광고대행을 운영한 경험이 있었습니다. 검색광고마케터 1급 자격도 이때 취득했습니다.</p>` },
       { h: '결과', body: results([[F.marketing.spend, '광고비 직접 집행'], [`${F.loan.channelCost} vs ${F.loan.offlineFee}`, '온라인 채널 비용과 오프라인 수수료'], [`${F.loan.start} → ${F.loan.early}`, '대출비교 초기 월 신용대출'], ['본부 승격', '광고 운영팀 조직 위상']]) + '<p>이 팀이 이후 대출비교 신사업과 제휴 채널을 키우는 기반이 됐습니다. 이어지는 이야기는 <a href="/work/loan-comparison.html">대출비교 신사업과 제휴 10개사</a>에 있습니다.</p>' },
-      { h: '배운 점', body: '<p>직접 운영해야 숫자를 매일 만들 수 있었고, 그 숫자가 예산을 설득하는 가장 강한 근거였습니다. 대행사에 맡겼다면 결과는 받았겠지만 왜 그런 결과가 나왔는지는 회사에 남지 않았을 것입니다.</p>' },
+      { h: '배운 점', body: '<p>새 채널에 예산을 받는 가장 빠른 방법은 기존 채널과 같은 기준으로 비교한 숫자였습니다. 광고비를 모집 수수료와 같은 비율(${F.loan.channelCost} 대 ${F.loan.offlineFee})로 놓고 비교했고, 직접 운영했기에 그 숫자를 매일 갱신할 수 있었습니다.</p>' },
     ],
     prev: T.loan, next: T.bank,
   }),
@@ -101,7 +101,7 @@ const bank = {
   body: casePage({
     back, eyebrow: `페퍼저축은행 · ${F.banking.period}`,
     title: '비대면 채널이 없던 저축은행에<br>모바일뱅킹을 만들기',
-    lead: `APP·WEB·ADMIN을 아우르는 차세대 모바일뱅킹의 서비스기획 PM이자 발주자였습니다. 회원가입부터 오픈뱅킹까지 전 범위를 설계했고, 출시 이후 운영까지 책임졌습니다.`,
+    lead: `서비스기획 PM이자 발주자로 APP·WEB·ADMIN 전 범위를 설계하고, 출시 후 운영까지 책임졌습니다. 출시 1년 만에 예금 ${F.banking.deposit}, 대출 ${F.banking.loan}, MAU ${F.banking.mau}을 기록했습니다.`,
     summary: [['역할', '서비스기획 PM · 발주자'], ['기간', F.banking.period], ['규모', `예산 ${F.banking.budget} · ${F.banking.team}`], ['결과', `1년 차 MAU ${F.banking.mau}`]],
     sections: [
       { h: '문제', body: '<p>지점 중심의 저축은행에는 비대면 채널이 없었습니다. 고객은 계좌를 열거나 대출을 받으려면 지점이나 상담원을 거쳐야 했습니다.</p><p>짧은 기간 안에 출시해야 했지만, 이후 상품이 늘어날 때마다 핵심 기능을 다시 만드는 일은 피해야 했습니다.</p>' },
@@ -119,7 +119,7 @@ const integ = {
   description: `부서별 시스템 4개를 하나로 통합하는 프로젝트를 직접 제안하고 발주한 총괄 PM. 예산 ${F.integration.budget}, ${F.integration.people}, ${F.integration.months}.`,
   body: casePage({
     back, eyebrow: '페퍼저축은행 · 2026.06 – 진행 중',
-    title: '부서마다 따로 쓰던 시스템을<br>하나로 묶는 제안',
+    title: '부서마다 따로 쓰던 시스템 4개를<br>하나로 묶자고 제안하기',
     lead: `고객, 상품, 정산 업무가 부서별 시스템에서 중복 운영되는 기술 부채를 문제로 정의하고, 통합을 직접 제안해 예산을 확보했습니다. 지금은 ${F.integration.people} 규모 프로젝트의 총괄 PM입니다.`,
     summary: [['역할', '제안자 · 발주 총괄 PM'], ['기간', '2026.06 – 진행 중'], ['규모', `${F.integration.people} · ${F.integration.months}`], ['예산', F.integration.budget]],
     sections: [
@@ -144,8 +144,8 @@ const data = {
     sections: [
       { h: '문제', body: '<p>마케팅, 상품기획, 개발이 각자의 엑셀과 서버 로그로 따로 보고했고, 데이터 추출 요청은 개발팀에 쌓였습니다. 개발팀장, 상품기획 담당과 함께 문제를 "의사결정에 필요한 데이터를 현업이 직접 볼 수 없다"로 정의했습니다.</p><p>클라우드 분석 솔루션은 IT보안·준법·리스크 부서에서 망분리(내부망과 인터넷망을 분리하도록 한 금융 규정) 위반으로 보던 사안이었습니다.</p>' },
       { h: '판단과 접근', body: `<h3>설계 단계에서 규제 리스크를 없애기</h3><ul><li>이벤트를 추가할 때마다 개발이 필요한 온프레미스 BI 대신 클라우드 SaaS를 택했습니다.</li><li>규제 리스크를 심의에서 다투지 않고, <strong>개인정보를 수집하지 않는 이벤트 체계</strong>로 설계해 처음부터 없앴습니다.</li><li>전자금융감독규정과 클라우드 가이드를 조항 단위로 대조해 위원회 심의 체크리스트를 항목별로 충족했고, 보안성 심의를 통과했습니다.</li></ul><figure class="figure"><div class="frame"><ol class="flow"><li><b>AppsFlyer</b><span>광고 어트리뷰션</span></li><li><b>Amplitude</b><span>앱 행동 분석</span></li><li><b>Tableau</b><span>전사 BI · 대시보드</span></li></ol></div><figcaption>리스크가 낮은 도구부터 단계적으로 도입했습니다</figcaption></figure><h3>공통 행동 데이터 체계</h3><ul><li>이벤트 <strong>${F.data.events}개</strong>, 속성 <strong>${F.data.properties}개</strong>를 직접 정의하고 비식별 기준을 문서로 만들었습니다.</li><li>마케팅·상품·CS·개발 부서를 교육해 현업이 대시보드를 직접 만드는 단계까지 정착시켰고, 사내 스터디 '아이스'(12명)를 운영했습니다.</li></ul>` },
-      { h: '데이터 파이프라인', body: `<p>보통 컨설팅사와 벤더, 여러 팀이 나눠 맡는 일을 기획자가 직접 했습니다. 도구를 발굴하고 검토해 도입하고, 설치하고 운영하는 전 단계를 맡았습니다.</p><figure class="figure"><div class="frame"><ol class="flow"><li><b>수집</b><span>AppsFlyer 광고 어트리뷰션, Amplitude 앱 이벤트 ${F.data.events}개</span></li><li><b>정의</b><span>이벤트·속성 체계와 비식별 기준 문서화</span></li><li><b>분석</b><span>Amplitude 행동 분석, 퍼널·리텐션</span></li><li><b>공유</b><span>Tableau 부문 대시보드 4종, 수신 시뮬레이터, MIS</span></li><li><b>결정</b><span>현업이 직접 대시보드를 만들고 판단</span></li></ol></div><figcaption>광고 유입부터 현업의 의사결정까지 이어지는 데이터 흐름</figcaption></figure><ul><li><strong>AppsFlyer:</strong> 캠페인과 채널별 성과를 하나의 기준으로 묶었습니다. 이후 제휴사 '이어하기' 프로세스에도 전체 적용했습니다.</li><li><strong>Amplitude:</strong> 이벤트 ${F.data.events}개, 속성 ${F.data.properties}개를 직접 정의해 4년 넘게 운영하고 있습니다.</li><li><strong>Tableau (2025):</strong> 부서 인터뷰부터 품의, 서버 설치, 교육, 대표이사 보고까지 도입을 주도했고, 부문 대시보드 4종과 수신 시뮬레이터, MIS를 현업이 쓰는 상태로 만들었습니다(2026).</li><li>다음 단계로 클라우드(MS Azure) 도입 검토를 주관하고 사내 세미나를 열었습니다.</li></ul>` },
-      { h: '결과', body: results([[F.data.retention, '제품 전체 Retention'], [F.data.active, '메인화면 개인화 후 활성 사용률'], [F.data.account, '계좌개설 완료율']]) + '<p>도입 과정에서 정리한 검토 항목·절차·책임 구분은 정보보호팀이 제정한 <strong>사내 클라우드 규정의 기준 사례</strong>가 됐습니다. 데이터로 앱 화면을 개선한 과정은 AB180 고객 사례로 소개됐습니다.</p>' },
+      { h: '도입 범위', body: `<p>보통 컨설팅사와 벤더, 여러 팀이 나눠 맡는 일을 기획자가 직접 했습니다. 도구를 발굴하고 검토해 도입하고, 설치하고 운영하는 전 단계를 맡았습니다.</p><figure class="figure"><div class="frame"><ol class="flow"><li><b>수집</b><span>AppsFlyer 광고 어트리뷰션, Amplitude 앱 이벤트 ${F.data.events}개</span></li><li><b>정의</b><span>이벤트·속성 체계와 비식별 기준 문서화</span></li><li><b>분석</b><span>Amplitude 행동 분석, 퍼널·리텐션</span></li><li><b>공유</b><span>Tableau 부문 대시보드 4종, 수신 시뮬레이터, MIS</span></li><li><b>결정</b><span>현업이 직접 대시보드를 만들고 판단</span></li></ol></div><figcaption>광고 유입부터 현업의 의사결정까지 이어지는 데이터 흐름</figcaption></figure><ul><li><strong>AppsFlyer:</strong> 캠페인과 채널별 성과를 하나의 기준으로 묶었습니다. 이후 제휴사 '이어하기' 프로세스에도 전체 적용했습니다.</li><li><strong>Amplitude:</strong> 직접 설계한 이벤트 체계를 4년 넘게 운영하고 있습니다.</li><li><strong>Tableau (2025):</strong> 부서 인터뷰부터 품의, 서버 설치, 교육, 대표이사 보고까지 도입을 주도했고, 부문 대시보드 4종과 수신 시뮬레이터, MIS를 현업이 쓰는 상태로 만들었습니다(2026).</li><li>다음 단계로 클라우드(MS Azure) 도입 검토를 주관하고 사내 세미나를 열었습니다.</li></ul>` },
+      { h: '결과', body: results([[F.data.retention, '제품 전체 Retention'], [F.data.active, '메인화면 개인화 후 활성 사용률'], [F.data.account, '가입 과정 개선 후 계좌개설 완료율']]) + '<p>데이터 추출 요청이 개발팀에 쌓이던 구조가, 현업이 대시보드를 직접 만들어 판단하는 구조로 바뀌었습니다.</p><p>도입 과정에서 정리한 검토 항목·절차·책임 구분은 정보보호팀이 제정한 <strong>사내 클라우드 규정의 기준 사례</strong>가 됐습니다. 데이터로 앱 화면을 개선한 과정은 AB180 고객 사례로 소개됐습니다.</p>' },
       { h: '배운 점', body: '<p>규제를 설계 단계의 제약 조건으로 다룰 때 통과가 쉬웠습니다. "무엇을 수집하지 않는가"를 먼저 정하니 보안·준법 부서와 같은 편에서 이야기할 수 있었습니다.</p>' },
     ],
     prev: T.integ, next: T.reg,
@@ -159,13 +159,13 @@ const reg = {
   body: casePage({
     back, eyebrow: '페퍼저축은행 · 2025.01 – 현재',
     title: '규제 대응을<br>화면과 프로세스에 녹이기',
-    lead: '금융에서 "안 된다"로 끝나던 일을 설계와 설득으로 통과시키는 것이 제 역할 중 하나입니다. 디지털기획 담당으로 맡은 규제·운영 과제들을 정리했습니다.',
-    summary: [['역할', '디지털기획 담당'], ['기간', '2025.01 – 현재'], ['협업', '준법 · 개인정보 · 금융소비자보호 · 고객센터'], ['결과', '규제 대응을 프로세스로']],
+    lead: '준법과 운영이 서로 다른 답을 낼 때 양쪽이 받아들일 안을 만들고, 그 안을 화면과 시스템에 녹였습니다. 2025년부터 디지털기획 담당으로 맡은 규제·운영 과제 네 가지입니다.',
+    summary: [['역할', '디지털기획 담당'], ['기간', '2025.01 – 현재'], ['협업', '준법 · 개인정보 · 금융소비자보호 · 고객센터'], ['결과', '제3안 합의 · 인력 4→2명']],
     sections: [
       { h: '회원가입 주민번호 수집 최소화', body: '<p>준법은 주민번호 전면 제외를, 운영은 기존 고객 식별을 요구하며 교착됐습니다. 전자금융감독규정, 금융실명법, 타사 사례를 대조해 <strong>"접근매체 등록" 관점의 수집과 동의서 추가</strong>라는 제3안을 내 양쪽의 합의를 끌어냈습니다. 일부는 적용했고, 나머지는 통합시스템 프로젝트에서 이어갑니다.</p>' },
       { h: '법정 통지서 시스템', body: '<p>기한이익 상실, 경매, 채권양도 같은 채무자 법정 통지서를 <strong>온라인 조회와 카카오 알림톡 발송</strong> 시스템으로 만들어, 발송 기한을 사람이 기억하지 않아도 지켜지게 했습니다.</p>' },
       { h: '감사·가이드라인 대응', body: '<ul><li>다크패턴 가이드라인 대응 체크리스트와 개발 요구사항을 작성하고 내부 결재와 증적까지 마쳤습니다.</li><li>모바일뱅킹 이용약관 개정과 금감원 사후보고를 담당했습니다.</li><li>예금보험공사 감사와 내부감사의 디지털 분야 대응을 맡았습니다.</li><li>비대면 실명확인, 온라인 설명의무, 적합성 체크리스트를 화면과 운영 프로세스에 반영했습니다.</li></ul>' },
-      { h: '소송과 고객센터', body: `<p>대여금 소송 1심 패소 후 증적과 프로세스 자료를 직접 준비해 <strong>2심 전부 승소</strong>에 기여했습니다. 고객센터 1:1 문의 대응을 표준화·전산화해 필요 인력을 4명에서 2명으로 줄이고, 남은 인력은 다른 업무로 전환했습니다.</p>${results([['4명 → 2명', '1:1 문의 대응 인력'], ['2심 승소', '증적·프로세스 자료 준비로 기여']])}` },
+      { h: '소송 대응과 운영 효율', body: `<p>대여금 소송 1심 패소 후 증적과 프로세스 자료를 직접 준비해 <strong>2심 전부 승소</strong>에 기여했습니다. 고객센터 1:1 문의 대응을 표준화·전산화해 필요 인력을 4명에서 2명으로 줄이고, 남은 인력은 다른 업무로 전환했습니다.</p>${results([['4명 → 2명', '1:1 문의 대응 인력'], ['2심 승소', '증적·프로세스 자료 준비로 기여']])}` },
       { h: '배운 점', body: '<p>규제 대응은 문서로 끝나면 다시 사람에게 기대게 됩니다. 화면, 시스템, 운영 절차 중 하나에 고정해 두어야 담당자가 바뀌어도 지켜졌습니다.</p>' },
     ],
     prev: T.data,

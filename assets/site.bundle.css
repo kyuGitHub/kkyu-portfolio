@@ -212,6 +212,7 @@ a { color: inherit; }
 /* ---------- Hero ---------- */
 .hero { padding-block: 120px var(--web-section-y-sm); }
 .hero .lead { margin-top: 28px; }
+.hero-name { font: 700 var(--wds-heading1)/var(--wds-heading1-lh) var(--wds-font); color: var(--wds-label-strong); margin-bottom: 12px; }
 .hero .btn-row { margin-top: 40px; }
 .hero-meta { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--wds-line-normal); display: flex; flex-wrap: wrap; gap: 8px 32px; }
 .hero-meta span { font: 500 var(--wds-body1)/var(--wds-body1-reading-lh) var(--wds-font); color: var(--wds-label-neutral); }

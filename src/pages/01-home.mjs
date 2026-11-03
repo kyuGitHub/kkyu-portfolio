@@ -4,8 +4,8 @@ const featured = [
   { href: '/work/loan-comparison.html', image: '/assets/img/work/loan-toss.webp', imageAlt: '토스에서 페퍼저축은행 대출로 이어지는 화면', eyebrow: '페퍼저축은행 · 2018 – 현재', title: '대출비교 신사업과 제휴 10개사', desc: '대출비교 서비스를 초기부터 주도해 월 신용대출을 10억에서 150억으로 키우고, 제휴 10개사의 계약부터 정산까지 총괄합니다.', badges: ['그로스', '제휴', '내부통제'] },
   { href: '/work/mobile-banking.html', image: '/assets/img/work/banking-app.webp', imageAlt: '페퍼저축은행 모바일뱅킹 앱 화면', eyebrow: '페퍼저축은행 · 2019 – 2021', title: '차세대 모바일뱅킹 0→1', desc: `비대면 채널이 없던 저축은행에 회원가입부터 오픈뱅킹까지 전 범위를 설계했습니다. 예산 ${F.banking.budget}, 조직 ${F.banking.team}.`, badges: ['서비스기획 PM', '발주', '조직 구축'] },
   { href: '/work/data-cx.html', big: `${F.data.events}<small>이벤트</small>`, cap: `직접 설계한 행동 데이터 · 속성 ${F.data.properties}개`, eyebrow: '페퍼저축은행 · 2021 – 2024', title: '데이터 파이프라인 구축', desc: `AppsFlyer·Amplitude·Tableau 파이프라인을 직접 도입하고 운영했습니다. 사내 첫 클라우드 분석 도입, Retention ${F.data.retention}.`, badges: ['데이터', 'CX', '보안성 심의'] },
+  { href: '/work/system-integration.html', big: F.integration.budget, cap: `${F.integration.people} · ${F.integration.months} · 진행 중`, eyebrow: '페퍼저축은행 · 2026 – 진행 중', title: '통합시스템 구축 총괄 PM', desc: `부서별 시스템의 중복 운영을 문제로 정의해 통합을 직접 제안하고, 요구사항 ${F.integration.requirements}을 정리해 공개입찰로 업체를 선정했습니다.`, badges: ['PMO', 'RFP·입찰', '제안·발주'] },
   { href: '/ai/second-brain.html', image: '/assets/img/work/secondbrain-1.webp', imageAlt: '세컨브레인 지식 그래프 화면', eyebrow: 'AI · 2025 – 현재', title: '세컨브레인', desc: `회의록·요구사항·의사결정을 연결된 지식으로 쌓는 팀 단위 AI 시스템. 회의록 작성 ${F.secondBrain.minutes}.`, badges: ['사내 최초 팀 적용', 'Claude', '옵시디언'] },
-  { href: '/ai/knellgrave.html', image: '/assets/img/work/knellgrave-1.webp', imageAlt: '넬그레이브 게임 화면', eyebrow: 'AI · 개인 프로젝트', title: '넬그레이브', desc: 'AI 에이전트와 1인 개발한 다크판타지 서바이버 슈팅 게임. 기획과 디렉팅은 제가, 개발은 에이전트가 맡았습니다.', badges: ['게임', `프로토타입 ${F.knellgrave.version}`] },
   { href: '/ai/admin-generator.html', image: '/assets/img/work/admin-generator.webp', imageAlt: '어드민 화면 제너레이터 화면 목록', eyebrow: 'AI · 개인 프로젝트 · 2026', title: '어드민 화면 제너레이터', desc: '요구사항을 넣으면 디자인 시스템 규격대로 어드민 화면과 화면정의서를 만드는 도구. PPT 화면설계서를 대체하는 것이 목표입니다.', badges: ['업무 도구', '사내 파일럿 제안'] },
 ];
 
@@ -23,8 +23,9 @@ export default {
 <section class="hero">
   <div class="container">
     <span class="eyebrow">PORTFOLIO</span>
+    <p class="hero-name">김현규</p>
     <h1 class="hero-title">고객채널을 디렉팅하는<br>디지털금융 PM</h1>
-    <p class="lead">${F.career.years}간 금융의 고객 접점을 만들고 키워 왔습니다. 지금은 AI 에이전트와 함께 직접 만듭니다.</p>
+    <p class="lead">${F.career.years}간 저축은행과 캐피탈의 대출·뱅킹 채널을 처음부터 만들고 키웠습니다. 지금은 AI 에이전트와 일하며 기획한 것을 직접 구현합니다.</p>
     <div class="btn-row">
       <a class="btn" href="#contact">연락하기 ${icon.arrow}</a>
       <a class="btn btn--secondary" href="#work">작업 보기</a>
@@ -50,10 +51,10 @@ export default {
         <span class="stat-label">차세대 모바일뱅킹 1년 차 MAU</span>
         <span class="stat-note">출시 1년 만에 예금 ${F.banking.deposit}, 대출 ${F.banking.loan}.</span>
       </a>
-      <a class="stat reveal" href="/ai/second-brain.html">
-        <span class="stat-value">10<small>분</small></span>
-        <span class="stat-label">세컨브레인 회의록 작성 시간</span>
-        <span class="stat-note">기존 1시간. 30억 통합 프로젝트 팀에 사내 최초로 적용했습니다.</span>
+      <a class="stat reveal" href="/work/data-cx.html">
+        <span class="stat-value">20→35<small>%</small></span>
+        <span class="stat-label">제품 전체 Retention</span>
+        <span class="stat-note">행동 데이터 체계를 직접 설계하고 사내 첫 클라우드 분석 환경을 도입했습니다.</span>
       </a>
     </div>
   </div>
@@ -67,7 +68,7 @@ export default {
         <h2 class="title1" id="work-title">고른 작업 6개</h2>
       </div>
       <div>
-        <p>금융 현장에서 만든 성과 3개와 AI로 직접 만든 프로젝트 3개입니다. 각 케이스에서 문제, 판단, 결과를 자세히 볼 수 있습니다.</p>
+        <p>금융 현장에서 만든 성과 4개와 업무에 AI를 적용한 프로젝트 2개입니다. 각 케이스에서 문제, 판단, 결과를 자세히 볼 수 있습니다.</p>
         <div class="btn-row">
           <a class="text-link" href="/work.html">금융 작업 전체 ${icon.chevron}</a>
           <a class="text-link" href="/ai.html">AI 프로젝트 전체 ${icon.chevron}</a>

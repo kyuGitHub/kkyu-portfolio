@@ -9,7 +9,7 @@ export default {
   <div class="container">
     <span class="eyebrow">ABOUT</span>
     <h1 class="display2">김현규<br>고객채널을 디렉팅하는 사람</h1>
-    <p class="lead">${F.career.years}간 디자인, 마케팅, 비즈니스, 제품, 조직의 다섯 관점을 모두 직접 해 봤습니다. 그래서 각 분야가 어디서 막히는지 알고 방향을 잡을 수 있습니다.</p>
+    <p class="lead">디자인, 마케팅, 비즈니스, 제품, 조직의 일을 ${F.career.years}간 모두 직접 해 봤습니다. 그래서 각 분야가 어디서 막히는지 알고 방향을 잡습니다.</p>
     <div class="hero-meta">
       <span><b>현재</b>${F.role}</span>
       <span><b>경력</b>금융·핀테크 ${F.career.years}</span>
@@ -22,7 +22,7 @@ export default {
   <div class="container">
     <div class="sh-split">
       <div><span class="eyebrow">PERSPECTIVES</span><h2 class="title1" id="views-title">직접 해 본<br>다섯 가지 관점</h2></div>
-      <div><p>새 기술을 현업에 안착시키고, 효과를 숫자로 확인해 왔습니다.</p></div>
+      <div><p>다섯 가지를 모두 해 봤기 때문에, 새 기술도 현업이 받아들이는 구조로 안착시키고 숫자로 확인해 왔습니다.</p></div>
     </div>
     <dl class="rows">
       <div class="row reveal"><dt>디자인</dt><dd><p>여러 툴과 직접 코딩으로 페이지를 구현해 봤습니다. 디자인 전공, 전국기능경기대회 디자인 부문 수상.</p></dd></div>
@@ -70,6 +70,7 @@ export default {
       <div><p>기획, 데이터, 디자인, AI 도구를 직접 다루며 일합니다.</p></div>
     </div>
     <dl class="rows">
+      <div class="row reveal"><dt>금융 도메인</dt><dd><p>여신·대출 플랫폼, 대출비교·제휴 채널, 모바일뱅킹, 오픈뱅킹, 비대면 실명확인, 전자금융감독규정, 금융소비자보호법</p></dd></div>
       <div class="row reveal"><dt>제품 · PM</dt><dd><p>고객 관점 서비스 기획, 요구사항 정의, 화면 설계, 기능 명세, WBS, IA·프로세스 설계, 테스트케이스</p></dd></div>
       <div class="row reveal"><dt>PMO · 프로젝트</dt><dd><p>범위·일정·비용·품질 관리, 사업계획서·제안서, RFP와 공개입찰, 업체 선정, 리스크·자원 배분, 조직 세팅</p></dd></div>
       <div class="row reveal"><dt>마케팅 · 데이터</dt><dd><p>퍼포먼스 마케팅(Google, Meta, Moloco, 검색광고), Amplitude 이벤트 설계, AppsFlyer, Tableau, Google Analytics, SQL 기초</p></dd></div>
