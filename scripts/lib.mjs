@@ -160,5 +160,30 @@ export function casePage(c) {
 </div>`;
 }
 
+export const PRESS = [
+  { src: 'AB180 CS Hub', kind: '고객 사례', date: '', title: 'Amplitude로 UI/UX와 전환율 개선', desc: '메인화면 개인화로 활성 사용률 30% → 60%, 기능 탐색 2배. 데이터로 앱 화면과 완료율을 개선한 과정이 Amplitude 공식 파트너의 고객 사례로 소개됐습니다.', href: LINKS.ab180 },
+  { src: 'ZDNet Korea', kind: '인터뷰', date: '2020.10', title: '성공적인 마케팅, \'고객여정\'을 명확히 이해해라', desc: '"다양한 실험, 빠른 진행, 데이터로 피드백에 집중합니다." 인하우스 마케팅 조직과 고객여정 중심의 그로스 방식을 이야기했습니다.', href: LINKS.zdnet },
+  { src: '모바일히어로즈', kind: '마케터 커뮤니티', date: '2020 – 2023', title: '리프트오프 주관 마케터 모임 · 인터뷰 게재', desc: '모바일 앱 마케터 커뮤니티에서 활동하며 인하우스 퍼포먼스 마케팅 경험을 공유했고, 인터뷰가 게재됐습니다.', href: '' },
+];
+
+export const pressSection = (id = 'press') => `<section class="section" id="${id}" aria-labelledby="${id}-title">
+  <div class="container">
+    <div class="sh-split">
+      <div><span class="eyebrow">PRESS</span><h2 class="title1" id="${id}-title">외부에 소개된 일</h2></div>
+      <div><p>데이터로 고객경험을 바꾼 사례와 인하우스 마케팅 방식이 업계 매체와 커뮤니티에 소개됐습니다.</p></div>
+    </div>
+    <div class="grid-3">
+      ${PRESS.map(x => `<${x.href ? `a class="card reveal" href="${x.href}" target="_blank" rel="noopener noreferrer"` : 'article class="card reveal"'}>
+        <div class="card-body">
+          <span class="card-eyebrow">${x.src} · ${x.kind}${x.date ? ' · ' + x.date : ''}</span>
+          <span class="card-title">${x.title}</span>
+          <span class="card-desc">${x.desc}</span>
+          ${x.href ? `<span class="card-meta"><span class="text-link">원문 보기${icon.out}</span></span>` : ''}
+        </div>
+      </${x.href ? 'a' : 'article'}>`).join('\n      ')}
+    </div>
+  </div>
+</section>`;
+
 export const results = items => `<div class="results">${items.map(([v, k, tag]) => `<div class="result"><div class="v">${v}</div><div class="k">${k}</div>${tag ? `<div class="tag"><span class="badge">${tag}</span></div>` : ''}</div>`).join('')}</div>`;
 

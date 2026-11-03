@@ -10,7 +10,7 @@ const T = {
 const cards = [
   { ...T.sb, image: '/assets/img/work/secondbrain-1.webp', imageAlt: '세컨브레인 지식 그래프 화면 (샘플 데이터)', eyebrow: '2025.02 – 현재 · 운영 중', title: '세컨브레인', desc: `Plaud 녹음 → Claude 변환 → 옵시디언 위키로 이어지는 팀 지식 시스템. 30억 통합 프로젝트 팀에 사내 최초로 적용해 요구사항 ${F.secondBrain.requirements}, 의사결정 ${F.secondBrain.decisions}을 쌓았습니다.`, badges: ['사내 최초 팀 적용', '운영 중'] },
   { ...T.kg, image: '/assets/img/work/knellgrave-1.webp', imageAlt: '넬그레이브 게임 화면', eyebrow: `개인 프로젝트 · 프로토타입 ${F.knellgrave.version}`, title: '넬그레이브', desc: '세로형 다크판타지 서바이버 슈팅 게임. 기획·플레이 피드백·아트 디렉팅은 사람이, 코드·테스트·픽셀 아트 생성은 AI가 맡아 1인 개발했습니다.', badges: ['게임', '프로토타입'] },
-  { ...T.ad, big: '30<small>분</small>', cap: '화면 하나를 만드는 목표 시간 (현재 30분~3시간)', eyebrow: '2026.10 · 약 4주 · 파일럿 준비', title: '어드민 화면 제너레이터', desc: '요구사항을 넣으면 디자인 시스템 규격대로 어드민 화면과 화면정의서를 만들어 주는 도구. PPT 화면설계서를 대체하는 것이 목표입니다.', badges: ['사내 도구', '파일럿 준비'] },
+  { ...T.ad, image: '/assets/img/work/admin-generator.webp', imageAlt: '어드민 화면 제너레이터의 화면 목록',  eyebrow: '2026.10 · 약 4주 · 파일럿 준비', title: '어드민 화면 제너레이터', desc: '요구사항을 넣으면 디자인 시스템 규격대로 어드민 화면과 화면정의서를 만들어 주는 도구. PPT 화면설계서를 대체하는 것이 목표입니다.', badges: ['사내 도구', '파일럿 준비'] },
 ];
 
 const agents = [
@@ -173,6 +173,7 @@ const ad = {
     sections: [
       { h: '문제', body: '<p>어드민 화면 하나가 현업 → PM → 디자이너 → 퍼블리셔 → 개발자 5단계를 거쳤고, PM이 PPT로 목업을 그리는 단계가 병목이었습니다. 화면 하나에 30분~1시간, 정보가 많으면 2~3시간이 걸렸습니다.</p><ul><li>상태·권한별 케이스를 미리 볼 시간이 없었습니다.</li><li>개발 중에 항목·버튼 추가 요청이 화면마다 생겨 수정 개발로 돌아갔습니다.</li><li>전달 단계마다 기획 의도가 조금씩 빠졌습니다.</li></ul><p>PM 인터뷰(5라운드, 25문항)로 이 병목을 확인했습니다.</p>' },
       { h: '만든 것', body: `<figure class="figure"><div class="frame"><ol class="flow"><li><b>요청서</b><span>화면명, 패턴, 항목, 버튼 동작, 상태별 케이스</span></li><li><b>AI 생성</b><span>Claude가 JSON 화면 스키마 생성, 검증 실패 시 자동 재시도</span></li><li><b>렌더링</b><span>디자인 시스템 컴포넌트로 그리고 샘플 데이터 채움</span></li><li><b>클릭 편집</b><span>속성 패널, 자연어 수정, 케이스용 화면 복제</span></li><li><b>내보내기</b><span>미리보기 URL, 화면정의서, HTML, PNG, JSON</span></li></ol></div><figcaption>요청서에서 개발 전달까지 PM 혼자 끝내는 흐름</figcaption></figure><h3>AI를 제약된 시스템으로 설계</h3><ul><li>AI가 자유롭게 HTML을 쓰지 않고 <strong>정해진 JSON 스키마만</strong> 출력하게 했습니다. 디자인 규격을 강제할 수 있고, 같은 입력에서 결과가 흔들리는 것도 줄었습니다.</li><li>시스템 프롬프트와 참고 화면은 프롬프트 캐싱으로 재사용하고, 사용자별 일일 한도와 호출별 비용 로그를 둡니다. 화면당 비용은 약 350~650원으로 추정했습니다.</li><li>실제 고객 정보는 쓰지 않고 샘플 데이터를 자동으로 채웁니다.</li></ul><p class="caption">React 19 · TypeScript · Vite · Supabase · Vercel · Anthropic SDK</p>` },
+      { h: '화면', body: '<figure class="figure"><div class="frame frame--img"><img src="/assets/img/work/admin-generator.webp" alt="어드민 화면 제너레이터의 화면 목록: 여신·수신·마케팅 영역의 생성된 화면 12개" loading="lazy" width="1600" height="682"></div><figcaption>생성한 화면 목록. 영역·패턴별로 모아 보고, 열기·복제로 바로 이어서 작업합니다</figcaption></figure>' },
       { h: '목표 지표', body: results([['30분 이내', '새 화면 하나 (현재 30분~3시간)', '목표'], ['10개 이상', '1시간에 만드는 화면 컨셉', '목표'], ['0건', '개발자가 되묻는 항목', '목표']]) + '<p class="caption">파일럿 전이라 모두 목표치입니다. 결과가 나오면 업데이트합니다.</p>' },
       { h: '배운 점', body: '<p>AI에게 자유를 줄수록 결과를 믿기 어려웠습니다. 출력 형식을 스키마로 묶고 검증과 재시도를 붙이자, 현업에 넘길 수 있는 수준으로 결과가 안정됐습니다.</p>' },
     ],

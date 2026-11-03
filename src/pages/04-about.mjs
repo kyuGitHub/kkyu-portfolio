@@ -1,4 +1,4 @@
-import { F, LINKS, ext } from '../../scripts/lib.mjs';
+import { F, LINKS, ext, pressSection } from '../../scripts/lib.mjs';
 
 export default {
   path: 'about.html', nav: 'about',
@@ -83,7 +83,7 @@ export default {
 <section class="section" aria-labelledby="more-title">
   <div class="container">
     <div class="sh-split">
-      <div><span class="eyebrow">MORE</span><h2 class="title1" id="more-title">학력 · 활동 · 외부 소개</h2></div>
+      <div><span class="eyebrow">MORE</span><h2 class="title1" id="more-title">학력 · 활동</h2></div>
       <div></div>
     </div>
     <dl class="rows">
@@ -91,9 +91,10 @@ export default {
       <div class="row reveal"><dt>자격 · 수상</dt><dd><p>검색광고마케터 1급 (2017), 전국기능경기대회 디자인 부문 (2003)</p></dd></div>
       <div class="row reveal"><dt>교육 · 커뮤니티</dt><dd><p>태블로 부트캠프 수료(2025), 바이브랩스·지피터스 AI 커뮤니티, AI 에이전트 워크숍 참여</p></dd></div>
       <div class="row reveal"><dt>사내 활동</dt><dd><p>사내 스터디 '아이스'(12명) 운영, 부서 방문 AI 기초 교육, 기획자 직무교육 강사</p></dd></div>
-      <div class="row reveal"><dt>외부 소개</dt><dd class="row-body"><p>${ext(LINKS.ab180, 'AB180 고객 사례 · Amplitude로 활성 사용률 30% → 60%')}</p><p>${ext(LINKS.zdnet, 'ZDNet Korea 인터뷰 · 성공적인 마케팅, 고객여정을 명확히')}</p></dd></div>
     </dl>
   </div>
 </section>
+
+${pressSection('press-about')}
 `,
 };
