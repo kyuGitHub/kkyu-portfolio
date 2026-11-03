@@ -91,7 +91,7 @@ const list = {
       </div>
       <div class="agent-archive">
         <div><span class="agent-layer-label">기록 · Hermes</span>${by('archive').map(node).join('')}</div>
-        <p>매니저와 실무 에이전트가 만든 산출물과 결정이 옵시디언 지식 저장소에 쌓이고, 다음 작업을 시작할 때 맥락으로 다시 쓰입니다. 작업을 실행하는 층(OpenClaw, 에이전트 실행 도구)과 지식을 쌓는 층(Hermes, 기록·검색 도구)을 나눠 운영합니다.</p>
+        <p>매니저와 실무 에이전트가 만든 산출물과 결정이 옵시디언 지식 저장소에 쌓이고, 다음 작업을 시작할 때 맥락으로 다시 쓰입니다. 작업을 실행하는 층<span class="nowrap">(OpenClaw, 에이전트 실행 도구)과</span> 지식을 쌓는 층(Hermes, 기록·검색 도구)을 나눠 운영합니다.</p>
       </div>
     </div>
     <div class="agent-detail">

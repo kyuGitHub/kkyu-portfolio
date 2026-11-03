@@ -180,7 +180,7 @@ export const pressSection = (id = 'press') => `<section class="section" id="${id
           <span class="card-eyebrow">${x.src} · ${x.kind}${x.date ? ' · ' + x.date : ''}</span>
           <h3 class="card-title">${x.title}</h3>
           <p class="card-desc">${x.desc}</p>
-          ${x.href ? `<span class="card-meta"><span class="text-link">원문 보기${icon.out}</span></span>` : ''}
+          <span class="card-meta">${x.href ? `<span class="text-link">원문 보기${icon.out}</span>` : '<span class="caption">원문 링크 준비 중</span>'}</span>
         </div>
       </${x.href ? 'a' : 'article'}>`).join('\n      ')}
     </div>
