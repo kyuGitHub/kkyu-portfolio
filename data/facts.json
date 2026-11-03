@@ -1,0 +1,67 @@
+{
+  "_source": "이력서·포트폴리오 PPT (2026.09) 기준. 사이트의 모든 숫자는 이 파일에서만 바꿉니다.",
+  "career": {
+    "years": "16년",
+    "since": "2007.07",
+    "companies": 4
+  },
+  "role": "페퍼저축은행 디지털뱅킹 매니저(팀장)",
+  "loan": {
+    "start": "10억",
+    "early": "150억",
+    "peak": "1,200억",
+    "multiple": "120배",
+    "adSpend": "월 최대 5억",
+    "partners": "10개사",
+    "channelCost": "2~2.5%",
+    "offlineFee": "3.5%",
+    "products": "신용·주택담보·자동차"
+  },
+  "banking": {
+    "budget": "70억",
+    "team": "2명 → 30명+",
+    "deposit": "5천억",
+    "loan": "1.2조",
+    "mau": "20만",
+    "period": "2019.10 – 2021.03"
+  },
+  "data": {
+    "events": "432",
+    "properties": "241",
+    "retention": "20% → 35%",
+    "active": "30% → 60%",
+    "account": "20% → 30%"
+  },
+  "integration": {
+    "budget": "30억",
+    "people": "45명",
+    "vendor": "개발사 30명 · 페퍼 15명",
+    "months": "8개월",
+    "requirements": "약 700건",
+    "mmEstimate": "200MM",
+    "mmQuote": "190MM",
+    "systems": "4개 → 1개"
+  },
+  "secondBrain": {
+    "minutes": "1시간 → 10분",
+    "weekly": "90분 → 15분",
+    "requirements": "약 700건",
+    "decisions": "약 370건",
+    "settlement": "2일 → 3시간"
+  },
+  "agents": {
+    "count": "5개"
+  },
+  "knellgrave": {
+    "version": "v3.9",
+    "versions": "30개 이상",
+    "regression": "13종",
+    "rules": "12개",
+    "perf": "적 300마리 · 프레임당 약 0.8ms"
+  },
+  "marketing": {
+    "team": "5명",
+    "spend": "월 3~5억",
+    "media": "Google, Meta, Moloco, 검색광고"
+  }
+}

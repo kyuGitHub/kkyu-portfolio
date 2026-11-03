@@ -1,0 +1,40 @@
+/* Wanted Docs — typography (scale verbatim from the .fig Typography page: 7 tiers / 19 styles) */
+:root{
+--wds-font:Pretendard,"Pretendard JP Variable","Pretendard JP","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--wds-font-mono:"SF Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+--wds-display1:56px;--wds-display1-lh:72px;--wds-display1-ls:-0.0319em;
+--wds-display2:40px;--wds-display2-lh:52px;--wds-display2-ls:-0.0282em;
+--wds-display3:36px;--wds-display3-lh:48px;--wds-display3-ls:-0.027em;
+--wds-title1:32px;--wds-title1-lh:44px;--wds-title1-ls:-0.0253em;
+--wds-title2:28px;--wds-title2-lh:38px;--wds-title2-ls:-0.0236em;
+--wds-title3:24px;--wds-title3-lh:32px;--wds-title3-ls:-0.023em;
+--wds-heading1:22px;--wds-heading1-lh:30px;--wds-heading1-ls:-0.0194em;
+--wds-heading2:20px;--wds-heading2-lh:28px;--wds-heading2-ls:-0.012em;
+--wds-headline1:18px;--wds-headline1-lh:26px;--wds-headline1-ls:-0.002em;
+--wds-headline2:17px;--wds-headline2-lh:24px;--wds-headline2-ls:0em;
+--wds-body1:16px;--wds-body1-lh:24px;--wds-body1-reading-lh:26px;--wds-body1-ls:0.0057em;
+--wds-body2:15px;--wds-body2-lh:22px;--wds-body2-reading-lh:24px;--wds-body2-ls:0.0096em;
+--wds-label1:14px;--wds-label1-lh:20px;--wds-label1-reading-lh:22px;--wds-label1-ls:0.0145em;
+--wds-label2:13px;--wds-label2-lh:18px;--wds-label2-ls:0.0194em;
+--wds-caption1:12px;--wds-caption1-lh:16px;--wds-caption1-ls:0.0252em;
+--wds-caption2:11px;--wds-caption2-lh:14px;--wds-caption2-ls:0.0311em;
+}
+.wds-display1{font:700 var(--wds-display1)/var(--wds-display1-lh) var(--wds-font);letter-spacing:var(--wds-display1-ls)}
+.wds-display2{font:700 var(--wds-display2)/var(--wds-display2-lh) var(--wds-font);letter-spacing:var(--wds-display2-ls)}
+.wds-display3{font:700 var(--wds-display3)/var(--wds-display3-lh) var(--wds-font);letter-spacing:var(--wds-display3-ls)}
+.wds-title1{font:700 var(--wds-title1)/var(--wds-title1-lh) var(--wds-font);letter-spacing:var(--wds-title1-ls)}
+.wds-title2{font:700 var(--wds-title2)/var(--wds-title2-lh) var(--wds-font);letter-spacing:var(--wds-title2-ls)}
+.wds-title3{font:700 var(--wds-title3)/var(--wds-title3-lh) var(--wds-font);letter-spacing:var(--wds-title3-ls)}
+.wds-heading1{font:600 var(--wds-heading1)/var(--wds-heading1-lh) var(--wds-font);letter-spacing:var(--wds-heading1-ls)}
+.wds-heading2{font:600 var(--wds-heading2)/var(--wds-heading2-lh) var(--wds-font);letter-spacing:var(--wds-heading2-ls)}
+.wds-headline1{font:600 var(--wds-headline1)/var(--wds-headline1-lh) var(--wds-font);letter-spacing:var(--wds-headline1-ls)}
+.wds-headline2{font:600 var(--wds-headline2)/var(--wds-headline2-lh) var(--wds-font);letter-spacing:var(--wds-headline2-ls)}
+.wds-body1{font:500 var(--wds-body1)/var(--wds-body1-lh) var(--wds-font);letter-spacing:var(--wds-body1-ls)}
+.wds-body1-reading{font:500 var(--wds-body1)/var(--wds-body1-reading-lh) var(--wds-font);letter-spacing:var(--wds-body1-ls)}
+.wds-body2{font:500 var(--wds-body2)/var(--wds-body2-lh) var(--wds-font);letter-spacing:var(--wds-body2-ls)}
+.wds-body2-reading{font:500 var(--wds-body2)/var(--wds-body2-reading-lh) var(--wds-font);letter-spacing:var(--wds-body2-ls)}
+.wds-label1{font:600 var(--wds-label1)/var(--wds-label1-lh) var(--wds-font);letter-spacing:var(--wds-label1-ls)}
+.wds-label1-reading{font:600 var(--wds-label1)/var(--wds-label1-reading-lh) var(--wds-font);letter-spacing:var(--wds-label1-ls)}
+.wds-label2{font:600 var(--wds-label2)/var(--wds-label2-lh) var(--wds-font);letter-spacing:var(--wds-label2-ls)}
+.wds-caption1{font:500 var(--wds-caption1)/var(--wds-caption1-lh) var(--wds-font);letter-spacing:var(--wds-caption1-ls)}
+.wds-caption2{font:500 var(--wds-caption2)/var(--wds-caption2-lh) var(--wds-font);letter-spacing:var(--wds-caption2-ls)}

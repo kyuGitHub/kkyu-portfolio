@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>웹뷰인토스 대출신청 · 김현규</title>
+<meta name="description" content="토스 앱 안에서 페퍼저축은행 대출 신청을 끝까지 마치는 웹뷰 프로젝트. 준법·정보보호 검토, 요구사항, WBS를 맡은 프로젝트 PM.">
+<link rel="canonical" href="https://kkyu-portfolio.vercel.app/work/toss-webview.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KKYU">
+<meta property="og:title" content="웹뷰인토스 대출신청 · 김현규">
+<meta property="og:description" content="토스 앱 안에서 페퍼저축은행 대출 신청을 끝까지 마치는 웹뷰 프로젝트. 준법·정보보호 검토, 요구사항, WBS를 맡은 프로젝트 PM.">
+<meta property="og:url" content="https://kkyu-portfolio.vercel.app/work/toss-webview.html">
+<meta property="og:image" content="https://kkyu-portfolio.vercel.app/assets/og.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.bundle.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="/assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="/" aria-label="KKYU 홈">KKYU</a>
+    <nav class="site-nav" aria-label="주 메뉴">
+      <a href="/work.html" aria-current="page">Work</a>
+      <a href="/ai.html">AI Lab</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <a class="btn btn--sm header-cta" href="#contact">연락<span class="hide-sm">하기</span></a>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<div class="container">
+  <section class="case-hero">
+    <a class="text-link back" href="/work.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Work</a>
+    <span class="eyebrow">CASE</span>
+    <span class="case-meta">페퍼저축은행 × 토스 · 2026.03 – 2026.06</span>
+    <h1 class="display2">토스 앱 안에서<br>대출 신청을 끝까지 마치기</h1>
+    <p class="lead">토스 사용자가 앱을 떠나지 않고 페퍼저축은행 대출을 신청부터 약정까지 마치는 웹뷰를 만든 프로젝트입니다. 프로젝트 PM으로 준법·정보보호 검토, 요구사항, WBS와 마일스톤을 맡아 개발을 완료했습니다.</p>
+  </section>
+  <dl class="summary">
+    <div><dt>역할</dt><dd>프로젝트 PM</dd></div>
+    <div><dt>기간</dt><dd>2026.03 – 2026.06</dd></div>
+    <div><dt>협업</dt><dd>토스 · 준법 · 정보보호 · 개발</dd></div>
+    <div><dt>결과</dt><dd>개발 완료 · 테스트 단계 인계</dd></div>
+  </dl>
+  <section class="case-section reveal">
+    <h2>화면</h2>
+    <div class="case-body"><div class="shots"><img src="/assets/img/work/toss-fit.webp" alt="대출 받기 전에 정보가 맞는지 확인하는 적합성 확인 화면" loading="eager" width="370" height="796"><img src="/assets/img/work/toss-terms.webp" alt="금리, 빌릴 금액, 매달 내는 돈, 대출 기간을 확인하는 대출 조건 화면" loading="eager" width="370" height="796"><img src="/assets/img/work/toss-idcard.webp" alt="본인 확인을 위해 신분증 촬영을 안내하는 화면" loading="lazy" width="370" height="796"><img src="/assets/img/work/toss-done.webp" alt="대출 신청 완료 화면" loading="lazy" width="370" height="796"></div><p class="caption">토스 앱에서 열리는 페퍼저축은행 화면입니다. 이름과 금액은 예시입니다.</p></div>
+  </section>
+  <section class="case-section reveal">
+    <h2>문제</h2>
+    <div class="case-body"><p>제휴 채널에서 들어온 고객도 대출을 받으려면 결국 여러 단계를 거쳐야 합니다. 본인인증, 전자서명, 심사, 계좌·신분증·얼굴 인증, 금융소비자보호법에 따른 설명과 확인, 전자약정까지 모두 규제가 정한 절차입니다.</p><p>이 절차를 토스 앱 안의 웹뷰에서 끊김 없이 이어지게 하면서, 규제 요건은 하나도 빠뜨리지 않아야 했습니다.</p></div>
+  </section>
+  <section class="case-section reveal">
+    <h2>판단과 접근</h2>
+    <div class="case-body"><figure class="figure"><div class="frame"><ol class="flow"><li><b>확인</b><span>적합성 확인, 휴대폰 본인인증, 약관 동의</span></li><li><b>심사</b><span>전자서명, 본심사, 대출 조건 선택</span></li><li><b>정보</b><span>주소, 직업, 회사, 이메일 입력</span></li><li><b>인증</b><span>계좌 1원 인증, 신분증·얼굴 인증</span></li><li><b>약정</b><span>설명의무, 보이스피싱 확인, 전자약정</span></li></ol></div><figcaption>신청부터 약정까지 토스 앱 안에서 이어지는 흐름</figcaption></figure><ul><li><strong>규제를 흐름 안에 넣기:</strong> 적합성 확인, 금융소비자보호법에 따른 중요사항 설명, 보이스피싱 확인을 별도 절차가 아니라 신청 흐름의 한 단계로 설계했습니다.</li><li><strong>준법·정보보호 검토:</strong> 화면과 수집 항목마다 준법과 정보보호 검토를 거쳐 요구사항을 확정했습니다.</li><li><strong>막히는 지점마다 다음 행동 안내:</strong> 인증 알림이 오지 않을 때, 인증에 여러 번 실패할 때처럼 고객이 멈출 수 있는 지점마다 다시 시도하거나 다른 방법을 고를 수 있게 했습니다.</li><li><strong>일정 관리:</strong> WBS와 마일스톤을 세워 토스, 개발사, 사내 부서의 일정을 맞췄습니다.</li><li><strong>AI로 테스트케이스 작성:</strong> 분기가 많은 흐름이라 테스트케이스를 Claude로 작성했고, Playwright 기반 테스트 자동화도 검토했습니다.</li></ul></div>
+  </section>
+  <section class="case-section reveal">
+    <h2>결과</h2>
+    <div class="case-body"><div class="results results--3"><div class="result"><div class="v">개발 완료</div><div class="k">토스 앱 내 대출 신청 웹뷰</div></div><div class="result"><div class="v">인증서 3종</div><div class="k">토스 · 네이버 · PASS 중 선택</div></div><div class="result"><div class="v">테스트 단계</div><div class="k">통합시스템 총괄 PM 선임으로 인계</div></div></div><p>2026년 6월 통합시스템 구축 프로젝트의 총괄 PM으로 선임되면서, 테스트 단계에서 후임에게 인계했습니다.</p></div>
+  </section>
+  <section class="case-section reveal">
+    <h2>배운 점</h2>
+    <div class="case-body"><p>규제 절차가 많은 흐름일수록 고객이 멈추는 지점이 늘어납니다. 각 단계에서 실패했을 때 어디로 돌아가는지를 먼저 정해 두니, 요구사항과 테스트케이스가 같은 기준으로 정리됐습니다.</p></div>
+  </section>
+  <nav class="next-case" aria-label="다른 케이스">
+    <a class="prev" href="/work/loan-comparison.html"><span class="k">이전</span><span class="t">대출비교 신사업과 제휴 10개사</span></a>
+    <a class="next" href="/work/inhouse-marketing.html"><span class="k">다음</span><span class="t">인하우스 광고 운영팀 0→1</span></a>
+  </nav>
+</div>
+</main>
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-cta">
+      <div>
+        <span class="eyebrow">CONTACT</span>
+        <h2 class="display2">채용과 협업 제안을<br>기다립니다</h2>
+      </div>
+      <div class="stack">
+        <p>이메일이나 링크드인으로 연락 주세요. 채용, 협업, 강연 제안 모두 환영합니다.</p>
+        <div class="email-copy">
+          <code>hukami6472@gmail.com</code>
+          <button class="btn btn--sm btn--inverse" type="button" data-copy="hukami6472@gmail.com" aria-describedby="copy-status">주소 복사</button>
+          <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--inverse" href="mailto:hukami6472@gmail.com">메일 보내기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--secondary" href="https://www.linkedin.com/in/kkyu64" target="_blank" rel="noopener noreferrer">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <a class="wordmark" href="/">KKYU</a>
+      <div class="footer-col">
+        <span>페이지</span>
+        <a href="/work.html">Work</a>
+        <a href="/ai.html">AI Lab</a>
+        <a href="/about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <span>링크</span>
+        <a href="https://www.linkedin.com/in/kkyu64" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/kyuGitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://diary-puce-nine.vercel.app/" target="_blank" rel="noopener noreferrer">에이전트 일기</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 김현규</span>
+      <span>디지털금융 PM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

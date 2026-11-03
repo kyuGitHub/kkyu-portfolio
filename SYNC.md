@@ -14,7 +14,9 @@
 # 1) 최신 받기
 git pull origin main
 
-# 2) 작업
+# 2) 작업 — 페이지 내용은 src/pages/*.mjs, 숫자는 data/facts.json에서 고친 뒤
+node scripts/build.mjs        # HTML 다시 만들기 (의존성 없음)
+node scripts/check-facts.mjs  # 옛 숫자(1,500억·60억 등)가 남았는지 검사
 
 # 3) 커밋
 git add -A
@@ -71,12 +73,25 @@ git log --oneline HEAD..origin/main # pull 안 한 거 있나?
 ```bash
 # vercel 프로덕션에서 파일 받기
 BASE="https://kkyu-portfolio.vercel.app"
-for f in index.html about.html portfolio.html agent-ai.html; do
+for f in index.html about.html work.html ai.html; do
   curl -s "$BASE/$f" -o "$f"
 done
-for f in assets/shared.css assets/tokens.css assets/shared.js; do
+for f in assets/site.css assets/site.js; do
   curl -s "$BASE/$f" -o "$f"
 done
 ```
 
 단, GitHub main이 vercel보다 최신이면 `git pull origin main`이 정답.
+
+---
+
+## 사이트 구조 (2026.11 리뉴얼)
+
+| 경로 | 내용 |
+|---|---|
+| `src/pages/*.mjs` | 페이지 원본. 여기만 고친다 |
+| `scripts/lib.mjs` | 공통 헤더·푸터·케이스 템플릿 |
+| `data/facts.json` | 사이트의 모든 숫자 (이력서 2026.09 기준) |
+| `assets/ds/` | Fintec-KKYU Design System 토큰 (수정 금지, 디자인 시스템에서 복사) |
+| `assets/site.css`, `assets/site.js` | 사이트 공통 스타일·스크립트 |
+| 루트의 `*.html`, `work/`, `ai/` | 빌드 결과물. 직접 고치지 말 것 |

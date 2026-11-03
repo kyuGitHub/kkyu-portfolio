@@ -1,0 +1,33 @@
+/* Fintec-KKYU — brand-site layer on top of KKYU Docs foundations */
+:root{
+/* Layout */
+--web-container:1200px;--web-container-wide:1440px;--web-reading:720px;
+--web-margin-desktop:40px;--web-margin-tablet:32px;--web-margin-mobile:20px;
+--web-gutter:24px;--web-columns:12; /* @kind other */
+--web-header-h:72px;--web-header-h-mobile:56px;
+/* Section rhythm */
+--web-section-y:160px;--web-section-y-md:120px;--web-section-y-sm:80px;
+--web-block-gap:64px;--web-stack-gap:32px;
+/* Hero display (web-only steps above Display1) */
+--web-hero:72px;--web-hero-lh:84px;--web-hero-ls:-0.035em;
+--web-hero-mobile:40px;--web-hero-mobile-lh:52px;
+/* Surfaces */
+--surface-inverse:var(--wds-inverse-bg);--text-inverse:var(--wds-inverse-label);
+--surface-media:var(--wds-gray-97);
+/* Radius (web) */
+--web-radius-control:8px;--web-radius-card:12px;--web-radius-media:24px;--web-radius-pill:999px;
+/* Control sizes */
+--web-control-lg:56px;--web-control-md:48px;--web-control-sm:36px;
+/* Motion */
+--ease-out:cubic-bezier(.22,.68,.18,1); /* @kind other */
+--ease-standard:cubic-bezier(.2,0,0,1); /* @kind other */
+
+--dur-fast:150ms; /* @kind other */
+--dur-base:250ms; /* @kind other */
+--dur-reveal:700ms; /* @kind other */
+--reveal-distance:16px;
+--reveal-stagger:60ms; /* @kind other */
+
+/* Focus */
+--focus-ring:0 0 0 2px var(--wds-white),0 0 0 4px var(--wds-black);
+}

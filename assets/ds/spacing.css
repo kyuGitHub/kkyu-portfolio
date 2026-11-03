@@ -1,0 +1,11 @@
+/* Wanted Docs — spacing & radius (from .fig Frame/Modal/Component variable collections + guide layouts) */
+:root{
+--wds-space-2:2px;--wds-space-4:4px;--wds-space-8:8px;--wds-space-12:12px;--wds-space-16:16px;--wds-space-20:20px;--wds-space-24:24px;--wds-space-32:32px;--wds-space-48:48px;--wds-space-64:64px;
+--wds-gap-normal:16px; /* Component: Value/Space/Gap/Normal (mobile 16 / desktop 20) */
+--wds-margin-platform:20px; /* Component: Value/Margin/Platform */
+--wds-radius-frame:12px; /* Frame: Radius */
+--wds-radius-modal:12px; /* Modal: Radius (Small 12 / Medium 20) */
+--wds-radius-card:24px; /* guide content boxes: borderRadius 24, bg gray-99 */
+--wds-divider-hairline:1px;--wds-divider-section:2px;--wds-divider-title:4px; /* divider weights used in the guide */
+--wds-doc-max-width:1060px; /* Modal: Width/Max */
+}
