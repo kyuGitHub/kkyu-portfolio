@@ -444,3 +444,8 @@ main:focus { outline: none; }
   .site-footer *, .band *, .results *, .merge-to * { color: #000 !important; }
   .btn { background: none !important; color: #000 !important; border: 1px solid #000 !important; }
 }
+/* Odd card count: the last card spans the row, media beside the text */
+@media (min-width: 720px) {
+  .grid-2 > .card:last-child:nth-child(odd) { grid-column: 1 / -1; flex-direction: row; }
+  .grid-2 > .card:last-child:nth-child(odd) .card-media { flex: 0 0 calc(50% - var(--web-gutter) / 2); aspect-ratio: auto; min-height: 280px; border-bottom: 0; border-right: 1px solid var(--wds-line-normal); }
+}

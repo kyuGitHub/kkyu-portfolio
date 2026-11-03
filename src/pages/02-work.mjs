@@ -3,6 +3,7 @@ import { F, icon, caseCard, casePage, results } from '../../scripts/lib.mjs';
 const back = { href: '/work.html', label: 'Work' };
 const T = {
   loan: { href: '/work/loan-comparison.html', title: '대출비교 신사업과 제휴 10개사' },
+  toss: { href: '/work/toss-webview.html', title: '웹뷰인토스 대출신청' },
   mkt: { href: '/work/inhouse-marketing.html', title: '인하우스 광고 운영팀 0→1' },
   bank: { href: '/work/mobile-banking.html', title: '차세대 모바일뱅킹 0→1' },
   integ: { href: '/work/system-integration.html', title: '통합시스템 구축 총괄 PM' },
@@ -12,6 +13,7 @@ const T = {
 
 const cards = [
   { ...T.loan, image: '/assets/img/work/loan-toss.webp', imageAlt: '토스 내게 맞는 대출찾기에서 페퍼저축은행 대출로 이어지는 화면',  eyebrow: '2018.08 – 현재 · 초기 주도 → 제휴·운영 총괄', desc: '대출비교 서비스를 초기부터 주도해 월 신용대출을 10억에서 150억으로 키웠고, 토스·카카오페이·카카오뱅크·네이버 등 제휴 10개사의 계약부터 정산까지 총괄합니다.', badges: ['그로스', '제휴', '내부통제'] },
+  { ...T.toss, image: '/assets/img/work/toss-card.webp', imageAlt: '토스 앱 안에서 진행하는 페퍼저축은행 대출 신청 화면: 정보 확인, 조건 확인, 신청 완료', eyebrow: '2026.03 – 2026.06 · 프로젝트 PM', desc: '토스 앱 안에서 페퍼저축은행 대출 신청을 처음부터 끝까지 마치는 웹뷰를 기획했습니다. 준법·정보보호 검토부터 요구사항, WBS까지 맡아 개발을 완료했습니다.', badges: ['제휴', '대출 신청 UX', '규제 반영'] },
   { ...T.mkt, big: '3~5억<small>/월</small>', cap: `대행사 없이 ${F.marketing.team}이 직접 집행`, eyebrow: '2018.08 – 2019.10 · 광고 운영팀 신설 · 리더', desc: '마케팅 조직이 없던 회사에 광고 운영팀을 0에서 만들고, 채널 효율을 데이터로 증명해 본부 조직으로 승격시켰습니다.', badges: ['조직 구축', '퍼포먼스 마케팅', '인하우스'] },
   { ...T.bank, image: '/assets/img/work/banking-app.webp', imageAlt: '페퍼저축은행 모바일뱅킹 앱 메인 화면',  eyebrow: `${F.banking.period} · 서비스기획 PM · 발주자`, desc: `비대면 채널이 없던 저축은행에 회원가입, 비대면 실명확인, 계좌, 이체, 오픈뱅킹, 대출까지 전 범위를 설계했습니다. 예산 ${F.banking.budget}, 조직 <span class="nowrap">${F.banking.team}</span>.`, badges: ['0→1', '발주', '조직 구축'] },
   { ...T.integ, big: F.integration.budget, cap: `${F.integration.people} · ${F.integration.months} · 진행 중`, eyebrow: '2026.06 – 진행 중 · 제안자 · 발주 총괄 PM', desc: `부서별로 따로 도입된 시스템 4개의 중복 운영을 문제로 정의하고 통합을 직접 제안했습니다. 요구사항 ${F.integration.requirements}을 정리해 공개입찰로 업체를 선정했습니다.`, badges: ['PMO', 'RFP·입찰', 'AI 적용'] },
@@ -23,7 +25,7 @@ const list = {
   path: 'work.html',
   nav: 'work',
   title: 'Work · 김현규',
-  description: '대출비교 신사업, 인하우스 광고 운영팀, 차세대 모바일뱅킹, 통합시스템, 데이터 기반 CX, 규제 대응까지 금융 현장에서 만든 성과 6건.',
+  description: '대출비교 신사업, 인하우스 광고 운영팀, 차세대 모바일뱅킹, 통합시스템, 데이터 기반 CX, 규제 대응까지 금융 현장에서 만든 성과 7건.',
   body: `
 <section class="hero">
   <div class="container">
@@ -67,11 +69,31 @@ const loan = {
     summary: [['역할', '초기 주도 → <span class="nowrap">제휴·운영</span> 총괄'], ['기간', '2018.08 – 현재'], ['규모', `광고비 ${F.loan.adSpend} · 제휴 ${F.loan.partners}`], ['결과', `월 최대 ${F.loan.peak}`]],
     sections: [
       { h: '문제', body: `<p>대출비교 서비스로 월 신용대출을 ${F.loan.early}까지 키운 뒤, 더 큰 성장은 토스·카카오페이 같은 외부 플랫폼과의 제휴에 있었습니다.</p><p>제휴사가 늘수록 상품 조건, 광고 문구, 트래픽, 정산을 회사가 직접 통제하기 어려워졌습니다. 성장과 통제를 함께 가져갈 운영 체계가 필요했습니다.</p>` },
-      { h: '판단과 접근', body: `<h3>1. 광고 운영팀을 0에서 세팅</h3><p>온라인 채널 비용이 <strong>${F.loan.channelCost}</strong>로 모집인 수수료 ${F.loan.offlineFee}보다 낮다는 숫자로 예산을 확보했습니다. 자세한 과정은 <a href="/work/inhouse-marketing.html">인하우스 광고 운영팀 0→1</a>에 있습니다.</p><h3>2. 대출비교 서비스를 신사업으로</h3><ul><li>대출비교 서비스 초기부터 주도해 월 신용대출을 <strong>${F.loan.start}에서 ${F.loan.early}</strong>으로 키웠습니다.</li><li>이후 토스, 카카오페이, 카카오뱅크, 네이버 등 <strong>제휴 ${F.loan.partners}</strong>를 발굴하고 계약을 협상해 운영과 정산까지 전 과정을 맡았습니다.</li><li>상품군을 ${F.loan.products} 3개로 넓혔습니다.</li></ul><figure class="figure"><div class="shots shots--2"><img src="/assets/img/work/loan-toss.webp" alt="토스 내게 맞는 대출찾기에서 페퍼저축은행 대출 신청으로 이어지는 화면" loading="lazy" width="1400" height="860"><img src="/assets/img/work/loan-kakao.webp" alt="카카오뱅크 연계대출에서 페퍼저축은행 대출 신청으로 이어지는 화면" loading="lazy" width="1400" height="885"></div><figcaption>토스와 카카오뱅크에서 페퍼저축은행 대출 신청으로 이어지는 제휴 채널</figcaption></figure><h3>3. 제휴 채널의 내부통제와 운영 자동화</h3><ul><li>제휴사별 상품 조건, 광고 문구, 트래픽을 통제하는 내부통제 체계를 운영합니다.</li><li>제휴사 수수료 정산 기준을 매뉴얼로 만들고 카카오뱅크·토스 수수료 정산을 배치로 자동화해 <strong>정산 2일 → 3시간</strong>으로 줄였습니다.</li><li>제휴 채널 트래픽 타임아웃 장애 때는 긴급회의를 주재해 서버 스레드 확장과 상시 모니터링 체계를 만들었습니다.</li><li>제휴사에서 들어온 고객이 중단한 신청을 이어서 진행하는 이어하기 프로세스의 화면과 동선을 설계해 전 채널에 열었습니다.</li><li>토스 웹뷰 대출신청 프로젝트 PM으로 준법·정보보호 검토, 요구사항, WBS를 맡았고, 테스트케이스는 Claude로 작성했습니다.</li></ul>` },
+      { h: '판단과 접근', body: `<h3>1. 광고 운영팀을 0에서 세팅</h3><p>온라인 채널 비용이 <strong>${F.loan.channelCost}</strong>로 모집인 수수료 ${F.loan.offlineFee}보다 낮다는 숫자로 예산을 확보했습니다. 자세한 과정은 <a href="/work/inhouse-marketing.html">인하우스 광고 운영팀 0→1</a>에 있습니다.</p><h3>2. 대출비교 서비스를 신사업으로</h3><ul><li>대출비교 서비스 초기부터 주도해 월 신용대출을 <strong>${F.loan.start}에서 ${F.loan.early}</strong>으로 키웠습니다.</li><li>이후 토스, 카카오페이, 카카오뱅크, 네이버 등 <strong>제휴 ${F.loan.partners}</strong>를 발굴하고 계약을 협상해 운영과 정산까지 전 과정을 맡았습니다.</li><li>상품군을 ${F.loan.products} 3개로 넓혔습니다.</li></ul><figure class="figure"><div class="shots shots--2"><img src="/assets/img/work/loan-toss.webp" alt="토스 내게 맞는 대출찾기에서 페퍼저축은행 대출 신청으로 이어지는 화면" loading="lazy" width="1400" height="860"><img src="/assets/img/work/loan-kakao.webp" alt="카카오뱅크 연계대출에서 페퍼저축은행 대출 신청으로 이어지는 화면" loading="lazy" width="1400" height="885"></div><figcaption>토스와 카카오뱅크에서 페퍼저축은행 대출 신청으로 이어지는 제휴 채널</figcaption></figure><h3>3. 제휴 채널의 내부통제와 운영 자동화</h3><ul><li>제휴사별 상품 조건, 광고 문구, 트래픽을 통제하는 내부통제 체계를 운영합니다.</li><li>제휴사 수수료 정산 기준을 매뉴얼로 만들고 카카오뱅크·토스 수수료 정산을 배치로 자동화해 <strong>정산 2일 → 3시간</strong>으로 줄였습니다.</li><li>제휴 채널 트래픽 타임아웃 장애 때는 긴급회의를 주재해 서버 스레드 확장과 상시 모니터링 체계를 만들었습니다.</li><li>제휴사에서 들어온 고객이 중단한 신청을 이어서 진행하는 이어하기 프로세스의 화면과 동선을 설계해 전 채널에 열었습니다.</li><li>토스 앱 안에서 대출 신청을 끝까지 마치는 <a href="/work/toss-webview.html">웹뷰인토스 대출신청</a> 프로젝트의 PM을 맡았습니다.</li></ul>` },
       { h: '결과', body: `<figure class="figure"><div class="frame"><div class="growth" role="img" aria-label="월 실적: 10억, 150억, 최대 1,200억"><div class="growth-row"><span class="growth-k">시작</span><span class="growth-bar g1"></span><span class="growth-v num">${F.loan.start}</span></div><div class="growth-row"><span class="growth-k">대출비교 초기</span><span class="growth-bar g2"></span><span class="growth-v num">${F.loan.early}</span></div><div class="growth-row"><span class="growth-k">월 최대</span><span class="growth-bar g3"></span><span class="growth-v num">${F.loan.peak}</span></div></div></div><figcaption>월 대출 실적, 같은 축척</figcaption></figure>${results([[F.loan.peak, '월 최대 실적 (10억의 120배)'], [F.loan.partners, '제휴사 계약·운영'], ['2일 → 3시간', '수수료 정산 시간'], ['3개', '상품군 (신용·주택담보·자동차)']])}` },
       { h: '배운 점', body: '<p>제휴가 늘수록 성과보다 통제가 어려워졌습니다. 상품 조건, 문구, 트래픽, 정산을 처음부터 체계로 묶어 두는 것이 제휴를 오래 키우는 조건이었습니다.</p>' },
     ],
-    next: T.mkt,
+    next: T.toss,
+  }),
+};
+
+const toss = {
+  path: 'work/toss-webview.html', nav: 'work',
+  title: '웹뷰인토스 대출신청 · 김현규',
+  description: '토스 앱 안에서 페퍼저축은행 대출 신청을 끝까지 마치는 웹뷰 프로젝트. 준법·정보보호 검토, 요구사항, WBS를 맡은 프로젝트 PM.',
+  body: casePage({
+    back, eyebrow: '페퍼저축은행 × 토스 · 2026.03 – 2026.06',
+    title: '토스 앱 안에서<br>대출 신청을 끝까지 마치기',
+    lead: '토스 사용자가 앱을 떠나지 않고 페퍼저축은행 대출을 신청부터 약정까지 마치는 웹뷰를 만든 프로젝트입니다. 프로젝트 PM으로 준법·정보보호 검토, 요구사항, WBS와 마일스톤을 맡아 개발을 완료했습니다.',
+    summary: [['역할', '프로젝트 PM'], ['기간', '2026.03 – 2026.06'], ['협업', '토스 · 준법 · 정보보호 · 개발'], ['결과', '개발 완료 · 테스트 단계 인계']],
+    sections: [
+      { h: '화면', body: '<div class="shots"><img src="/assets/img/work/toss-fit.webp" alt="대출 받기 전에 정보가 맞는지 확인하는 적합성 확인 화면" loading="eager" width="370" height="796"><img src="/assets/img/work/toss-terms.webp" alt="금리, 빌릴 금액, 매달 내는 돈, 대출 기간을 확인하는 대출 조건 화면" loading="eager" width="370" height="796"><img src="/assets/img/work/toss-idcard.webp" alt="본인 확인을 위해 신분증 촬영을 안내하는 화면" loading="lazy" width="370" height="796"><img src="/assets/img/work/toss-done.webp" alt="대출 신청 완료 화면" loading="lazy" width="370" height="796"></div><p class="caption">토스 앱에서 열리는 페퍼저축은행 화면입니다. 이름과 금액은 예시입니다.</p>' },
+      { h: '문제', body: '<p>제휴 채널에서 들어온 고객도 대출을 받으려면 결국 여러 단계를 거쳐야 합니다. 본인인증, 전자서명, 심사, 계좌·신분증·얼굴 인증, 금융소비자보호법에 따른 설명과 확인, 전자약정까지 모두 규제가 정한 절차입니다.</p><p>이 절차를 토스 앱 안의 웹뷰에서 끊김 없이 이어지게 하면서, 규제 요건은 하나도 빠뜨리지 않아야 했습니다.</p>' },
+      { h: '판단과 접근', body: `<figure class="figure"><div class="frame"><ol class="flow"><li><b>확인</b><span>적합성 확인, 휴대폰 본인인증, 약관 동의</span></li><li><b>심사</b><span>전자서명, 본심사, 대출 조건 선택</span></li><li><b>정보</b><span>주소, 직업, 회사, 이메일 입력</span></li><li><b>인증</b><span>계좌 1원 인증, 신분증·얼굴 인증</span></li><li><b>약정</b><span>설명의무, 보이스피싱 확인, 전자약정</span></li></ol></div><figcaption>신청부터 약정까지 토스 앱 안에서 이어지는 흐름</figcaption></figure><ul><li><strong>규제를 흐름 안에 넣기:</strong> 적합성 확인, 금융소비자보호법에 따른 중요사항 설명, 보이스피싱 확인을 별도 절차가 아니라 신청 흐름의 한 단계로 설계했습니다.</li><li><strong>준법·정보보호 검토:</strong> 화면과 수집 항목마다 준법과 정보보호 검토를 거쳐 요구사항을 확정했습니다.</li><li><strong>막히는 지점마다 다음 행동 안내:</strong> 인증 알림이 오지 않을 때, 인증에 여러 번 실패할 때처럼 고객이 멈출 수 있는 지점마다 다시 시도하거나 다른 방법을 고를 수 있게 했습니다.</li><li><strong>일정 관리:</strong> WBS와 마일스톤을 세워 토스, 개발사, 사내 부서의 일정을 맞췄습니다.</li><li><strong>AI로 테스트케이스 작성:</strong> 분기가 많은 흐름이라 테스트케이스를 Claude로 작성했고, Playwright 기반 테스트 자동화도 검토했습니다.</li></ul>` },
+      { h: '결과', body: results([['개발 완료', '토스 앱 내 대출 신청 웹뷰'], ['인증서 3종', '토스 · 네이버 · PASS 중 선택'], ['테스트 단계', '통합시스템 총괄 PM 선임으로 인계']]) + '<p>2026년 6월 통합시스템 구축 프로젝트의 총괄 PM으로 선임되면서, 테스트 단계에서 후임에게 인계했습니다.</p>' },
+      { h: '배운 점', body: '<p>규제 절차가 많은 흐름일수록 고객이 멈추는 지점이 늘어납니다. 각 단계에서 실패했을 때 어디로 돌아가는지를 먼저 정해 두니, 요구사항과 테스트케이스가 같은 기준으로 정리됐습니다.</p>' },
+    ],
+    prev: T.loan, next: T.mkt,
   }),
 };
 
@@ -90,7 +112,7 @@ const mkt = {
       { h: '결과', body: results([[F.marketing.spend, '광고비 직접 집행'], [`${F.loan.channelCost} vs ${F.loan.offlineFee}`, '온라인 채널 비용과 오프라인 수수료'], [`${F.loan.start} → ${F.loan.early}`, '대출비교 초기 월 신용대출'], ['본부 승격', '광고 운영팀 조직 위상']]) + '<p>이 팀이 이후 대출비교 신사업과 제휴 채널을 키우는 기반이 됐습니다. 이어지는 이야기는 <a href="/work/loan-comparison.html">대출비교 신사업과 제휴 10개사</a>에 있습니다.</p>' },
       { h: '배운 점', body: `<p>새 채널에 예산을 받는 가장 빠른 방법은 기존 채널과 같은 기준으로 비교한 숫자였습니다. 광고비를 모집 수수료와 같은 비율(${F.loan.channelCost} 대 ${F.loan.offlineFee})로 놓고 비교했고, 직접 운영했기에 그 숫자를 매일 갱신할 수 있었습니다.</p>` },
     ],
-    prev: T.loan, next: T.bank,
+    prev: T.toss, next: T.bank,
   }),
 };
 
@@ -172,4 +194,4 @@ const reg = {
   }),
 };
 
-export default [list, loan, mkt, bank, integ, data, reg];
+export default [list, loan, toss, mkt, bank, integ, data, reg];
