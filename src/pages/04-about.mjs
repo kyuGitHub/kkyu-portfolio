@@ -12,7 +12,7 @@ export default {
     <p class="lead">${F.career.years}간 디자인, 마케팅, 비즈니스, 제품, 조직의 다섯 관점을 모두 직접 해 봤습니다. 그래서 각 분야가 어디서 막히는지 알고 방향을 잡을 수 있습니다.</p>
     <div class="hero-meta">
       <span><b>현재</b>${F.role}</span>
-      <span><b>경력</b>${F.career.years} (${F.career.since} – )</span>
+      <span><b>경력</b>금융·핀테크 ${F.career.years}</span>
       <span><b>연락</b>hukami6472@gmail.com</span>
     </div>
   </div>

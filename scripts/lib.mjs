@@ -38,7 +38,7 @@ function header(active) {
     <nav class="site-nav" aria-label="주 메뉴">
       ${NAV.map(n => `<a href="${n.href}"${n.key === active ? ' aria-current="page"' : ''}>${n.label}</a>`).join('\n      ')}
     </nav>
-    <a class="btn btn--sm header-cta" href="#contact">연락하기</a>
+    <a class="btn btn--sm header-cta" href="#contact">연락<span class="hide-sm">하기</span></a>
   </div>
 </header>`;
 }
@@ -79,7 +79,7 @@ function footer() {
     </div>
     <div class="footer-base">
       <span>© 2026 김현규</span>
-      <span>디지털금융 PM · 서울</span>
+      <span>디지털금융 PM</span>
     </div>
   </div>
 </footer>`;
@@ -95,12 +95,12 @@ export function layout(p) {
 <meta name="color-scheme" content="light">
 <title>${p.title}</title>
 <meta name="description" content="${p.description}">${p.noindex ? '\n<meta name="robots" content="noindex">' : ''}
-<link rel="canonical" href="${url}">
+${p.noindex ? '' : `<link rel="canonical" href="${url}">`}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="KKYU">
 <meta property="og:title" content="${p.title}">
 <meta property="og:description" content="${p.description}">
-<meta property="og:url" content="${url}">
+${p.noindex ? '' : `<meta property="og:url" content="${url}">`}
 <meta property="og:image" content="${SITE}/assets/og.png">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
@@ -123,16 +123,17 @@ ${footer()}
 }
 
 // ---- Shared building blocks for pages ----
-export function caseCard(c) {
+export function caseCard(c, i = 9) {
+  const load = i === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
   const media = c.image
-    ? `<div class="card-media"><img src="${c.image}" alt="${c.imageAlt}" loading="lazy" width="1600" height="1000"></div>`
+    ? `<div class="card-media"><img src="${c.image}" alt="${c.imageAlt}" ${load} width="1600" height="1000"></div>`
     : `<div class="card-media card-media--type${c.dark ? ' card-media--dark' : ''}"><span class="big num">${c.big}</span><span class="cap">${c.cap}</span></div>`;
   return `<a class="card reveal" href="${c.href}">
   ${media}
   <div class="card-body">
     <span class="card-eyebrow">${c.eyebrow}</span>
-    <span class="card-title">${c.title}</span>
-    <span class="card-desc">${c.desc}</span>
+    <h3 class="card-title">${c.title}</h3>
+    <p class="card-desc">${c.desc}</p>
     <span class="card-meta">${c.badges.map(b => `<span class="badge">${b}</span>`).join('')}</span>
   </div>
 </a>`;
@@ -142,7 +143,8 @@ export function casePage(c) {
   return `<div class="container">
   <section class="case-hero">
     <a class="text-link back" href="${c.back.href}">${icon.back}${c.back.label}</a>
-    <span class="eyebrow">${c.eyebrow}</span>
+    <span class="eyebrow">CASE</span>
+    <span class="case-meta">${c.eyebrow}</span>
     <h1 class="display2">${c.title}</h1>
     <p class="lead">${c.lead}</p>
   </section>
@@ -176,8 +178,8 @@ export const pressSection = (id = 'press') => `<section class="section" id="${id
       ${PRESS.map(x => `<${x.href ? `a class="card reveal" href="${x.href}" target="_blank" rel="noopener noreferrer"` : 'article class="card reveal"'}>
         <div class="card-body">
           <span class="card-eyebrow">${x.src} · ${x.kind}${x.date ? ' · ' + x.date : ''}</span>
-          <span class="card-title">${x.title}</span>
-          <span class="card-desc">${x.desc}</span>
+          <h3 class="card-title">${x.title}</h3>
+          <p class="card-desc">${x.desc}</p>
           ${x.href ? `<span class="card-meta"><span class="text-link">원문 보기${icon.out}</span></span>` : ''}
         </div>
       </${x.href ? 'a' : 'article'}>`).join('\n      ')}
@@ -185,5 +187,5 @@ export const pressSection = (id = 'press') => `<section class="section" id="${id
   </div>
 </section>`;
 
-export const results = items => `<div class="results">${items.map(([v, k, tag]) => `<div class="result"><div class="v">${v}</div><div class="k">${k}</div>${tag ? `<div class="tag"><span class="badge">${tag}</span></div>` : ''}</div>`).join('')}</div>`;
+export const results = items => `<div class="results results--${Math.min(items.length, 4)}">${items.map(([v, k, tag]) => `<div class="result"><div class="v">${v}</div><div class="k">${k}</div>${tag ? `<div class="tag"><span class="badge">${tag}</span></div>` : ''}</div>`).join('')}</div>`;
 
